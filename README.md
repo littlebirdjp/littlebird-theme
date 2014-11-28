@@ -4,7 +4,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 
 ## URL
 
-[http://littlebird.mobi/blog](http://littlebird.mobi/blog)
+[http://littlebird.mobi/blog](http://littlebird.mobi/blog)(Under Construction)
 
 ## Requrements（制作ツール）
 
