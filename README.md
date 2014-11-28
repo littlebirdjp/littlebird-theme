@@ -31,7 +31,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 
 WordPressの仮想環境を簡単に構築できる[VCCW](http://vccw.cc/)で、ローカルに作業環境を準備しました。  
 また、そのために必要な、[Virtual Box](https://www.virtualbox.org/)と[Vagrant](https://www.vagrantup.com/)も合わせてインストールしました。  
-※以下のセットアップおよび制作過程は、Mac OS X環境にて行っています。
+※以下のセットアップおよび制作過程は、Mac OS X 10.9.5環境にて行っています。
 
 #### Virtual Boxのインストール
 
