@@ -24,9 +24,9 @@ A simple WordPress theme build with _s and Bootstrap 3.
 	- [VCCWの環境構築](#user-content-vccwの環境構築)
 	- [仮想環境の動作確認](#user-content-仮想環境の動作確認)
 		- [ホストネームでアクセスするには](#user-content-ホストネームでアクセスするには)
-2. テーマ開発の環境準備(#user-content-テーマ開発の環境準備)
-	- _sのダウンロード(#user-content-_sのダウンロード)
-	- _sのインストール(#user-content-_sのインストール)
+2. [テーマ開発の環境準備](#user-content-テーマ開発の環境準備)
+	- [_sのダウンロード](#user-content-_sのダウンロード)
+	- [_sのインストール](#user-content-_sのインストール)
 
 ### ローカル仮想環境の構築
 
@@ -109,7 +109,7 @@ _sをインストールするには、解凍したフォルダ（/littlebird/）
 ```
 /Users/[ユーザー名]/prj/littlebird/www/wordpress/blog/wp-content/themes/
 ```
-この状態で、_sのベーステーマを管理画面から選択できるようになります。
+この状態で、_sのベーステーマを管理画面から選択できるようになりました。
 
 
 
