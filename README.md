@@ -30,7 +30,12 @@ A simple WordPress theme build with _s and Bootstrap 3.
 	- テストデータのインポート
 	- Bootstrapのインストール
 	- LESS環境の構築
-	- 静的コンテンツの移植
+3. 静的コンテンツの移植
+4. デザインカンプの作成
+5. コーディング
+6. StaticPressのセットアップ
+7. Amazon S3のセットアップ
+8. サイトの公開
 
 ### ローカル仮想環境の構築
 
