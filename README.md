@@ -24,8 +24,9 @@ A simple WordPress theme build with _s and Bootstrap 3.
 	- [VCCWの環境構築](#user-content-vccwの環境構築)
 	- [仮想環境の動作確認](#user-content-仮想環境の動作確認)
 		- [ホストネームでアクセスするには](#user-content-ホストネームでアクセスするには)
-2. テーマ開発の環境準備
-	- _sのインストール
+2. テーマ開発の環境準備(#user-content-テーマ開発の環境準備)
+	- _sのダウンロード(#user-content-_sのダウンロード)
+	- _sのインストール(#user-content-_sのインストール)
 
 ### ローカル仮想環境の構築
 
@@ -81,3 +82,34 @@ vagrant plugin install vagrant-hostsupdater
 インストール中にエラーメッセージが表示される場合は、[Homebrew](http://brew.sh/)と[Nokogiri](https://rubygems.org/gems/nokogiri)のgemをインストールしてください。
 
 ※ホストネームでのアクセスは、仮想環境の構築後でも適用可能です。一度「vagrant halt」で仮想マシンを停止してから、再度「vagrant up」で起動すれば、ホストネームでもアクセスできるようになります。
+
+### テーマ開発の環境準備
+
+次に今回、Automattic社が提供しているスターターテーマ「_s（Underscores）」をベースに使いたかったので、_sのインストールを行いました。  
+
+#### _sのダウンロード
+
+_sをダウンロードするには、_sの[公式サイト](http://underscores.me/)にアクセスし、「CREATE YOUR UNDERSCORES BASED THEME」というタイトルの横の「Advanced Options」を選択し、必要な項目を入力してから、「GENERATE」ボタンをクリックします。  
+今回は、以下のように入力しました。
+```
+Theme Name: littlebird
+Theme Slug: littlebird
+Theme URI: http://underscores.me/
+Author: Yusuke Takahashi
+Author URI: http://littlebird.mobi
+Description: A simple WordPress theme.
+```
+すると、「littlebird.zip」という名前のファイルがダウンロードされます。
+
+#### _sのインストール
+
+_sをインストールするには、解凍したフォルダ（/littlebird/）一式を、WordPressのテーマディレクトリ内にコピーします。  
+今回は「/Users/[ユーザー名]/prj/littlebird/」以下にVCCWのローカル環境が構築されているので、下記のディレクトリ以下に設置する形になります。
+
+```
+/Users/[ユーザー名]/prj/littlebird/www/wordpress/blog/wp-content/themes/
+```
+この状態で、_sのベーステーマを管理画面から選択できるようになります。
+
+
+
