@@ -14,7 +14,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 - JQuery 1.9.0 or later
 - Sketch 3.1.1 or later
 
-## 制作過程
+## 制作過程（随時更新中）
 
 1. [ローカル仮想環境の構築](#user-content-ローカル仮想環境の構築)
 	- [Virtual Boxのインストール](#user-content-virtual-boxのインストール)
