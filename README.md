@@ -12,7 +12,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 - _s
 - Bootstrap 3.1.1
 - JQuery 1.9.0 or later
-- Sketch 3.0 or later
+- Sketch 3.1.1 or later
 
 ## 制作過程
 
