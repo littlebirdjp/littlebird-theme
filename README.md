@@ -17,13 +17,13 @@ A simple WordPress theme build with _s and Bootstrap 3.
 ## 制作過程
 
 1. [ローカル仮想環境の構築](#user-content-ローカル仮想環境の構築)
-	1. [Virtual Boxのインストール](#user-content-virtual-boxのインストール)
-	2. [Vagrantのインストール](#user-content-vagrantのインストール)
-	3. [VCCWのインストール](#user-content-vccwのインストール)
-	4. [VCCWの初期設定](#user-content-vccwの初期設定)
-	5. [VCCWの環境構築](#user-content-vccwの環境構築)
-	6. [仮想環境の動作確認](#user-content-仮想環境の動作確認)
-		1. [ホストネームでアクセスするには](#user-content-ホストネームでアクセスするには)
+	- [Virtual Boxのインストール](#user-content-virtual-boxのインストール)
+	- [Vagrantのインストール](#user-content-vagrantのインストール)
+	- [VCCWのインストール](#user-content-vccwのインストール)
+	- [VCCWの初期設定](#user-content-vccwの初期設定)
+	- [VCCWの環境構築](#user-content-vccwの環境構築)
+	- [仮想環境の動作確認](#user-content-仮想環境の動作確認)
+		- [ホストネームでアクセスするには](#user-content-ホストネームでアクセスするには)
 
 ### ローカル仮想環境の構築
 
