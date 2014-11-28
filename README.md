@@ -27,6 +27,10 @@ A simple WordPress theme build with _s and Bootstrap 3.
 2. [テーマ開発の環境準備](#user-content-テーマ開発の環境準備)
 	- [_sのダウンロード](#user-content-_sのダウンロード)
 	- [_sのインストール](#user-content-_sのインストール)
+	- テストデータのインポート
+	- Bootstrapのインストール
+	- LESS環境の構築
+	- 静的コンテンツの移植
 
 ### ローカル仮想環境の構築
 
