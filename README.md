@@ -4,7 +4,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 
 ## URL
 
-http://littlebird.mobi/blog (Under Construction)
+[http://littlebird.mobi/blog](http://littlebird.mobi/blog)(Under Construction)
 
 ## Requrements（制作ツール）
 
@@ -44,7 +44,7 @@ Vagrantの[ダウンロードページ](https://www.vagrantup.com/downloads.html
 #### VCCWのインストール
 
 VCCWの[公式サイト](http://vccw.cc/)から、zipファイルをダウンロードし、展開後のファイル一式を作業ディレクトリ内に設置しました。  
-今回、作業ディレクトリは、Mac OS X内の以下のパスとしています。
+今回、作業ディレクトリは以下のパスとしています。
 ```
 /Users/[ユーザー名]/prj/littlebird/
 ```
@@ -69,12 +69,12 @@ WP_DIR               = '/blog' # e.g. /wp or wp or other
 
 #### 仮想環境の動作確認
 
-環境構築が完了したら、先ほど設定したIPアドレス（192.168.33.10）をブラウザで叩いてアクセスします。  
+環境構築が完了したら、先ほど設定したIPアドレス（192.168.33.10/blog）をブラウザで叩いてアクセスします。  
 WordPressの画面（デフォルトテンプレートでインストールされた状態）が表示されたら、VCCWのセットアップ成功です。
 
 ##### ホストネームでアクセスするには
 
-IPではなく、Vagrantfileで設定したホストネーム（littlebird.local）でアクセスできるようにするには、vagrant-hostsupdaterというプラグインをインストールする必要があります。ターミナルで以下のコマンドを実行して、vagrant-hostsupdaterをインストールしてください。
+IPではなく、Vagrantfileで設定したホストネーム（littlebird.local/blog）でアクセスできるようにするには、vagrant-hostsupdaterというプラグインをインストールする必要があります。ターミナルで以下のコマンドを実行して、vagrant-hostsupdaterをインストールしてください。
 ```
 vagrant plugin install vagrant-hostsupdater
 ```
