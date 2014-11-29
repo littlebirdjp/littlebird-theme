@@ -85,6 +85,8 @@ WP_DIR               = '/blog' # e.g. /wp or wp or other
 環境構築が完了したら、先ほど設定したIPアドレス（192.168.33.10/blog）をブラウザで叩いてアクセスします。  
 WordPressの画面（デフォルトテンプレートでインストールされた状態）が表示されたら、VCCWのセットアップ成功です。
 
+![](screenshots/screenshot01.png?raw=true)
+
 ##### ホストネームでアクセスするには
 
 IPではなく、Vagrantfileで設定したホストネーム（littlebird.local/blog）でアクセスできるようにするには、vagrant-hostsupdaterというプラグインをインストールする必要があります。ターミナルで以下のコマンドを実行して、vagrant-hostsupdaterをインストールしてください。
@@ -101,7 +103,10 @@ vagrant plugin install vagrant-hostsupdater
 
 #### _sのダウンロード
 
-_sをダウンロードするには、_sの[公式サイト](http://underscores.me/)にアクセスし、「CREATE YOUR UNDERSCORES BASED THEME」というタイトルの横の「Advanced Options」を選択し、必要な項目を入力してから、「GENERATE」ボタンをクリックします。  
+_sをダウンロードするには、_sの[公式サイト](http://underscores.me/)にアクセスし、「CREATE YOUR UNDERSCORES BASED THEME」というタイトルの横の「Advanced Options」を選択し、必要な項目を入力してから、「GENERATE」ボタンをクリックします。
+
+![](screenshots/screenshot02.png?raw=true)
+
 今回は、以下のように入力しました。
 ```
 Theme Name: littlebird
