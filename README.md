@@ -56,25 +56,32 @@ Vagrantの[ダウンロードページ](https://www.vagrantup.com/downloads.html
 
 #### VCCWのインストール
 
-VCCWの[公式サイト](http://vccw.cc/)から、zipファイルをダウンロードし、展開後のファイル一式を作業ディレクトリ内に設置しました。  
+まずプロジェクト用の作業ディレクトリを作成し、そこにVCCWのGitリポジトリをcloneする方法でインストールしました。  
 今回、作業ディレクトリは以下のパスとしています。
 ```
-/Users/[ユーザー名]/prj/littlebird/
+~/prj/littlebird/
 ```
+作業ディレクトリ上でターミナルを開いて、以下のコマンドを実行します。
+```
+$ git clone git@github.com:miya0001/vccw.git
+```
+すると、`vccw`というサブディレクトリが作成されるので、そちらに移動します。
+
 次に、Vagrantfile.sampleをコピー＆リネームし、Vagrantfileを作成。そして、必要な箇所を編集しました。  
 今回は、主に以下の記述を変更してあります。
 ```
 WP_LANG              = ENV["wp_lang"] || "ja" # WordPress locale (e.g. ja)
 WP_HOSTNAME          = "littlebird.local" # e.g example.com
 WP_IP                = "192.168.33.10" # host ip address
-WP_TITLE             = "lottlebird blog" # title
+WP_HOME              = "/blog" # path to WP_HOME, e.g blank or /wp or ...
+WP_SITEURL           = "/blog" # path to WP_SITEURL, e.g blank or /wp or ...
+WP_TITLE             = "littlebird blog" # title
 WP_DB_PREFIX         = 'lb_' # Database prefix
-WP_DIR               = '/blog' # e.g. /wp or wp or other
 ```
 
 #### VCCWの環境構築
 
-設定が完了したら、作業ディレクトリ上でターミナルを開いて「vagrant up」コマンドを実行します。  
+設定が完了したら、`~/prj/littlebird/vccw/`上でターミナルを開いて「vagrant up」コマンドを実行します。  
 初回のみ、環境構築に20分ほどかかり、ターミナルのメッセージがときどき止まりますが、構築完了まで気長に待ちましょう。  
 
 ※コマンド実行中に余計なキーを叩くと、処理が中断され、最後まで環境構築されない場合があるので、注意してください。（作業ディレクトリ内にWordPressのファイルが作成されない等）  
