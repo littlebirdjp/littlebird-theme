@@ -128,7 +128,7 @@ Description: A simple WordPress theme.
 #### _sのインストール
 
 _sをインストールするには、解凍したフォルダ（/littlebird/）一式を、WordPressのテーマディレクトリ内にコピーします。  
-今回は「/Users/[ユーザー名]/prj/littlebird/」以下にVCCWのローカル環境が構築されているので、下記のディレクトリ以下に設置する形になります。
+今回は`~/prj/littlebird/`以下にVCCWのローカル環境が構築されているので、下記のディレクトリ以下に設置する形になります。
 
 ```
 ~/prj/littlebird/vccw/www/wordpress/blog/wp-content/themes/
