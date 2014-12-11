@@ -61,11 +61,11 @@ Vagrantの[ダウンロードページ](https://www.vagrantup.com/downloads.html
 ```
 ~/prj/littlebird/
 ```
-作業ディレクトリ上でターミナルを開いて、以下のコマンドを実行します。
+作業ディレクトリ上でターミナルを開いて、以下のコマンドを実行しました。
 ```
 $ git clone git@github.com:miya0001/vccw.git
 ```
-すると、`vccw`というサブディレクトリが作成されるので、そちらに移動します。
+すると、`~/prj/littlebird/vccw/`というサブディレクトリが作成されるので、そちらに移動します。
 
 次に、Vagrantfile.sampleをコピー＆リネームし、Vagrantfileを作成。そして、必要な箇所を編集しました。  
 今回は、主に以下の記述を変更してあります。
