@@ -131,7 +131,7 @@ _sをインストールするには、解凍したフォルダ（/littlebird/）
 今回は「/Users/[ユーザー名]/prj/littlebird/」以下にVCCWのローカル環境が構築されているので、下記のディレクトリ以下に設置する形になります。
 
 ```
-/Users/[ユーザー名]/prj/littlebird/www/wordpress/blog/wp-content/themes/
+~/prj/littlebird/vccw/www/wordpress/blog/wp-content/themes/
 ```
 この状態で、_sのベーステーマを管理画面から選択できるようになりました。
 
