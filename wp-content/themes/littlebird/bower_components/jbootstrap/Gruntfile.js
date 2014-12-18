@@ -170,6 +170,18 @@ module.exports = function (grunt) {
         files: {
           'dist/css/<%= pkg.name %>-theme.css': 'less/theme.less'
         }
+      },
+      compileOriginal: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: 'littlebird-site.css.map',
+          sourceMapFilename: 'dist/css/littlebird-site.css.map'
+        },
+        files: {
+          'dist/css/littlebird-site.css': 'less/littlebird-site.less'
+        }
       }
     },
 
