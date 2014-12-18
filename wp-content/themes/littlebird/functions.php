@@ -92,7 +92,16 @@ add_action( 'widgets_init', 'littlebird_widgets_init' );
  * Enqueue scripts and styles.
  */
 function littlebird_scripts() {
-	wp_enqueue_style( 'littlebird-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/bootstrap.css' );
+	wp_enqueue_style( 'bootstrap-theme', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/bootstrap-theme.css' );
+
+	wp_enqueue_style( 'littlebird', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'littlebird-site', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/littlebird-site.css' );
+
+	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1' );
+
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bower_components/jbootstrap/dist/js/bootstrap.min.js' );
 
 	wp_enqueue_script( 'littlebird-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
