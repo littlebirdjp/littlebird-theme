@@ -73,7 +73,7 @@ h6 {
 	clear: both;
 }
 
-p {
+#content p {
 	margin-bottom: 1.5em;
 }
 
@@ -317,17 +317,17 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #21759b;
 }
 
 a:visited {
-	color: purple;
+	color: #4ca6cf;
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #d54e21;
 }
 
 /*--------------------------------------------------------------

@@ -16,6 +16,8 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
+<link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
 </head>
 
 <body <?php body_class(); ?>>
@@ -42,7 +44,7 @@
 
 		<div class="site-branding jumbotron main">
 		  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 main__logo">
-		    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo@2x.png" height="170" width="170" alt="<?php bloginfo( 'name' ); ?>"></a>
+		    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo@2x.png" height="140" width="140" alt="<?php bloginfo( 'name' ); ?>"></a>
 		  </div>
 		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
 		    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>

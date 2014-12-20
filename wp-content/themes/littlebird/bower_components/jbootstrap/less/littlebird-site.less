@@ -14,8 +14,9 @@
 @import "littlebird-variables.less";
 @import "mixins.less";
 
-html {
-  font-family: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+body {
+  //font-family: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 a {
@@ -27,7 +28,6 @@ a {
 // --------------------------------------------------
 
 .header {
-  font-size: 13px;
   min-height: @navbar-height;
   margin-bottom: @navbar-margin-bottom;
   border: none;
@@ -86,17 +86,17 @@ a {
 
 .main {
   .clearfix;
-  padding: 0 0 15px 0;
+  padding: 0;
   margin-bottom: 0;
   background: none;
   @media (min-width: @screen-sm) {
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
   }
   &__logo {
     @media (max-width: @screen-sm) {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     @media (min-width: @screen-sm) {
       text-align: right;
@@ -104,7 +104,7 @@ a {
     img {
       @media (min-width: @screen-sm) {
         margin-top: -20px;
-        margin-right: -20px;
+        margin-right: -40px;
       }
     }
   }
@@ -118,11 +118,12 @@ a {
     h1 {
       font-family: 'Marck Script', cursive;
       color: @lb-title-color;
-      font-size: 36px;
+      font-size: 30px;
       margin: 0;
       @media (min-width: @screen-sm) {
-        line-height: 170px;
-        font-size: 80px;
+        line-height: 130px;
+        font-size: 60px;
+        text-indent: 20px;
       }
     }
   }
@@ -139,6 +140,14 @@ a {
       }
     }
   }
+}
+
+//
+// _s overwite
+// --------------------------------------------------
+
+.site-content {
+  border-top: 1px solid @lb-content-border;
 }
 
 //
@@ -291,18 +300,19 @@ a {
 // --------------------------------------------------
 
 .footer {
+  font-size: 14px;
   text-align: center;
   padding: 15px 0;
   margin: 0;
   a {
     &:link,
     &:visited {
-      color: #ccc;
+      color: #999;
     }
     &:hover,
     &:active,
     &:focus {
-      color: #999;
+      color: #666;
     }
   }
 }
