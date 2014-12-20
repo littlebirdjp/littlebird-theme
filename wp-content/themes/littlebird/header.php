@@ -40,9 +40,18 @@
 		  </div><!-- /.container-fluid -->
 		</nav><!-- #site-navigation -->
 
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		<div class="site-branding jumbotron main">
+		  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 main__logo">
+		    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo@2x.png" height="170" width="170" alt="<?php bloginfo( 'name' ); ?>"></a>
+		  </div>
+		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
+		    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+		  </div>
+		  <?php if ( is_home() ) { ?>
+		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
+		    <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+		  </div>
+		  <?php } ?>
 		</div><!-- .site-branding -->
 
 	</header><!-- #masthead -->
