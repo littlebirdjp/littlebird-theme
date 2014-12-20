@@ -5,6 +5,7 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 .header {
+  font-size: 13px;
   min-height: 35px;
   margin-bottom: 0;
   border: none;
@@ -19,6 +20,9 @@ a {
 }
 .header .header__toggle {
   border: none;
+  background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   margin: 0 5px 0 0;
 }
 .header .header__toggle:hover,
