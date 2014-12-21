@@ -137,3 +137,18 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+//RSSフィードとショートリンクを非表示
+remove_filter( 'wp_head', 'feed_links', 2 );
+remove_filter( 'wp_head', 'feed_links_extra', 3 );
+remove_filter( 'wp_head', 'wp_shortlink_wp_head' );
+
+//アイキャッチを有効化
+add_theme_support( 'post-thumbnails', array( 'post') );
+
+// Get the featured image URL
+function get_featured_image_url() { 
+    $image_id = get_post_thumbnail_id();
+    $image_url = wp_get_attachment_image_src($image_id,'thumbnail', true); 
+    echo $image_url[0]; 
+}
