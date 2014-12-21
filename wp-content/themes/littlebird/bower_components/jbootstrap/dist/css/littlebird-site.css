@@ -133,6 +133,13 @@ a {
 .site-content {
   border-top: 1px solid #c2c1c1;
 }
+.twitter-share-button {
+  width: 100px !important;
+}
+.fb-like {
+  top: -5px !important;
+  width: 150px !important;
+}
 .content {
   border-top: 1px solid #c2c1c1;
   border-bottom: 1px solid #c2c1c1;
