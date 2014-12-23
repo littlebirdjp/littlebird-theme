@@ -73,9 +73,9 @@ $ git clone git@github.com:miya0001/vccw.git
 WP_LANG              = ENV["wp_lang"] || "ja" # WordPress locale (e.g. ja)
 WP_HOSTNAME          = "littlebird.local" # e.g example.com
 WP_IP                = "192.168.33.10" # host ip address
-WP_HOME              = "/blog" # path to WP_HOME, e.g blank or /wp or ...
-WP_SITEURL           = "/blog" # path to WP_SITEURL, e.g blank or /wp or ...
-WP_TITLE             = "littlebird blog" # title
+WP_HOME              = "" # path to WP_HOME, e.g blank or /wp or ...
+WP_SITEURL           = "" # path to WP_SITEURL, e.g blank or /wp or ...
+WP_TITLE             = "littlebird" # title
 WP_DB_PREFIX         = 'lb_' # Database prefix
 ```
 
@@ -89,14 +89,14 @@ WP_DB_PREFIX         = 'lb_' # Database prefix
 
 #### 仮想環境の動作確認
 
-環境構築が完了したら、先ほど設定したIPアドレス（192.168.33.10/blog）をブラウザで叩いてアクセスします。  
+環境構築が完了したら、先ほど設定したIPアドレス（192.168.33.10）をブラウザで叩いてアクセスします。  
 WordPressの画面（デフォルトテンプレートでインストールされた状態）が表示されたら、VCCWのセットアップ成功です。
 
 ![](screenshots/screenshot01.png?raw=true)
 
 ##### ホストネームでアクセスするには
 
-IPではなく、Vagrantfileで設定したホストネーム（littlebird.local/blog）でアクセスできるようにするには、vagrant-hostsupdaterというプラグインをインストールする必要があります。ターミナルで以下のコマンドを実行して、vagrant-hostsupdaterをインストールしてください。
+IPではなく、Vagrantfileで設定したホストネーム（littlebird.local）でアクセスできるようにするには、vagrant-hostsupdaterというプラグインをインストールする必要があります。ターミナルで以下のコマンドを実行して、vagrant-hostsupdaterをインストールしてください。
 ```
 vagrant plugin install vagrant-hostsupdater
 ```
@@ -131,7 +131,7 @@ _sをインストールするには、解凍したフォルダ（/littlebird/）
 今回は`~/prj/littlebird/`以下にVCCWのローカル環境が構築されているので、下記のディレクトリ以下に設置する形になります。
 
 ```
-~/prj/littlebird/vccw/www/wordpress/blog/wp-content/themes/
+~/prj/littlebird/vccw/www/wordpress/wp-content/themes/
 ```
 この状態で、_sのベーステーマを管理画面から選択できるようになりました。
 
