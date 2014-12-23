@@ -558,6 +558,7 @@ a:active {
 	display: none;
 }
 
+.home .byline,
 .single .byline,
 .group-blog .byline {
 	display: inline;

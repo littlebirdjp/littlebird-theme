@@ -133,6 +133,18 @@ a {
 .site-content {
   border-top: 1px solid #c2c1c1;
 }
+.entry-meta {
+  color: #666;
+}
+.posted-on {
+  margin-right: 5px;
+}
+.entry-title a {
+  color: #404040;
+}
+.entry-title a:hover {
+  color: #999;
+}
 .twitter-share-button {
   width: 100px !important;
 }
