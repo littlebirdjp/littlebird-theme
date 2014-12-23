@@ -99,7 +99,7 @@
 	<footer id="colophon" class="site-footer footer" role="contentinfo">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'littlebird' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'littlebird' ), 'WordPress' ); ?></a><br>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'littlebird' ), 'littlebird', '<a href="http://littlebird.mobi" rel="designer">Yusuke Takahashi</a>' ); ?>
+			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

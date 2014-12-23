@@ -38,7 +38,7 @@ function littlebird_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -99,7 +99,11 @@ function littlebird_scripts() {
 
 	wp_enqueue_style( 'littlebird-site', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/littlebird-site.css' );
 
-	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1' );
+	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
+
+	wp_deregister_script( 'jquery'); //デフォルトの jQuery は読み込まない
+	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1', false);
+	wp_enqueue_script( 'jquery-mig', '//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js', array(), '1.2.1', false);
 
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bower_components/jbootstrap/dist/js/bootstrap.min.js' );
 
@@ -142,9 +146,6 @@ require get_template_directory() . '/inc/jetpack.php';
 remove_filter( 'wp_head', 'feed_links', 2 );
 remove_filter( 'wp_head', 'feed_links_extra', 3 );
 remove_filter( 'wp_head', 'wp_shortlink_wp_head' );
-
-//アイキャッチを有効化
-add_theme_support( 'post-thumbnails', array( 'post') );
 
 // Get the featured image URL
 function get_featured_image_url() { 
