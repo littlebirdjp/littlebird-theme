@@ -28,16 +28,16 @@
 <meta property="og:image" content="<?php get_featured_image_url(); ?>">
 <meta property="twitter:image" content="<?php get_featured_image_url(); ?>">
 <?php } else { ?>
-<meta property="og:image" content="<?php bloginfo('template_url'); ?>/images/ogimage.png">
-<meta property="twitter:image" content="<?php echo esc_url( home_url( '/' ) ); ?>img/ogimage.png">
+<meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/ogimage.png">
+<meta property="twitter:image" content="<?php bloginfo('template_url'); ?>/img/ogimage.png">
 <?php } ?>
 <?php } else { ?>
 <meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
 <meta name="twitter:title" content="<?php bloginfo( 'name' ); ?>">
 <meta property="og:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
 <meta name="twitter:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
-<meta property="og:image" content="<?php bloginfo('template_url'); ?>/images/ogimage.png">
-<meta property="twitter:image" content="<?php echo esc_url( home_url( '/' ) ); ?>img/ogimage.png">
+<meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/ogimage.png">
+<meta property="twitter:image" content="<?php bloginfo('template_url'); ?>/img/ogimage.png">
 <?php } ?>
 <meta property="fb:admins" content="youthkee">
 <meta property="fb:app_id" content="">
@@ -61,8 +61,6 @@
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-<link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
