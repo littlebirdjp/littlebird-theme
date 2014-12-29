@@ -32,6 +32,7 @@ a {
   background-color: #359242;
 }
 .header .header__menu {
+  font-size: 14px;
   margin: 0 -15px;
 }
 .header .header__menu > li > a {
@@ -116,13 +117,14 @@ a {
   }
 }
 .main__lead p {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 0;
   margin-top: 0;
 }
 @media (max-width: 768px) {
   .main__lead p {
-    text-align: left;
+    text-align: center;
+    font-size: 12px;
   }
 }
 @media (min-width: 768px) {
@@ -134,16 +136,24 @@ a {
   border-top: 1px solid #c2c1c1;
 }
 .entry-meta {
+  font-size: 14px;
   color: #666;
 }
 .posted-on {
   margin-right: 5px;
+}
+.entry-title {
+  font-size: 28px;
 }
 .entry-title a {
   color: #404040;
 }
 .entry-title a:hover {
   color: #999;
+}
+.entry-content h2 {
+  font-size: 24px;
+  margin-bottom: 1.5em;
 }
 .twitter-share-button {
   width: 100px !important;
@@ -232,6 +242,9 @@ a {
     text-align: center;
   }
 }
+.profile__text {
+  font-size: 14px;
+}
 @media (max-width: 768px) {
   .socialButton {
     text-align: center;
@@ -241,6 +254,7 @@ a {
   margin-right: 3px;
 }
 .contact__text {
+  font-size: 14px;
   text-align: center;
   margin-bottom: 20px;
 }

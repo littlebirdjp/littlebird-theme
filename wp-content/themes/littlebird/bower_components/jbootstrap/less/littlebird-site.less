@@ -54,6 +54,7 @@ a {
     }
   }
   .header__menu {
+    font-size: 14px;
     margin: 0 -@navbar-padding-horizontal;
     > li > a {
       padding-top:    10px;
@@ -129,11 +130,12 @@ a {
   }
   &__lead {
     p {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 0;
       margin-top: 0;
       @media (max-width: @screen-sm) {
-        text-align: left;
+        text-align: center;
+        font-size: 12px;
       }
       @media (min-width: @screen-sm) {
         text-align: center;
@@ -151,6 +153,7 @@ a {
 }
 
 .entry-meta {
+  font-size: 14px;
   color: #666;
 }
 
@@ -159,11 +162,19 @@ a {
 }
 
 .entry-title {
+  font-size: 28px;
   a {
     color: #404040;
     &:hover {
       color: #999;
     }
+  }
+}
+
+.entry-content {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 1.5em;
   }
 }
 
@@ -272,6 +283,9 @@ a {
       text-align: center;
     }
   }
+  &__text {
+    font-size: 14px;
+  }
 }
 
 .socialButton {
@@ -289,6 +303,7 @@ a {
 
 .contact {
   &__text {
+    font-size: 14px;
     text-align: center;
     margin-bottom: 20px;
   }

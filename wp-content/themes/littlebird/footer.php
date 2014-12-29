@@ -74,7 +74,7 @@
 
   <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8">
         <h3 class="profile__title">Yusuke Takahashi</h3>
-        <p>UI設計が大好きなWebデベロッパー。<br>
+        <p class="profile__text">UI設計が大好きなWebデベロッパー。<br>
         サイトの企画、制作、運営やライティングなどやっています。</p>
         <div class="socialButton">
           <a href="https://twitter.com/youthkee"><img src="<?php bloginfo('template_directory'); ?>/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
