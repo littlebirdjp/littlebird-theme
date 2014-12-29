@@ -112,11 +112,9 @@
 		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
 		    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 		  </div>
-		  <?php if ( is_home() ) { ?>
 		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
 		    <p class="site-description"><?php bloginfo( 'description' ); ?></p>
 		  </div>
-		  <?php } ?>
 		</div><!-- .site-branding -->
 
 	</header><!-- #masthead -->
