@@ -165,9 +165,18 @@ $ git clone https://github.com/gaspanik/jbootstrap.git
 
 #### Gruntのセットアップ
 
-それでは、続いて[前回](https://github.com/littlebirdjp/littlebird-site)と同じようにGruntの動作確認をしてみましょう。
+それでは、続いて[前回](https://github.com/littlebirdjp/littlebird-site)と同じようにGruntのセットアップと動作確認をしてみましょう。
 
-GruntでLESSのコンパイルなどのタスクを実行するには、`bower_components/jbootstrap`フォルダで、ターミナルから以下のコマンドを実行します。
+まず、`jbootstrap`フォルダ上でターミナルを開いて、以下のコマンドを実行します。
+
+```
+$ sudo npm install
+```
+
+すると、Grunt本体と、このフォルダ内のpackages.jsonという設定ファイルに書かれたプラグインが、自動的にインストールされます。
+`/node_modules/`というフォルダ以下にファイルができていれば、Gruntとプラグインのインストールは完了です。
+
+GruntでLESSのコンパイルなどのタスクを実行するには、`jbootstrap`フォルダ上で、ターミナルから以下のコマンドを実行します。
 
 ```
 $ grunt watch
@@ -192,4 +201,56 @@ $ grunt watch
 
 #### オリジナルCSSの移植
 
+まず、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)で作ったオリジナルのLESSファイル、`littlebird-site.less`と`littlebird-variables.less`をコピーして、`/less/`フォルダにコピーします。
+
+次に、Gruntfile.jsを開いて、LESSのコンパイル設定を探してみました。
+
+```
+    less: {
+      compileCore: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= pkg.name %>.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+        },
+        files: {
+          'dist/css/<%= pkg.name %>.css': 'less/bootstrap.less'
+        }
+      },
+      compileTheme: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= pkg.name %>-theme.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>-theme.css.map'
+        },
+        files: {
+          'dist/css/<%= pkg.name %>-theme.css': 'less/theme.less'
+        }
+      }
+    },
+
+```
+
+この部分に、以下のような記述を書き加えると、オリジナルのLESSファイルをCSSにコンパイルできるようになります。
+
+```
+      compileOriginal: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: 'littlebird-site.css.map',
+          sourceMapFilename: 'dist/css/littlebird-site.css.map'
+        },
+        files: {
+          'dist/css/littlebird-site.css': 'less/littlebird-site.less'
+        }
+      }
+    },
+
+```
 
