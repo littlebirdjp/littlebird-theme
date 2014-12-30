@@ -143,4 +143,28 @@ _sをインストールするには、解凍したフォルダ（/littlebird/）
 
 すると、サイトの方はこんな感じでまっさらなデザインになりました。
 
+#### Bootstrapのインストール
+
+続いて、Bootstrapを導入するため、テーマフォルダ内にBootstrapをインストールしました。
+
+[littlebird-site](https://github.com/littlebirdjp/littlebird-site)の時と同じように、Bowerでインストールしてもよかったのですが、今回はこもりまさあきさんが日本語向けに文字回りの調整を行なった[Jbootstrap](https://github.com/gaspanik/jbootstrap)を使うことにしました。やはりブログサイトなので、日本語でも読みやすい方がいいですよね。
+
+そこで、先ほどのテーマフォルダ内に`bower_components`というディレクトリを作成し、
+
+```
+~/prj/littlebird/vccw/www/wordpress/wp-content/themes/littlebird/bower_components/
+```
+
+このフォルダ上でターミナルを開いて、以下のコマンドを実行します。
+
+```
+$ git clone https://github.com/gaspanik/jbootstrap.git
+```
+
+すると、`jbootstrap`というサブディレクトリが作成され、その中にJbootstrapのファイル一式がダウンロードされました。
+
+
+
+
+
 
