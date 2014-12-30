@@ -34,7 +34,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 	- [Gruntのセットアップ](#user-content-gruntのセットアップ)
 3. [テーマの編集](#user-content-テーマの編集)
 	- [オリジナルCSSの移植](#user-content-オリジナルcssの移植)
-	- テーマへのCSSとJSの組み込み
+	- [テーマへのCSSとJSの組み込み](#user-content-テーマへのcssとjsの組み込み)
 	- コーディング
 4. WordPressコンテンツの静的化
 5. サイトの公開
@@ -196,7 +196,7 @@ $ grunt watch
 
 ### テーマの編集
 
-テーマ開発の準備が整ったので、いよいよテーマの編集に移りました。
+テーマ開発の準備が整ったので、いよいよテーマの編集に移ります。
 実際の流れとしては、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)の時に使ったLESSファイルを移植して、Bootstrapと合わせてテーマ内で読み込まれるように組み込み、テーマを構成している各PHPファイルを編集する形でコーディングを行いました。
 
 #### オリジナルCSSの移植
@@ -253,4 +253,91 @@ $ grunt watch
     },
 
 ```
+
+#### テーマへのCSSとJSの組み込み
+
+次に、テーマからBootstrapのCSSとJavascriptを読み込ませるようにしたいのですが、これはヘッダーファイル（header.php）に直接記述してしまうとよくないので、テーマ毎に動的な設定を行うfunctions.phpファイルに所定の記述を行うことで読み込ませます。
+
+functions.php内で、CSSやJSの読み込みをしているのは、以下の部分になります。
+
+```
+function littlebird_scripts() {
+	wp_enqueue_style( 'littlebird-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'littlebird-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+	wp_enqueue_script( 'littlebird-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'littlebird_scripts' );
+```
+
+CSSやJSの追加をするには、この`littlebird_scripts`関数内に記述するのですが、まずはBootstrapのCSSを追記し、以下のように修正しました。
+
+3行目は、_sのテーマ固有のCSS（style.css）ですが、こちらはWordPress特有のclassに対するスタイリングが多数設定されており、WordPressテーマの仕様上、style.cssの存在が重要なので、そのまま残す形にしています。
+
+最後に、littlebird-siteオリジナルのCSSを記述しました。これで、何かスタイルの変更を行いたい場合は、`littlebird-site.less`に記述すれば優先的に反映されるようになります。
+
+```
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/bootstrap.css' );
+	wp_enqueue_style( 'bootstrap-theme', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/bootstrap-theme.css' );
+
+	wp_enqueue_style( 'littlebird', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'littlebird-site', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/littlebird-site.css' );
+```
+
+次にJavascript部分ですが、jQueryとBootstrapのJSを追記し、以下のように修正しました。
+
+jQueryは、Googleの提供しているCDNを読み込ませたいのですが、初期状態だとWordPressデフォルトのjQuery（/wp-includes/js/jquery/配下）を読んでしまう仕様になっているので、デフォルトのjQueryを読み込まない設定を最初に記述します。
+
+次に、jQueryとjQuery MigrateをそれぞれCDNで読み込ませました。jQuery Migrateは、jQuery 1.9以前のコードを互換してくれるプラグインですが、今後他のWordPressプラグインとの兼ね合いもありそうなので、念のため入れてあります。
+
+```
+	wp_deregister_script( 'jquery'); //デフォルトの jQuery は読み込まない
+	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1', false);
+	wp_enqueue_script( 'jquery-mig', '//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js', array(), '1.2.1', false);
+
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bower_components/jbootstrap/dist/js/bootstrap.min.js' );
+```
+
+最後に、サイト内で[Font Awesome](http://fortawesome.github.io/Font-Awesome/)のアイコンフォントを利用したかったので、以下のCSS読み込みも追加してあります。
+
+```
+	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
+```
+
+最終的に、functions.php内のCSS/JS読み込み部分は、以下のような形になりました。
+
+```
+function littlebird_scripts() {
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/bootstrap.css' );
+	wp_enqueue_style( 'bootstrap-theme', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/bootstrap-theme.css' );
+
+	wp_enqueue_style( 'littlebird', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'littlebird-site', get_template_directory_uri() . '/bower_components/jbootstrap/dist/css/littlebird-site.css' );
+
+	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
+
+	wp_deregister_script( 'jquery'); //デフォルトの jQuery は読み込まない
+	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1', false);
+	wp_enqueue_script( 'jquery-mig', '//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js', array(), '1.2.1', false);
+
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bower_components/jbootstrap/dist/js/bootstrap.min.js' );
+
+	wp_enqueue_script( 'littlebird-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+	wp_enqueue_script( 'littlebird-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'littlebird_scripts' );
+```
+
 
