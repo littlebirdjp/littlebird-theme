@@ -30,8 +30,8 @@ A simple WordPress theme build with _s and Bootstrap 3.
 2. [テーマ開発の環境準備](#user-content-テーマ開発の環境準備)
 	- [_sのダウンロード](#user-content-_sのダウンロード)
 	- [_sのインストール](#user-content-_sのインストール)
-	- Bootstrapのインストール
-	- Gruntのセットアップ
+	- [Bootstrapのインストール](#user-content-bootstrapのインストール)
+	- [Gruntのセットアップ](#user-content-gruntのセットアップ)
 3. テーマの編集
 	- オリジナルCSSの移植
 	- テーマへのCSSとJSの組み込み
@@ -163,6 +163,30 @@ $ git clone https://github.com/gaspanik/jbootstrap.git
 
 すると、`jbootstrap`というサブディレクトリが作成され、その中にJbootstrapのファイル一式がダウンロードされました。
 
+#### Gruntのセットアップ
+
+それでは、続いて[前回](https://github.com/littlebirdjp/littlebird-site)と同じようにGruntの動作確認をしてみましょう。
+
+GruntでLESSのコンパイルなどのタスクを実行するには、/bower_components/bootstrap/フォルダで、ターミナルから以下のコマンドを実行します。
+
+```
+grunt watch
+```
+
+すると、ファイルの変更を監視して、自動的にLESS→CSSへの変換を実行してくれるようになります。  
+試しに、/less/フォルダ内のtheme.lessというファイルの一番下に、
+
+```
+.test {
+  float: left;
+}
+```
+
+と書いて保存してみました。  
+すると、ターミナルに色々とメッセージが表示された後、  
+/dist/css/フォルダ内のbootstrap-theme.cssを開くと、先ほど追加した記述がCSSファイルの方にも無事反映されていました。  
+
+以上でGruntを使ったカスタマイズの準備が完了です。
 
 
 
