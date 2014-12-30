@@ -258,7 +258,8 @@ a {
   text-align: center;
   margin-bottom: 20px;
 }
-.linkButton {
+.linkButton,
+a.more-link {
   font-family: 'Source Sans Pro', sans-serif;
   background-image: none;
   -webkit-border-radius: 0;
@@ -267,26 +268,43 @@ a {
   padding: 10px 40px;
   background: #359242;
 }
-.linkButton:hover {
+.linkButton:hover,
+a.more-link:hover {
   background: #4aca5c;
 }
 @media (min-width: 992px) {
-  .linkButton {
+  .linkButton,
+  a.more-link {
     font-size: 18px;
   }
 }
-.linkButton_icon_left {
+.linkButton_icon_left,
+a.more-link_icon_left {
   padding: 10px 40px 10px 35px;
 }
-.linkButton_icon_left .glyphicon {
+.linkButton_icon_left .glyphicon,
+a.more-link_icon_left .glyphicon {
   margin-right: 5px;
   top: 2px;
 }
 @media (min-width: 768px) {
-  .linkButton_icon_left .glyphicon {
+  .linkButton_icon_left .glyphicon,
+  a.more-link_icon_left .glyphicon {
     top: 3px;
     margin-right: 8px;
   }
+}
+a.more-link {
+  color: #FFF;
+}
+a.more-link :visited,
+a.more-link :hover,
+a.more-link :focus,
+a.more-link :active {
+  color: #FFF;
+}
+a.more-link .meta-nav {
+  margin-left: 5px;
 }
 .footer {
   font-size: 14px;
