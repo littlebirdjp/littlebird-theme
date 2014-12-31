@@ -173,16 +173,18 @@ $ git clone https://github.com/gaspanik/jbootstrap.git
 $ sudo npm install
 ```
 
-すると、Grunt本体と、このフォルダ内のpackages.jsonという設定ファイルに書かれたプラグインが、自動的にインストールされます。
-`/node_modules/`というフォルダ以下にファイルができていれば、Gruntとプラグインのインストールは完了です。
+すると、Grunt本体と、packages.jsonに書かれたプラグイン一式が、自動的にインストールされます。
+`/node_modules/`というフォルダ以下に各プラグインのフォルダができていれば、Gruntとプラグインのインストールは完了です。
 
-GruntでLESSのコンパイルなどのタスクを実行するには、`jbootstrap`フォルダ上で、ターミナルから以下のコマンドを実行します。
+![](screenshots/screenshot05.png?raw=true)
+
+GruntでLESSのコンパイルなどのタスクを実行するには、`jbootstrap`フォルダ上で、ターミナルを開いて以下のコマンドを実行します。
 
 ```
 $ grunt watch
 ```
 
-すると、ファイルの変更を監視して、自動的にLESS→CSSへの変換を実行してくれるようになります。試しに、/less/フォルダ内のtheme.lessというファイルの一番下に、
+すると、ファイルの変更を監視して、自動的にLESS→CSSへの変換を実行してくれるようになります。試しに、`/less/`フォルダ内のtheme.lessというファイルの一番下に、
 
 ```
 .test {
@@ -201,7 +203,7 @@ $ grunt watch
 
 #### オリジナルCSSの移植
 
-まず、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)で作ったオリジナルのLESSファイル、`littlebird-site.less`と`littlebird-variables.less`をコピーして、`/less/`フォルダにコピーします。
+まず、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)で作ったオリジナルのLESSファイル、`littlebird-site.less`と`littlebird-variables.less`をコピーして、`/less/`フォルダ内にペーストします。
 
 次に、Gruntfile.jsを開いて、LESSのコンパイル設定を探してみました。
 
@@ -277,7 +279,7 @@ add_action( 'wp_enqueue_scripts', 'littlebird_scripts' );
 
 CSSやJSの追加をするには、この`littlebird_scripts`関数内に記述するのですが、まずはBootstrapのCSSを追記し、以下のように修正しました。
 
-3行目は、_sのテーマ固有のCSS（style.css）ですが、こちらはWordPress特有のclassに対するスタイリングが多数設定されており、WordPressテーマの仕様上、style.cssの存在が重要なので、そのまま残す形にしています。
+3行目は、_sのテーマ固有のCSS（style.css）ですが、こちらはWordPress特有のclassに対するスタイリングが多数設定されており、またWordPressテーマの仕様上、style.cssの存在が重要なので、そのまま残す形にしています。
 
 最後に、littlebird-siteオリジナルのCSSを記述しました。これで、何かスタイルの変更を行いたい場合は、`littlebird-site.less`に記述すれば優先的に反映されるようになります。
 
@@ -294,7 +296,7 @@ CSSやJSの追加をするには、この`littlebird_scripts`関数内に記述�
 
 jQueryは、Googleの提供しているCDNを読み込ませたいのですが、初期状態だとWordPressデフォルトのjQuery（/wp-includes/js/jquery/配下）を読んでしまう仕様になっているので、デフォルトのjQueryを読み込まない設定を最初に記述します。
 
-次に、jQueryとjQuery MigrateをそれぞれCDNで読み込ませました。jQuery Migrateは、jQuery 1.9以前のコードを互換してくれるプラグインですが、今後他のWordPressプラグインとの兼ね合いもありそうなので、念のため入れてあります。
+次に、jQueryとjQuery MigrateをそれぞれCDNで読み込ませました。jQuery Migrateは、jQuery 1.9以前のコードを互換してくれるプラグインですが、今後他のWordPressプラグインとの兼ね合い等もありそうなので、念のため入れてあります。
 
 ```
 	wp_deregister_script( 'jquery'); //デフォルトの jQuery は読み込まない
