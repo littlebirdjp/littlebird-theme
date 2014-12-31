@@ -44,7 +44,12 @@ A simple WordPress theme build with _s and Bootstrap 3.
 		- OGPの設定
 		- ソーシャルボタンの設置
 4. WordPressコンテンツの静的化
+	- プラグインのインストール
+	- プラグインの検証・選定
+	- コンテンツの静的化
 5. サイトの公開
+	- 共通ファイルのアップロード
+	- コンテンツのアップロード
 6. Amazon S3への移行
 
 ### ローカル仮想環境の構築
