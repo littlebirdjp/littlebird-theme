@@ -3,7 +3,7 @@
 A simple WordPress theme build with _s and Bootstrap 3.
 
 [_s](http://underscores.me/)と[Bootstrap](http://getbootstrap.com/)を使ってシンプルなWordPressテーマを作ってみようという個人プロジェクトです。  
-以前制作した[littlebird-site](https://github.com/littlebirdjp/littlebird-site)のLESSファイルを流用して、WPサイトと本サイトを統合。最終的にはStaticPressで静的化してAmazon S3に公開するところまで持っていきたいと思っています。
+以前制作した[littlebird-site](https://github.com/littlebirdjp/littlebird-site)のLESSファイルを流用して、WPサイトと本サイトを統合。最終的にはプラグインでコンテンツを静的化して、Amazon S3上で運用することを目標としています。
 
 ## URL
 
