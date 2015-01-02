@@ -479,4 +479,5 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 		</nav><!-- #site-navigation -->
 ```
 
+![](screenshots/screenshot07.png?raw=true)
 
