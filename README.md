@@ -560,7 +560,7 @@ _sのデフォルトテーマでは`.site-branding`というブロック部分�
 
 また、ブログにトップページはない（全ての個別ページがトップページの役割を果たす）という考えのもと、単純に[littlebird-site](https://github.com/littlebirdjp/littlebird-site)で作ったService、Profile、Contactといったブランド説明部分を、フッター要素として全ページに入れ込むことにしました。
 
-なので、これらのブロック要素をフッターファイル（footer.php）に挿入する作業になります。
+なので、コーディング自体は、これらのブロック要素をフッターファイル（footer.php）に挿入する作業になります。
 
 具体的には、`<div id="content">`と`<div class="container">`の閉じタグ以降から、`footer.site-footer`の直前辺りに、該当のソースを挿入しました。
 
@@ -576,4 +576,6 @@ _sのデフォルトテーマでは`.site-branding`というブロック部分�
 <img src="<?php bloginfo('template_directory'); ?>/img/service01@2x.png" height="120" width="120" alt="" class="service__image">
 ```
 
-こすうることで、テーマとしての汎用性が増すので、テーマ内で使用する共通画像は、テーマフォルダ以下の所定ディレクトリに設置するようにしましょう。
+上記のソースを記述することで、実際ローカル上では、`http://littlebird.local/wp-content/themes/littlebird/img/service01@2x.png`のパスが呼び出されます。
+
+こうすることで、テーマとしての汎用性が増すので、テーマ内で使用する共通画像は、テーマフォルダ以下の所定ディレクトリに設置するようにしましょう。
