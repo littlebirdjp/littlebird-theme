@@ -37,8 +37,8 @@ A simple WordPress theme build with _s and Bootstrap 3.
 	- [テーマへのCSSとJSの組み込み](#user-content-テーマへのcssとjsの組み込み)
 	- [リセットCSSの削除](#user-content-リセットcssの削除)
 	- [コーディング](#user-content-コーディング)
-		- ヘッダーメニューの組み込み
-		- ヘッダータイトルの組み込み
+		- [ヘッダーメニューの組み込み](#user-content-ヘッダーメニューの組み込み)
+		- [ヘッダータイトルの組み込み](#user-content-ヘッダータイトルの組み込み)
 		- フッター要素の組み込み
 		- 全体のスタイル調整
 		- OGPの設定
@@ -484,8 +484,7 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 #### 管理画面でのメニューの設定
 
 メニューの内容を反映するには、WordPressの管理画面から設定を行います。  
-「外観」→「メニュー」  
-からメニューの設定画面に移動し、「新規メニューを作成」をクリックします。
+「外観」→「メニュー」からメニューの設定画面に移動し、「新規メニューを作成」をクリックします。
 
 今回作るサイトでは、Service、Profile、Contactという各メニュー項目をクリックした際に、同一ページ内のアンカーに飛ばしたいだけなので、
 管理画面の左側のメニューから「リンク」というパネルを開いて、URL欄に「#service」「#profile」「#contact」などのアンカーリンクを入力しました。
@@ -498,6 +497,55 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 
 日本語のメニュー名だと、これらのid名がエンコードされた文字列となり、若干気持ち悪いので、メニュー名は英数字にした方がいいかもしれません。
 
+#### ヘッダータイトルの組み込み
 
+次に、ヘッダータイトル部分の組み込みを行いました。  
+これは、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)では`.jumbotron`というコンポーネント部分、
+_sのデフォルトテーマでは`.site-branding`というブロック部分が該当します。
 
+#### Bootstrapのヘッダーメニュー
 
+```
+<div class="jumbotron main">
+  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 main__logo">
+    <img src="img/logo@2x.png" height="170" width="170" alt="littlebird">
+  </div>
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
+    <h1>littlebird</h1>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
+    <p>世の中をちょっと面白くするサイトやサービスを作っています。</p>
+  </div>
+</div>
+```
+
+#### _sテーマのサイトタイトル部分（header.php）
+
+```
+		<div class="site-branding">
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		</div><!-- .site-branding -->
+```
+
+基本的に、どちらもよく似たブロック要素なので、Bootstrap側の`.jumbotron`で置き換えればいいのですが、ホームへのリンクと、サイト名、サイト説明の部分は、WordPress固有のタグできちんと置き換えるように注意しましょう。
+
+#### カスタマイズ後のヘッダータイトル部分
+
+```
+		<div class="site-branding jumbotron main">
+		  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 main__logo">
+		    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo@2x.png" height="140" width="140" alt="<?php bloginfo( 'name' ); ?>"></a>
+		  </div>
+		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
+		    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+		  </div>
+		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
+		    <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+		  </div>
+		</div><!-- .site-branding -->
+```
+
+![](screenshots/screenshot09.png?raw=true)
+
+以上で、ヘッダー回りのコーディングは一通り完了しました。
