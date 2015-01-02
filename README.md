@@ -393,7 +393,90 @@ WordPressの機能上の変更を行う場合には、functions.phpを修正す�
 
 #### ヘッダーメニューの組み込み
 
-まず、コンテンツ領域の左右マージンがないので、`<div id="content">`の外側を`<div class="container">`というタグで囲みました。  
-Bootstrapでは、こうすることでコンテンツ領域に適度なマージンを適用することができます。
+最初に、コンテンツ領域の左右マージンがないので、`<div id="content">`の外側を`<div class="container">`というタグで囲みました。  
+Bootstrapの場合、こうすることでコンテンツ領域に適度なマージンを与えることができます。
+
+次に、ヘッダーメニュー部分のコーディングを行いました。  
+まずは、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)で作ったメニュー部分`nav.navbar`を丸ごとコピーして、WordPressテーマのヘッダー（header.php）に移植したいと思います。
+
+#### Bootstrapのヘッダーメニュー
+
+```
+<nav class="navbar navbar-default header" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle header__toggle" data-toggle="collapse" data-target="#headerMenu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse header__inner" id="headerMenu">
+      <ul class="nav navbar-nav navbar-right header__menu">
+        <li><a href="#service">Service</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+```
+
+ところが、移植先のheader.phpのソースを見てみると、メニュー部はリストタグ（ul li）に分かれておらず、`<?php wp_nav_menu(); ?>`という一つのタグから生成されていることが分かります。
+
+#### _sテーマのメニュー部分（header.php）
+
+```
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( 'Primary Menu', 'littlebird' ); ?></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+		</nav><!-- #site-navigation -->
+```
+
+そこで、メニューのリスト部分だけは、元の`<?php wp_nav_menu(); ?>`タグを残す形で、ソースの移植を行いました。
+
+ただし、リストのulタグには、以下のようにBootstrapで付与した独自のclassが付いてなければなりません。
+
+```
+      <ul class="nav navbar-nav navbar-right header__menu">
+        <li><a href="#service">Service</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+```
+
+これを実現するためには、wp_nav_menuタグに、$menu_classパラメータを追加することで可能です。
+
+[テンプレートタグ/wp nav menu - WordPress Codex 日本語版](http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_nav_menu)
+
+```
+<?php wp_nav_menu( array( 'theme_location' => 'primary','menu_class' => 'menu nav navbar-nav navbar-right header__menu' ) ); ?>
+```
+
+上記のように、wp_nav_menuタグにパラメータを追加することで、生成されるリストタグに独自のCSS classを適用することができました。
+
+#### カスタマイズ後のヘッダーメニュー部分
+
+以上のカスタマイズにより、最終的にヘッダーメニュー部分のソースは以下のような形になりました。
+
+```
+		<nav id="site-navigation" class="navbar navbar-default header" role="navigation">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle header__toggle" data-toggle="collapse" data-target="#headerMenu">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+			<div class="collapse navbar-collapse header__inner" id="headerMenu">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary','menu_class' => 'menu nav navbar-nav navbar-right header__menu' ) ); ?>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav><!-- #site-navigation -->
+```
 
 
