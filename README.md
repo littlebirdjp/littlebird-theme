@@ -447,15 +447,15 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
       </ul>
 ```
 
-これを実現するためには、wp_nav_menuタグに、$menu_classパラメータを追加することで可能です。
+これを実現するためには、wp_nav_menuタグに、$menu_classパラメータを追加することで対応が可能です。
 
-[テンプレートタグ/wp nav menu - WordPress Codex 日本語版](http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_nav_menu)
+参考：[テンプレートタグ/wp nav menu - WordPress Codex 日本語版](http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_nav_menu)
 
 ```
 <?php wp_nav_menu( array( 'theme_location' => 'primary','menu_class' => 'menu nav navbar-nav navbar-right header__menu' ) ); ?>
 ```
 
-上記のように、wp_nav_menuタグにパラメータを追加することで、生成されるリストタグに独自のCSS classを適用することができました。
+上記のように、wp_nav_menuタグにパラメータを追加することで、生成されるリストタグに独自のCSSスタイルを適用することができました。
 
 #### カスタマイズ後のヘッダーメニュー部分
 
