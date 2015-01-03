@@ -41,7 +41,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 		- [ヘッダータイトルの組み込み](#user-content-ヘッダータイトルの組み込み)
 		- [フッター要素の組み込み](#user-content-フッター要素の組み込み)
 		- [コンテンツ部分のスタイル調整](#user-content-コンテンツ部分のスタイル調整)
-		- [OGPの設定](#user-content-OGPの設定)
+		- [OGPの設定](#user-content-ogpの設定)
 		- [ソーシャルボタンの設置](#user-content-ソーシャルボタンの設置)
 4. WordPressコンテンツの静的化
 	- プラグインのインストール
@@ -681,7 +681,7 @@ function get_featured_image_url() {
 
 functions.phpに上記の記述を書き加えると、WordPressの投稿画面に「アイキャッチ画像」のパネルが表示され、そこからアイキャッチ画像の登録ができるようになります。
 
-尚、HTMLソース上に挿入されるRSSフィードのタグと、ショートリンク（http://littlebird.local/?p=[投稿ID]という形式のデフォルトURL）も、今回のサイトでは必要なかったので、表示されないように設定を書き加えてあります。
+尚、HTMLソース上に挿入されるRSSフィードのタグと、ショートリンク（`http://littlebird.local/?p=[投稿ID]`という形式のデフォルトURL）も、今回のサイトでは必要なかったので、表示されないように設定を書き加えてあります。
 
 以上の設定をした上で、ヘッダーファイル（header.php）にOGタグとTwitter Cardsのタグを記述しました。
 
@@ -719,7 +719,7 @@ functions.phpに上記の記述を書き加えると、WordPressの投稿画面�
 <meta name="twitter:domain" content="littlebird.mobi">
 ```
 
-以上の設定をすることで、アイキャッチが登録されている場合には、OGイメージとしてアイキャッチ画像（例 http://littlebird.local/wp-content/uploads/2014/12/webnewprinciple.jpg）が表示され、アイキャッチがない場合にはデフォルトのOGイメージ（http://littlebird.local/wp-content/themes/littlebird/img/ogimage.png）が表示されるようになりました。
+以上の設定をすることで、アイキャッチが登録されている場合には、OGイメージとしてアイキャッチ画像（例 `http://littlebird.local/wp-content/uploads/2014/12/webnewprinciple.jpg`）が表示され、アイキャッチがない場合にはデフォルトのOGイメージ（`http://littlebird.local/wp-content/themes/littlebird/img/ogimage.png`）が表示されるようになりました。
 
 #### ソーシャルボタンの設置
 
