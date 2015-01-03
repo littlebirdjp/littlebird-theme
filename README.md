@@ -644,5 +644,79 @@ _sとBootstrapのデフォルトスタイルを組み合わせた状態でも、
 
 これらのデフォルトスタイル回りについては、また追々運用しながら微調整していきたいと思います。
 
+![](screenshots/screenshot11.png?raw=true)
 
+尚、デフォルトの設定では、サイドバーに各種ウィジェットが登録されていますが、これらは今回作るサイトでは使用しないので、「外観」→「ウィジェット」の設定から、一つ一つパネルを開いて削除しておきました。
 
+#### OGPの設定
+
+さて、最低限のテンプレート修正は完了し、サイトを公開できる状態にはなったのですが、サイトの公開に合わせてOGPの設定をしておくことにしました。
+
+今やサイトのプロモーション施策として、SNSでの拡散は欠かせませんが、OGタグやOGイメージが正しく設定されていないと、十分な拡散効果が得られません。
+
+OGタグについては、header.phpに所定の書式でタグを記述すればいいのですが、サイト名やエントリーのタイトルがきちんと反映されるように、WordPressタグを活用しましょう。
+
+また、OGイメージついては、投稿毎のアイキャッチを表示したかったので、functions.phpにアイキャッチを有効化する設定と、アイキャッチのURLを取得する関数を記述しました。
+
+参考：[投稿サムネイル - WordPress Codex 日本語版](http://wpdocs.sourceforge.jp/%E6%8A%95%E7%A8%BF%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB)
+
+##### functions.php
+
+```
+//RSSフィードとショートリンクを非表示
+remove_filter( 'wp_head', 'feed_links', 2 );
+remove_filter( 'wp_head', 'feed_links_extra', 3 );
+remove_filter( 'wp_head', 'wp_shortlink_wp_head' );
+
+//アイキャッチを有効化
+add_theme_support( 'post-thumbnails', array( 'post') );
+
+// Get the featured image URL
+function get_featured_image_url() { 
+    $image_id = get_post_thumbnail_id();
+    $image_url = wp_get_attachment_image_src($image_id,'thumbnail', true); 
+    echo $image_url[0]; 
+}
+```
+
+functions.phpに上記の記述を書き加えると、WordPressの投稿画面に「アイキャッチ画像」のパネルが表示され、そこからアイキャッチ画像の登録ができるようになります。
+
+尚、HTMLソース上に挿入されるRSSフィードのタグと、ショートリンク（`http://littlebird.local/?p=[投稿ID]`という形式のデフォルトURL）も、今回のサイトでは必要なかったので、表示されないように設定を書き加えてあります。
+
+以上の設定をした上で、ヘッダーファイル（header.php）にOGタグとTwitter Cardsのタグを記述しました。
+
+##### header.php
+
+```
+<meta property="og:type" content="blog">
+<meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>">
+<meta property="og:description" content="<?php bloginfo( 'description' ); ?>">
+<meta property="twitter:description" content="<?php bloginfo( 'description' ); ?>">
+<?php if ( is_single() ) { ?>
+<meta property="og:title" content="<?php the_title(); ?>">
+<meta name="twitter:title" content="<?php the_title(); ?>">
+<meta property="og:url" content="<?php the_permalink(); ?>">
+<meta name="twitter:url" content="<?php the_permalink(); ?>">
+<?php if(has_post_thumbnail()) { ?>
+<meta property="og:image" content="<?php get_featured_image_url(); ?>">
+<meta property="twitter:image" content="<?php get_featured_image_url(); ?>">
+<?php } else { ?>
+<meta property="og:image" content="<?php bloginfo('template_url'); ?>/images/ogimage.png">
+<meta property="twitter:image" content="<?php echo esc_url( home_url( '/' ) ); ?>img/ogimage.png">
+<?php } ?>
+<?php } else { ?>
+<meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
+<meta name="twitter:title" content="<?php bloginfo( 'name' ); ?>">
+<meta property="og:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
+<meta name="twitter:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
+<meta property="og:image" content="<?php bloginfo('template_url'); ?>/images/ogimage.png">
+<meta property="twitter:image" content="<?php echo esc_url( home_url( '/' ) ); ?>img/ogimage.png">
+<?php } ?>
+<meta property="fb:admins" content="youthkee">
+<meta property="fb:app_id" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@youthkee">
+<meta name="twitter:domain" content="littlebird.mobi">
+```
+
+以上の設定をすることで、アイキャッチが登録されている場合には、OGイメージとしてアイキャッチ画像（例`http://littlebird.local/wp-content/uploads/2014/12/webnewprinciple.jpg`）が表示され、アイキャッチがない場合にはデフォルトのOGイメージ（`http://littlebird.local/wp-content/themes/littlebird/img/ogimage.png`）が表示されるようになりました。
