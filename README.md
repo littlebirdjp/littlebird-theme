@@ -40,7 +40,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 		- [ヘッダーメニューの組み込み](#user-content-ヘッダーメニューの組み込み)
 		- [ヘッダータイトルの組み込み](#user-content-ヘッダータイトルの組み込み)
 		- [フッター要素の組み込み](#user-content-フッター要素の組み込み)
-		- 全体のスタイル調整
+		- [コンテンツ部分のスタイル調整](#user-content-コンテンツ部分のスタイル調整)
 		- OGPの設定
 		- ソーシャルボタンの設置
 4. WordPressコンテンツの静的化
@@ -399,7 +399,7 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 次に、ヘッダーメニュー部分のコーディングを行いました。  
 まずは、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)で作ったメニュー部分`nav.navbar`を丸ごとコピーして、WordPressテーマのヘッダー（header.php）に移植したいと思います。
 
-#### Bootstrapのヘッダーメニュー
+##### Bootstrapのヘッダーメニュー
 
 ```
 <nav class="navbar navbar-default header" role="navigation">
@@ -426,7 +426,7 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 
 ところが、移植先のheader.phpのソースを見てみると、メニュー部はリストタグ（ul li）に分かれておらず、`<?php wp_nav_menu(); ?>`という一つのタグから生成されていることが分かります。
 
-#### _sテーマのメニュー部分（header.php）
+##### _sテーマのメニュー部分（header.php）
 
 ```
 		<nav id="site-navigation" class="main-navigation" role="navigation">
@@ -459,7 +459,7 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 
 ![](screenshots/screenshot07.png?raw=true)
 
-#### カスタマイズ後のヘッダーメニュー部分
+##### カスタマイズ後のヘッダーメニュー部分
 
 以上のカスタマイズにより、最終的にヘッダーメニュー部分のソースは以下のような形になりました。
 
@@ -481,7 +481,7 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 		</nav><!-- #site-navigation -->
 ```
 
-#### 管理画面でのメニューの設定
+##### 管理画面でのメニューの設定
 
 メニューの内容を反映するには、WordPressの管理画面から設定を行います。  
 「外観」→「メニュー」からメニューの設定画面に移動し、「新規メニューを作成」をクリックします。
@@ -503,7 +503,7 @@ Bootstrapの場合、こうすることでコンテンツ領域に適度なマ�
 これは、[littlebird-site](https://github.com/littlebirdjp/littlebird-site)では`.jumbotron`というコンポーネント部分、
 _sのデフォルトテーマでは`.site-branding`というブロック部分が該当します。
 
-#### Bootstrapのヘッダーメニュー
+##### Bootstrapのヘッダーメニュー
 
 ```
 <div class="jumbotron main">
@@ -519,7 +519,7 @@ _sのデフォルトテーマでは`.site-branding`というブロック部分�
 </div>
 ```
 
-#### _sテーマのサイトタイトル部分（header.php）
+##### _sテーマのサイトタイトル部分（header.php）
 
 ```
 		<div class="site-branding">
@@ -530,7 +530,7 @@ _sのデフォルトテーマでは`.site-branding`というブロック部分�
 
 基本的に、どちらもよく似たブロック要素なので、Bootstrap側の`.jumbotron`で置き換えればいいのですが、ホームへのリンクと、サイト名、サイト説明の部分は、WordPress固有のタグがきちんと反映されるように注意しましょう。
 
-#### カスタマイズ後のヘッダータイトル部分
+##### カスタマイズ後のヘッダータイトル部分
 
 ```
 		<div class="site-branding jumbotron main">
@@ -579,3 +579,70 @@ _sのデフォルトテーマでは`.site-branding`というブロック部分�
 上記のソースを記述することで、実際ローカル上では、`http://littlebird.local/wp-content/themes/littlebird/img/service01@2x.png`のパスが呼び出されます。
 
 こうすることで、テーマとしての汎用性が増すので、テーマ内で使用する共通画像は、テーマフォルダ以下の所定ディレクトリに設置するようにしましょう。
+
+#### コンテンツ部分のスタイル調整
+
+ヘッダーとフッター部分ができたので、次にメインのコンテンツ部分のコーディングを行いました。
+
+_sとBootstrapのデフォルトスタイルを組み合わせた状態でも、ほぼ問題はないのですが、若干のフォントサイズや行間の調整のみ行なっています。
+
+まず、_sのデフォルトスタイルだと、`p`要素全てに対して下マージンが適用されてしまい、フッター部分などコンテンツ本文以外のスタイルが崩れてしまうので、これを`#content`内だけに適用されるよう修正しました。
+
+##### style.css
+
+```
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+
+#content p {
+	margin-bottom: 1.5em;
+}
+```
+
+さらに、全体のバランスを見ながら、コンテンツ部分の見出し、投稿日時、投稿者のフォントサイズなどを調整しました。
+
+これらの調整は、オリジナルCSS（littlebird-site.less）内に「_s overwite」という名前でブロックの追加を行い、WordPress固有のclassに対して上書きする形でスタイルの変更を適用しました。
+
+##### littlebird-site.less
+
+```
+//
+// _s overwite
+// --------------------------------------------------
+
+.site-content {
+  border-top: 1px solid @lb-content-border;
+}
+
+.entry-meta {
+  font-size: 14px;
+  color: #666;
+}
+
+.posted-on {
+  margin-right: 5px;
+}
+
+.entry-title {
+  font-size: 28px;
+  a {
+    color: #404040;
+    &:hover {
+      color: #999;
+    }
+  }
+}
+
+.entry-content {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 1.5em;
+  }
+}
+```
+
+これらのデフォルトスタイル回りについては、また追々運用しながら微調整していきたいと思います。
+
+
+
