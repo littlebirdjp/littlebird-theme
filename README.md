@@ -41,8 +41,8 @@ A simple WordPress theme build with _s and Bootstrap 3.
 		- [ヘッダータイトルの組み込み](#user-content-ヘッダータイトルの組み込み)
 		- [フッター要素の組み込み](#user-content-フッター要素の組み込み)
 		- [コンテンツ部分のスタイル調整](#user-content-コンテンツ部分のスタイル調整)
-		- OGPの設定
-		- ソーシャルボタンの設置
+		- [OGPの設定](#user-content-OGPの設定)
+		- [ソーシャルボタンの設置](#user-content-ソーシャルボタンの設置)
 4. WordPressコンテンツの静的化
 	- プラグインのインストール
 	- プラグインの検証・選定
@@ -681,7 +681,7 @@ function get_featured_image_url() {
 
 functions.phpに上記の記述を書き加えると、WordPressの投稿画面に「アイキャッチ画像」のパネルが表示され、そこからアイキャッチ画像の登録ができるようになります。
 
-尚、HTMLソース上に挿入されるRSSフィードのタグと、ショートリンク（`http://littlebird.local/?p=[投稿ID]`という形式のデフォルトURL）も、今回のサイトでは必要なかったので、表示されないように設定を書き加えてあります。
+尚、HTMLソース上に挿入されるRSSフィードのタグと、ショートリンク（http://littlebird.local/?p=[投稿ID]という形式のデフォルトURL）も、今回のサイトでは必要なかったので、表示されないように設定を書き加えてあります。
 
 以上の設定をした上で、ヘッダーファイル（header.php）にOGタグとTwitter Cardsのタグを記述しました。
 
@@ -719,4 +719,60 @@ functions.phpに上記の記述を書き加えると、WordPressの投稿画面�
 <meta name="twitter:domain" content="littlebird.mobi">
 ```
 
-以上の設定をすることで、アイキャッチが登録されている場合には、OGイメージとしてアイキャッチ画像（例`http://littlebird.local/wp-content/uploads/2014/12/webnewprinciple.jpg`）が表示され、アイキャッチがない場合にはデフォルトのOGイメージ（`http://littlebird.local/wp-content/themes/littlebird/img/ogimage.png`）が表示されるようになりました。
+以上の設定をすることで、アイキャッチが登録されている場合には、OGイメージとしてアイキャッチ画像（例 http://littlebird.local/wp-content/uploads/2014/12/webnewprinciple.jpg）が表示され、アイキャッチがない場合にはデフォルトのOGイメージ（http://littlebird.local/wp-content/themes/littlebird/img/ogimage.png）が表示されるようになりました。
+
+#### ソーシャルボタンの設置
+
+最後に各投稿ページにソーシャルボタンを設置しました。  
+基本的にはTwitter、Facebook、Google+の公式サイトからタグを取得して所定の箇所にペーストするだけです。  
+ボタンを挿入したい箇所だけでなく、ヘッダー部分にもタグを記述する必要があるので、注意しましょう。
+
+##### header.php
+
+```
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'ja'}
+</script>
+</head>
+
+<body <?php body_class(); ?>>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+```
+
+##### content-single.php
+
+```
+	<div class="entry-share">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		<div class="g-plusone" data-annotation="inline" data-width="120"></div>
+	</div><!-- .entry-share -->
+```
+
+##### littlebird-site.less
+
+```
+.twitter-share-button {
+  width: 100px !important;
+}
+
+.fb-like {
+  top: -5px !important;
+  width: 150px !important;
+}
+```
+
+Facebookのいいねボタンには、各投稿のURLを指定するために`<?php the_permalink(); ?>`を記述してあります。
+
+また、各ソーシャルボタンのマージン等を微調整したかったので、各ボタンの固有classにスタイルを上書きする形でCSS修正を行いました。
+
+以上で、一通りコーディング作業が完了しました。
+
+
