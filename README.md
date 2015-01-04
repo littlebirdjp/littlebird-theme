@@ -51,9 +51,9 @@ A simple WordPress theme build with _s and Bootstrap 3.
 		- [StaticPress](#user-content-staticpress)
 		- [Really Static](#user-content-really-static)
 		- [StaticPressとReally Staticの比較](#user-content-staticpressとreally-staticの比較)
-5. サイトの公開
-	- 共通ファイルのアップロード
-	- コンテンツのアップロード
+5. [サイトの公開](#user-content-サイトの公開)
+	- [共通ファイルのアップロード](#user-content-共通ファイルのアップロード)
+	- [コンテンツのアップロード](#user-content-コンテンツのアップロード)
 6. Amazon S3への移行
 
 ### ローカル仮想環境の構築
@@ -871,4 +871,96 @@ StaticPressは、生成するアーカイブの種類を選べず、全てのア
 テーマ側で使用している画像やCSS、JSなどは、別途アップロードする必要がありますが、日々の運用では更新の必要がないものなので、Really Staticが生成するファイルの方が、静的サイトの運用には適しているかもしれません。
 
 以上の検証から、本プロジェクトでは、Really Staticを使用して静的サイトの運用を行うことにしました。
+
+### サイトの公開
+
+プラグインによる静的化のフローが確立したので、コンテンツをサーバへアップロードし、サイトの公開を行いました。  
+アップロードするファイルは、テーマディレクトリ内に格納されている画像、CSS、JS等の共通ファイルと、プラグインによって生成される投稿ページ等のコンテンツに分かれています。
+
+#### 共通ファイルのアップロード
+
+テーマディレクトリに格納されているファイルのうち、サイトの表示・動作に必要な画像、CSS、JS等だけを選別して、サーバへアップロードしました。
+実際にサーバにアップしたファイルの一覧は、以下になります。
+※テーマディレクトリ内には、他にも色々なファイルが格納されていますが、静的サイトの公開には必要のないものなので、アップする必要はありません。
+
+```
+└── wp-content
+        themes
+        └── littlebird
+            ├── bower_components
+            │   └── jbootstrap
+            │       └── dist
+            │           ├── css
+            │           │   ├── bootstrap-theme.css
+            │           │   ├── bootstrap-theme.css.map
+            │           │   ├── bootstrap-theme.min.css
+            │           │   ├── bootstrap.css
+            │           │   ├── bootstrap.css.map
+            │           │   ├── bootstrap.min.css
+            │           │   ├── littlebird-site.css
+            │           │   └── littlebird-site.css.map
+            │           ├── fonts
+            │           │   ├── glyphicons-halflings-regular.eot
+            │           │   ├── glyphicons-halflings-regular.svg
+            │           │   ├── glyphicons-halflings-regular.ttf
+            │           │   └── glyphicons-halflings-regular.woff
+            │           └── js
+            │               └── bootstrap.min.js
+            ├── fonts
+            │   ├── Marck_Script
+            │   │   ├── MarckScript-Regular.ttf
+            │   │   └── OFL.txt
+            │   └── Source_Sans_Pro
+            │       ├── OFL.txt
+            │       ├── SourceSansPro-Black.ttf
+            │       ├── SourceSansPro-BlackItalic.ttf
+            │       ├── SourceSansPro-Bold.ttf
+            │       ├── SourceSansPro-BoldItalic.ttf
+            │       ├── SourceSansPro-ExtraLight.ttf
+            │       ├── SourceSansPro-ExtraLightItalic.ttf
+            │       ├── SourceSansPro-Italic.ttf
+            │       ├── SourceSansPro-Light.ttf
+            │       ├── SourceSansPro-LightItalic.ttf
+            │       ├── SourceSansPro-Regular.ttf
+            │       ├── SourceSansPro-Semibold.ttf
+            │       └── SourceSansPro-SemiboldItalic.ttf
+            ├── img
+            │   ├── bt_facebook@2x.png
+            │   ├── bt_instagram@2x.png
+            │   ├── bt_twitter@2x.png
+            │   ├── logo@2x.png
+            │   ├── ogimage.png
+            │   ├── service01@2x.png
+            │   ├── service02@2x.png
+            │   ├── service03@2x.png
+            │   └── youthkee@2x.png
+            ├── js
+            │   ├── customizer.js
+            │   ├── navigation.js
+            │   └── skip-link-focus-fix.js
+            └── style.css
+```
+
+#### コンテンツのアップロード
+
+次に、Really Staticで生成したコンテンツ側のファイルをアップロードしました。  
+これらのファイルは、`really-static`フォルダ以下に保存されていますが、サーバ上ではドキュメントルート以下にアップする必要があるので、注意してください。
+
+※Sublime Textのパッケージ[Sublime SFTP](http://wbond.net/sublime_packages/sftp)を使えば、プロジェクト内の別々のフォルダに入っている各ファイルを、ワンクリックで同一の階層にアップすることが可能なので、サイトの運用に役立ちます。
+
+```
+└── really-static
+    ├── 2014
+    │   └── 12
+    │       └── firstpost
+    │           └── index.html
+    ├── index.html
+    └── wp-content
+        └── uploads
+            └── 2014
+                └── 12
+                    ├── firstpost.jpg
+                    └── littlebird_theme.jpg
+```
+
 
