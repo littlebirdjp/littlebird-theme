@@ -1075,7 +1075,7 @@ Really Staticでは、生成した静的コンテンツをローカルに保存�
 
 ただし、S3との連携機能を利用するには、[Really Static Amazon S3 Plugin](http://really-static-support.php-welt.net/amazon-s3-plugin-t7.html)というプラグインを追加でインストールする必要があります。
 
-公式サイトで配布されているzipファイルを回答すると、`php-really-static-amazon-s3`というフォルダが展開されるので、このフォルダをWordPressのプラグインフォルダ（/vccw/www/wordpress/wp-content/plugins/）内に設置します。
+公式サイトで配布されているzipファイルを解凍すると、`php-really-static-amazon-s3`というフォルダが展開されるので、このフォルダをWordPressのプラグインフォルダ（/vccw/www/wordpress/wp-content/plugins/）内に設置します。
 
 ![](screenshots/screenshot35.png?raw=true)
 
@@ -1083,7 +1083,7 @@ Really Staticでは、生成した静的コンテンツをローカルに保存�
 
 ![](screenshots/screenshot36.png?raw=true)
 
-Really Staticの設定画面を開くと、「設置場所」タブに『work with Amazon S3』という項目が追加されます。
+その後、Really Staticの設定画面を開くと、「設置場所」タブに『work with Amazon S3』という項目が追加されています。
 
 ここにクライアントソフトに設定した時と同じように、アクセスキーとシークレットキーを入力し、バケットの欄に`littlebird.mobi`と入力しました。
 
