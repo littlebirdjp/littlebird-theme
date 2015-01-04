@@ -9,7 +9,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 
 [http://littlebird.mobi](http://littlebird.mobi)
 
-## Requrements（制作ツール）
+## Requrements
 
 - WordPress
 - _s
@@ -19,7 +19,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 - Virtual Box
 - Vagrant
 
-## 制作過程（随時更新中）
+## 制作過程
 
 1. [ローカル仮想環境の構築](#user-content-ローカル仮想環境の構築)
 	- [Virtual Boxのインストール](#user-content-virtual-boxのインストール)
