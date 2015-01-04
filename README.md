@@ -47,7 +47,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 		- [ソーシャルボタンの設置](#user-content-ソーシャルボタンの設置)
 4. [WordPressコンテンツの静的化](#user-content-wordpressコンテンツの静的化)
 	- [プラグインのインストール](#user-content-プラグインのインストール)
-	- [プラグインの検証・選定](#user-content-プラグインの検証・選定)
+	- [プラグインの検証](#user-content-プラグインの検証)
 		- [StaticPress](#user-content-staticpress)
 		- [Really Static](#user-content-really-static)
 		- [StaticPressとReally Staticの比較](#user-content-staticpressとreally-staticの比較)
@@ -793,7 +793,7 @@ WordPressの管理画面から、「プラグイン」→「新規追加」か�
 「StaticPress」と「Really Static」を見つけたら、プラグイン名をクリックして、「いますぐインストール」を実行します。  
 インストールが完了したら、プラグインのページから各プラグインを「有効化」しましょう。
 
-#### プラグインの検証・選定
+#### プラグインの検証
 
 ##### StaticPress
 
@@ -841,7 +841,7 @@ Really Staticの設定画面は、初期状態では全ての項目が設定で�
 
 今回は、トップページと各投稿毎のページだけを生成したかったので、「indexページを静的にします」だけにチェックを入れて、他のアーカイブのチェックをオフにしました。
 
-また、この画面の上部に「各 http://littlebird.local/ を http://littlebird.mobi/ にリライトする」というチェックボックスがありますが、ここにもチェックを入れておきます。
+また、この画面の上部に「各 `http://littlebird.local/` を `http://littlebird.mobi/` にリライトする」というチェックボックスがありますが、ここにもチェックを入れておきます。
 
 この設定をしないと、静的サイトを生成する際に、WordPressの一部のパスがローカルのドメイン（littlebird.local）のままで生成されてしまうので、注意しましょう。
 
