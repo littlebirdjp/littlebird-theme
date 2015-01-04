@@ -54,7 +54,10 @@ A simple WordPress theme build with _s and Bootstrap 3.
 5. [サイトの公開](#user-content-サイトの公開)
 	- [共通ファイルのアップロード](#user-content-共通ファイルのアップロード)
 	- [コンテンツのアップロード](#user-content-コンテンツのアップロード)
-6. Amazon S3への移行
+6. [Amazon S3への移行](#user-content-amazon-s3への移行)
+	- [Amazon S3での静的サイト公開](#user-content-amazon-s3での静的サイト公開)
+	- [Route 53での独自ドメインの設定](#user-content-route-s3での独自ドメインの設定)
+	- [Really StaticとS3の連携](#user-content-really-staticとs3の連携)
 
 ### ローカル仮想環境の構築
 
@@ -881,6 +884,7 @@ StaticPressは、生成するアーカイブの種類を選べず、全てのア
 
 テーマディレクトリに格納されているファイルのうち、サイトの表示・動作に必要な画像、CSS、JS等だけを選別して、サーバへアップロードしました。
 実際にサーバにアップしたファイルの一覧は、以下になります。
+
 ※テーマディレクトリ内には、他にも色々なファイルが格納されていますが、静的サイトの公開には必要のないものなので、アップする必要はありません。
 
 ```
@@ -946,7 +950,7 @@ StaticPressは、生成するアーカイブの種類を選べず、全てのア
 次に、Really Staticで生成したコンテンツ側のファイルをアップロードしました。  
 これらのファイルは、`really-static`フォルダ以下に保存されていますが、サーバ上ではドキュメントルート以下にアップする必要があるので、注意してください。
 
-※Sublime Textのパッケージ[Sublime SFTP](http://wbond.net/sublime_packages/sftp)を使えば、プロジェクト内の別々のフォルダに入っている各ファイルを、ワンクリックで同一の階層にアップすることが可能なので、サイトの運用に役立ちます。
+※Sublime Textのパッケージ[Sublime SFTP](http://wbond.net/sublime_packages/sftp)を使えば、プロジェクト内の別々のフォルダに入っている各ファイルを、ワンクリックで同一の階層にアップすることも可能なので、静的サイトの運用に役立ちます。
 
 ```
 └── really-static
@@ -963,4 +967,126 @@ StaticPressは、生成するアーカイブの種類を選べず、全てのア
                     └── littlebird_theme.jpg
 ```
 
+### Amazon S3への移行
 
+最後に、静的サイトの運用をさらに安全かつ快適に行うため、Amazonが提供するクラウド・ストレージサービス「S3」へ移行することにしました。  
+さらに、Really StaticとS3を連携させると、WordPressから生成したファイルを自動的にS3上にアップすることが可能なので、非常に効率的なサイト運用が可能です。
+
+#### Amazon S3での静的サイト設定
+
+Amazon S3で独自ドメインの静的サイトを公開する手順を紹介します。
+
+![](screenshots/screenshot20.png?raw=true)
+
+まずは、Amazon Web ServicesのダッシュボードからS3のコンソールへ移動し、「Create Bucket」をクリックします。
+
+![](screenshots/screenshot21.png?raw=true)
+
+Amazon S3で独自ドメイン利用するには、ドメイン名と同じ名前でバケットを作る必要があるのですが、今回は`littlebird.mobi`というルートドメインでサイトを公開したいので、`littlebird.mobi`と`www.littlebird.mobi`という、2つのBucket Nameでバケットを作成しました。
+
+![](screenshots/screenshot22.png?raw=true)
+
+次に、`littlebird.mobi`の方のバケットを選択して、「Propeties」をクリックして、右側のパネルから「Static Wedsite Hosting」を開いて「Enable website hosting」を選択します。
+
+「Index Document」と「Error Document」にファイル名を入力してから、「Save」ボタンをクリックすると、このバケットでの静的サイトの公開が可能になります。
+
+![](screenshots/screenshot23.png?raw=true)
+
+続いて、`www.littlebird.mobi`のバケットを選択して、同じく「Static Wedsite Hosting」のメニューから、今度は「Redirect all requests to another host name」を選択します。
+
+そして、「Redirect all requests to」の欄に、`littlebird.mobi`と入力してから、「Save」ボタンをクリックすると、このバケットのURLへのアクセスが、`littlebird.mobi`のルートドメインのURLへリダイレクトされるようになります。
+
+![](screenshots/screenshot24.png?raw=true)
+
+ところが、初期設定だとバケット内のコンテンツを全てのユーザーが閲覧することができないので、バケットのパーミッションを変更する必要があります。
+
+パーミッションを設定するには、`littlebird.mobi`の「Propeties」から、「Permissions」パネルを開いて、「Edit bucket policy」をクリックします。
+
+![](screenshots/screenshot25.png?raw=true)
+
+「Bucket Policy Editor」というダイアログが開くので、まず左下の「Sample Bucket Policies」をクリックして、サンプルページからサイト公開用のパーミッション記述例を探します。
+
+「Granting Read-Only Permission to an Anonymous User（匿名ユーザーへの読み取り専用アクセス許可の付与）」という所に書いてあるコードを丸ごとコピーして、先ほどのダイアログ内にペーストします。
+
+そして、バケット名の部分だけ`littlebird.mobi`に書き換えて、「Save」をクリックすると、サイト公開用のポリシー設定が完了です。
+
+![](screenshots/screenshot26.png?raw=true)
+
+試しに`littlebird.mobi`のバケットにコンテンツをアップロードし、サイトの表示確認を行いました。
+
+「Security Credentials」のページから、『Access Key ID』と『Secret Access Key』を設定して、これらの値をコピーしておきます。
+
+この2つのキーがあれば、クライアントソフト等でファイルのアップが可能になるのですが、今回はCyberduckを使ってアップロードを行いました。
+
+![](screenshots/screenshot27.png?raw=true)
+
+ブラウザのアドレス欄に、`littlebird.mobi`バケットのエンドポイント（`littlebird.mobi.s3-website-us-west-2.amazonaws.com`）を入力してアクセスすると、無事サイトの表示が確認できました。
+
+#### Route 53での独自ドメインの設定
+
+次に、S3にアップしたサイトを独自ドメインで運用するために、AWSのRoute 53でDNSの設定を行いました。
+
+![](screenshots/screenshot28.png?raw=true)
+
+まずは、Amazon Web ServicesのダッシュボードからRoute 53のコンソールへ移動し、「DNS Management」の下に表示されている「Get Started Now」というボタンをクリックします。
+
+![](screenshots/screenshot29.png?raw=true)
+
+続いて、「Hosted Zones」の画面から、「Create Hosted Zone」というボタンをクリックし、ホストゾーンを作成します。
+
+![](screenshots/screenshot30.png?raw=true)
+
+「Domain Name」に`littlebird.mobi`と入力して、「Create」ボタンをクリックします。
+
+![](screenshots/screenshot31.png?raw=true)
+
+ホストゾーンが作成できたので、続いてDNSの設定を行うために「Create Record Set」をクリックします。
+
+![](screenshots/screenshot32.png?raw=true)
+
+「Name」の欄は空欄にしたまま、「Type」は『A - IPv4 address』を選択、「Alias Target」にS3のエンドポイント`littlebird.mobi`を選択します。
+
+設定が終わったら、「Create」ボタンをクリックします。
+
+![](screenshots/screenshot33.png?raw=true)
+
+続いてもう一つレコードセットを作成します。次は、「Name」欄に『www』と入力し、「Type」は『A - IPv4 address』を選択、「Alias Target」にS3のエンドポイント`www.littlebird.mobi`を選択します。
+
+以上でRoute 53でDNSの設定は完了です。
+
+後は、お名前.comなど、レジストラ側のネームサーバー設定を変更しておきましょう。
+
+Route 53のホストゾーン設定画面で、「Name Servers」の欄に表示されている以下のアドレスをネームサーバーとして登録しました。
+
+```
+ns-1413.awsdns-48.org
+ns-299.awsdns-37.com
+ns-614.awsdns-12.net
+ns-1782.awsdns-30.co.uk
+```
+
+しばらくすると、DNSの設定が反映され、独自ドメインで先ほどS3にアップしたコンテンツの表示が確認できました。
+
+![](screenshots/screenshot34.png?raw=true)
+
+#### Really StaticとS3の連携
+
+Really Staticでは、生成した静的コンテンツをローカルに保存したり、FTPでサーバーにアップする他、Amazon S3に自動的にアップロードすることも可能です。
+
+ただし、S3との連携機能を利用するには、[Really Static Amazon S3 Plugin](http://really-static-support.php-welt.net/amazon-s3-plugin-t7.html)というプラグインを追加でインストールする必要があります。
+
+公式サイトで配布されているzipファイルを回答すると、`php-really-static-amazon-s3`というフォルダが展開されるので、このフォルダをWordPressのプラグインフォルダ（/vccw/www/wordpress/wp-content/plugins/）内に設置します。
+
+![](screenshots/screenshot35.png?raw=true)
+
+すると、管理画面の「プラグイン」ページに『Really Static Amazon S3 Plugin』というプラグインが追加されているので、「有効化」をクリックします。
+
+![](screenshots/screenshot36.png?raw=true)
+
+Really Staticの設定画面を開くと、「設置場所」タブに『work with Amazon S3』という項目が追加されます。
+
+ここにクライアントソフトに設定した時と同じように、アクセスキーとシークレットキーを入力し、バケットの欄に`littlebird.mobi`と入力しました。
+
+以上の設定をした上で、Really Staticによる再構築を行うと、該当のコンテンツファイルがS3上に自動アップロードされます。
+
+S3へのアップは、サイト全体の再構築を行なった時だけでなく、記事を投稿したタイミング等でも、差分だけが自動的にアップされるので、WordPressをサーバ上で運用しているのと同じように、快適に更新できますね。
