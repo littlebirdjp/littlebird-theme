@@ -56,7 +56,7 @@ A simple WordPress theme build with _s and Bootstrap 3.
 	- [コンテンツのアップロード](#user-content-コンテンツのアップロード)
 6. [Amazon S3への移行](#user-content-amazon-s3への移行)
 	- [Amazon S3での静的サイト公開](#user-content-amazon-s3での静的サイト公開)
-	- [Route 53での独自ドメインの設定](#user-content-route-s3での独自ドメインの設定)
+	- [Route 53での独自ドメインの設定](#user-content-route-53での独自ドメインの設定)
 	- [Really StaticとS3の連携](#user-content-really-staticとs3の連携)
 
 ### ローカル仮想環境の構築
@@ -972,7 +972,7 @@ StaticPressは、生成するアーカイブの種類を選べず、全てのア
 最後に、静的サイトの運用をさらに安全かつ快適に行うため、Amazonが提供するクラウド・ストレージサービス「S3」へ移行することにしました。  
 さらに、Really StaticとS3を連携させると、WordPressから生成したファイルを自動的にS3上にアップすることが可能なので、非常に効率的なサイト運用が可能です。
 
-#### Amazon S3での静的サイト設定
+#### Amazon S3での静的サイト公開
 
 Amazon S3で独自ドメインの静的サイトを公開する手順を紹介します。
 
