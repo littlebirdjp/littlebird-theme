@@ -885,7 +885,8 @@ StaticPressは、生成するアーカイブの種類を選べず、全てのア
 テーマディレクトリに格納されているファイルのうち、サイトの表示・動作に必要な画像、CSS、JS等だけを選別して、サーバへアップロードしました。
 実際にサーバにアップしたファイルの一覧は、以下になります。
 
-※テーマディレクトリ内には、他にも色々なファイルが格納されていますが、静的サイトの公開には必要のないものなので、アップする必要はありません。
+※テーマディレクトリ内には、他にも色々なファイルが格納されていますが、静的サイトの公開には必要のないものなので、アップする必要はありません。  
+※CSSファイルは、*.cssと*.css.mapを入れてありますが、mapファイルも本来は不要なので、運用が落ち着いたタイミングで*.min.cssの方に切り替えたいと思います。
 
 ```
 └── wp-content
@@ -897,10 +898,8 @@ StaticPressは、生成するアーカイブの種類を選べず、全てのア
             │           ├── css
             │           │   ├── bootstrap-theme.css
             │           │   ├── bootstrap-theme.css.map
-            │           │   ├── bootstrap-theme.min.css
             │           │   ├── bootstrap.css
             │           │   ├── bootstrap.css.map
-            │           │   ├── bootstrap.min.css
             │           │   ├── littlebird-site.css
             │           │   └── littlebird-site.css.map
             │           ├── fonts
