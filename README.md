@@ -13,9 +13,11 @@ A simple WordPress theme build with _s and Bootstrap 3.
 
 - WordPress
 - _s
-- Bootstrap 3.1.1
-- JQuery 1.9.0 or later
+- Bootstrap 3.2
+- JQuery 1.11.1 or later
 - Sketch 3.1.1 or later
+- Virtual Box
+- Vagrant
 
 ## 制作過程（随時更新中）
 
@@ -43,10 +45,12 @@ A simple WordPress theme build with _s and Bootstrap 3.
 		- [コンテンツ部分のスタイル調整](#user-content-コンテンツ部分のスタイル調整)
 		- [OGPの設定](#user-content-ogpの設定)
 		- [ソーシャルボタンの設置](#user-content-ソーシャルボタンの設置)
-4. WordPressコンテンツの静的化
-	- プラグインのインストール
-	- プラグインの検証・選定
-	- コンテンツの静的化
+4. [WordPressコンテンツの静的化](#user-content-wordpressコンテンツの静的化)
+	- [プラグインのインストール](#user-content-プラグインのインストール)
+	- [プラグインの検証・選定](#user-content-プラグインの検証・選定)
+		- [StaticPress](#user-content-staticpress)
+		- [Really Static](#user-content-really-static)
+		- [StaticPressとReally Staticの比較](#user-content-staticpressとreally-staticの比較)
 5. サイトの公開
 	- 共通ファイルのアップロード
 	- コンテンツのアップロード
@@ -775,4 +779,96 @@ Facebookのいいねボタンには、各投稿のURLを指定するために`<?
 
 以上で、一通りのコーディング作業が完了です。
 
+### WordPressコンテンツの静的化
+
+Vagrantによるローカルの仮想環境でサイトの構築ができたので、生成されたコンテンツをプラグインによって静的化しました。  
+このプロジェクトでは、ローカル上のWordPress（テストサイト）→サーバ上のWordPress（本番サイト）といった通常のフローではなく、ローカル上のWordPressで生成されたコンテンツをHTMLとJSのみの静的コンテンツに変換して、静的サイトとして公開する運用フローを想定しています。
+
+#### プラグインのインストール
+
+WordPressのコンテンツを静的化するプラグインとしては、[StaticPress](https://wordpress.org/plugins/staticpress/)と[Really Static](https://wordpress.org/plugins/really-static/)が有名です。  
+どちらもWordPressサイトの静的化を行うことができますが、まずはどちらもインストールして、静的コンテンツの生成の仕組みなど、両者の違いを含めて検証することにしました。
+
+WordPressの管理画面から、「プラグイン」→「新規追加」から『Static』と入力してプラグインを検索。
+「StaticPress」と「Really Static」を見つけたら、プラグイン名をクリックして、「いますぐインストール」を実行します。  
+インストールが完了したら、プラグインのページから各プラグインを「有効化」しましょう。
+
+#### プラグインの検証・選定
+
+##### StaticPress
+
+まずはStaticPressの方から動作の検証をしました。
+StaticPressをインストールすると、管理画面のサイドバーに「StaticPress」の項目が追加され、ここからStaticPressの設定・実行を行うことができます。
+
+「StaticPress設定」の画面では、生成する静的サイトのURLと、出力先ディレクトリを設定することができます。
+
+![](screenshots/screenshot12.png?raw=true)
+
+今回は、静的サイトURLを`http://littlebird.mobi/`、出力先ディレクトリ（ドキュメントルート）を`/var/www/wordpress/static/`と設定しました。
+
+以上の設定が完了すると、「StaticPress」画面から、再構築を行うことができます。記事の投稿などの準備が整い、静的コンテンツを生成する場合は、「再構築」ボタンをクリックしましょう。
+
+再構築が開始されると、『初期化中...』というメッセージが表示されて初期化の処理が実行され、続いて『フェッチ開始』というメッセージが表示されます。
+
+![](screenshots/screenshot13.png?raw=true)
+
+その後、ドキュメントルート下の`/static/`ディレクトリ内に、ファイルが一つ一つ生成されていきます。初回の再構築は多くのファイルを生成するため、完了まで約20分ほどかかりますが、画面上に『終了』のメッセージが表示されるまで気長に待ちましょう。
+
+![](screenshots/screenshot14.png?raw=true)
+
+##### Really Static
+
+次にReally Staticの動作検証を行いました。
+Really Staticをインストールすると、「設定」メニュー内に「Really Static」の項目が追加され、ここからReally Staticの設定・実行を行うことができます。
+
+Really Staticの設定画面は、初期状態では全ての項目が設定できないので、まずはページ下部の「show Expertsettings」というチェックボックスにチェックを入れましょう。
+
+![](screenshots/screenshot15.png?raw=true)
+
+「ソース」タブでは、ローカルのWordPress本体のURLと、テンプレートディレクトリへのパスを設定します。
+
+今回は、『WordPress本体へのURL』を`http://littlebird.local/`、『テンプレートフォルダへのURLパス』を`http://littlebird.local/wp-content/themes/littlebird/`と設定しました。
+
+![](screenshots/screenshot16.png?raw=true)
+
+「設置場所」タブでは、ローカル上でファイルを生成させるパスや、実際に公開するサイトのURL、サーバ上のテンプレートディレクトリのパスなどを設定します。
+
+今回は「ローカルのファイルシステムで作動させる」を選択した上で、『キャッシュされたファイルへの内部ファイルパス』を`/var/www/wordpress/really-static/`、『キャッシュされたファイルのドメインプリフィックス』を`http://littlebird.mobi/`、『テンプレートフォルダへのパス』を`http://littlebird.mobi/wp-content/themes/littlebird/`と入力しました。
+
+![](screenshots/screenshot17.png?raw=true)
+
+「設定」タブでは、生成するアーカイブの種類や、生成するファイルの種類（拡張子）を設定できます。
+
+今回は、トップページと各投稿毎のページだけを生成したかったので、「indexページを静的にします」だけにチェックを入れて、他のアーカイブのチェックをオフにしました。
+
+また、この画面の上部に「各 http://littlebird.local/ を http://littlebird.mobi/ にリライトする」というチェックボックスがありますが、ここにもチェックを入れておきます。
+
+この設定をしないと、静的サイトを生成する際に、WordPressの一部のパスがローカルのドメイン（littlebird.local）のままで生成されてしまうので、注意しましょう。
+
+![](screenshots/screenshot18.png?raw=true)
+
+「手動リフレッシュ」タブでは、ページ単位、またはサイト全体を手動で再構築することができます。
+
+Really Staticでは、記事の投稿などのアクションに応じて自動的にコンテンツを生成することもできますが、初回の構築はこのタブから実行しましょう。
+
+「すべてのファイルを書き込む」ボタンをクリックすると、サイト全体の再構築を行うことができます。
+
+##### StaticPressとReally Staticの比較
+
+StaticPressとReally Static、両方のプラグインで生成されたコンテンツをローカル上で開いて比較してみました。
+
+![](screenshots/screenshot19.png?raw=true)
+
+各フォルダに生成されたHTMLファイルは、正しくパスの書き変え等が行われており、そのまま静的ページとして公開が可能な状態に変換されていました。
+ただし、これら2つのプラグインでは、生成するコンテンツの内容に違いがあるようです。
+
+StaticPressは、生成するアーカイブの種類を選べず、全てのアーカイブを出力してしまう他、テーマやプラグインのディレクトリ内にある画像やCSS、JSなども抽出して再生成してしまうようでした。
+
+これらのファイルは、静的サイトの公開には直接必要がないものなので、サーバに丸ごとアップしてしまうのは抵抗があります。
+
+それに対して、Really Staticは、基本的に設定したアーカイブのHTMLと、アップロードしたメディア（画像）以外は生成しません。
+
+テーマ側で使用している画像やCSS、JSなどは、別途アップロードする必要がありますが、日々の運用では更新の必要がないものなので、Really Staticが生成するファイルの方が、静的サイトの運用には適しているかもしれません。
+
+以上の検証から、本プロジェクトでは、Really Staticを使用して静的サイトの運用を行うことにしました。
 
