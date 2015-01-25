@@ -3,7 +3,7 @@
 A simple WordPress theme build with _s and Bootstrap 3.
 
 [_s](http://underscores.me/)と[Bootstrap](http://getbootstrap.com/)を使ってシンプルなWordPressテーマを作ってみようという個人プロジェクトです。  
-以前制作した[littlebird-site](https://github.com/littlebirdjp/littlebird-site)のLESSファイルを流用して、WPサイトと本サイトを統合。最終的にはプラグインでコンテンツを静的化して、Amazon S3上で運用することを目標としています。
+以前制作した[littlebird-site](https://github.com/littlebirdjp/littlebird-site)のLESSファイルを流用して、WPサイトと本サイトを統合。さらにプラグインでコンテンツを静的化して、Amazon S3に自動アップロードする運用フローを確立しました。
 
 ## URL
 
@@ -1070,8 +1070,24 @@ ns-1782.awsdns-30.co.uk
 
 #### Really StaticとS3の連携
 
-Really Staticでは、生成した静的コンテンツをローカルに保存したり、FTPでサーバーにアップする他、Amazon S3にアップロードすることも可能です。
+Really Staticでは、生成した静的コンテンツをローカルに保存したり、FTPでサーバーにアップする他、Amazon S3に自動的にアップロードすることも可能です。
 
 ただし、S3との連携機能を利用するには、[Really Static Amazon S3 Plugin](http://really-static-support.php-welt.net/amazon-s3-plugin-t7.html)というプラグインを追加でインストールする必要があります。
 
-Really Staticはdonationwareであるため、追加プラグインを入手するには、寄付をする等の貢献が必要になりますが、このプラグインがあると更新した差分のみS3へ自動アップロードができるそうなので、非常に快適にサイトの運用ができそうですね。
+公式サイトで配布されているzipファイルを解凍すると、`php-really-static-amazon-s3`というフォルダが展開されるので、このフォルダをWordPressのプラグインフォルダ（/vccw/www/wordpress/wp-content/plugins/）内に設置します。
+
+![](screenshots/screenshot35.png?raw=true)
+
+すると、管理画面の「プラグイン」ページに『Really Static Amazon S3 Plugin』というプラグインが追加されているので、「有効化」をクリックします。
+
+![](screenshots/screenshot36.png?raw=true)
+
+その後、Really Staticの設定画面を開くと、「設置場所」タブに『work with Amazon S3』という項目が追加されています。
+
+ここにクライアントソフトに設定した時と同じように、アクセスキーとシークレットキーを入力し、バケットの欄に`littlebird.mobi`と入力しました。
+
+以上の設定をした上で、Really Staticによる再構築を行うと、該当のコンテンツファイルがS3上に自動アップロードされます。
+
+S3へのアップは、サイト全体の再構築を行なった時だけでなく、記事を投稿したタイミング等でも、差分だけが自動的にアップされるので、WordPressをサーバ上で運用しているのと同じように、快適に更新できますね。
+
+※Really Staticはdonationwareのため、追加プラグインを入手するには、寄付をするか、一定の貢献活動を行う等の条件を満たす必要があります。残念ながら、現在PayPalのポリシー上の問題で、日本のアカウントからは寄附が行えない状態になっているので、利用したい方は[サポートサイト](http://really-static-support.php-welt.net/why-donate--t8.html)の説明をよく読んで、作者にコンタクトを取ってみてください。
