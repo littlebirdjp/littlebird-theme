@@ -16,7 +16,8 @@
 
 body {
   //font-family: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
 a {
@@ -172,9 +173,47 @@ a {
 }
 
 .entry-content {
+  #toc_container {
+    padding: 15px;
+  }
   h2 {
     font-size: 24px;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
+    padding-bottom: .3em;
+    font-weight: bold;
+    border-bottom: 1px solid #c2c1c1;
+  }
+  h3 {
+    font-size: 21px;
+    margin-bottom: 1em;
+    font-weight: bold;
+    border-left: 4px solid #449A50;
+    padding: 0 .5em;
+  }
+  ul {
+  margin: 0 0 1.5em 0;
+  }
+  code {
+    color: #333;
+    background-color: #eee;
+  }
+  pre {
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: 1.4em;
+  word-wrap: normal;
+  code {
+      white-space: pre;
+    }
+  }
+  em {
+    font-style: normal;
+    color: #c7254e;
+  }
+  .wp-caption-text {
+    font-size: 15px;
+    font-size: 1.5rem;
+    color: #666;
   }
 }
 
@@ -371,4 +410,32 @@ a.more-link {
     }
   }
 }
+
+//
+// pagetop
+// --------------------------------------------------
+
+.pagetop {
+  a {
+    display: block;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    -webkit-border-radius: 50px;
+            border-radius: 50px;
+    background: lighten(#000, 30%);
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    color: #FFF;
+    -webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.3);
+            box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.3);
+    &:hover {
+      background: lighten(#000, 40%);
+    }
+  }
+}
+
+
 
