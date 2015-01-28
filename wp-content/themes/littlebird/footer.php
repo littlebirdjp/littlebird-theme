@@ -104,6 +104,10 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<div class="pagetop" id="pageTop">
+  <a href="#page"><i class="fa fa-chevron-up"></i></a>
+</div>
+
 <?php wp_footer(); ?>
 
 </body>

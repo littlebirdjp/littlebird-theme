@@ -73,6 +73,19 @@
 <script src="https://apis.google.com/js/platform.js" async defer>
   {lang: 'ja'}
 </script>
+<script>
+jQuery(function($){
+    var topBtn = $('#pageTop');
+    topBtn.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+});
+</script>
 </head>
 <body <?php body_class(); ?>>
 <div id="fb-root"></div>
