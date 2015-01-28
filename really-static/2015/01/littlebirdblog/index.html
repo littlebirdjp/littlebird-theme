@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法 | littlebird</title>
+<link rel='stylesheet' id='toc-screen-css'  href='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/screen.css?ver=1404' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-theme-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap-theme.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='littlebird-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/style.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='littlebird-site-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/littlebird-site.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css?ver=4.1' type='text/css' media='all' />
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js?ver=1.11.1'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/js/bootstrap.min.js?ver=4.1'></script>
+<link rel='prev' title='セミナーレポート：ゆるゆるカフェ「WordPress &amp; Foundation 勉強会＆新年会」' href='http://littlebird.mobi/2015/01/yuru2cafe01/' />
+<meta name="generator" content="WordPress 4.1 - really-static 0.5" />
+<link rel='canonical' href='http://littlebird.mobi/2015/01/littlebirdblog/' />
+<style type="text/css">div#toc_container {width: 100%;}</style><link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+<meta property="og:type" content="blog">
+<meta property="og:site_name" content="littlebird">
+<meta property="og:description" content="世の中をちょっと面白くするサイトやサービスを作っています。">
+<meta property="twitter:description" content="世の中をちょっと面白くするサイトやサービスを作っています。">
+<meta property="og:title" content="Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法">
+<meta name="twitter:title" content="Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法">
+<meta property="og:url" content="http://littlebird.mobi/2015/01/littlebirdblog/">
+<meta name="twitter:url" content="http://littlebird.mobi/2015/01/littlebirdblog/">
+<meta property="og:image" content="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog00.jpg">
+<meta property="twitter:image" content="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog00.jpg">
+<meta property="fb:admins" content="youthkee">
+<meta property="fb:app_id" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@youthkee">
+<meta name="twitter:domain" content="littlebird.mobi">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50835-7', 'auto');
+  ga('send', 'pageview');
+</script>
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'ja'}
+</script>
+<script>
+jQuery(function($){
+    var topBtn = $('#pageTop');
+    topBtn.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+});
+</script>
+</head>
+<body class="single single-post postid-77 single-format-standard">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<nav id="site-navigation" class="navbar navbar-default header" role="navigation">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle header__toggle" data-toggle="collapse" data-target="#headerMenu">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+			<div class="collapse navbar-collapse header__inner" id="headerMenu">
+			<div class="menu-header-container"><ul id="menu-header" class="menu nav navbar-nav navbar-right header__menu"><li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="http://littlebird.mobi">Home</a></li>
+<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="#service">Service</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="#profile">Profile</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a href="#contact">Contact</a></li>
+</ul></div>			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav><!-- #site-navigation -->
+
+		<div class="site-branding jumbotron main">
+		  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 main__logo">
+		    <a href="http://littlebird.mobi/"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/logo@2x.png" height="140" width="140" alt="littlebird"></a>
+		  </div>
+		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
+		    <h1 class="site-title">littlebird</h1>
+		  </div>
+		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
+		    <p class="site-description">世の中をちょっと面白くするサイトやサービスを作っています。</p>
+		  </div>
+		</div><!-- .site-branding -->
+
+	</header><!-- #masthead -->
+
+	<div class="container">
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-77" class="post-77 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+	<header class="entry-header">
+		<h1 class="entry-title">Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法</h1>
+		<div class="entry-meta">
+			<span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-01-25T15:05:37+00:00">2015/01/25</time><time class="updated" datetime="2015-01-27T01:52:59+00:00">2015/01/27</time></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard">youthkee</span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog00.jpg" alt="littlebirdblog00" width="640" height="200" class="aligncenter size-full wp-image-121" /><br />
+WordPressは手軽にWebサイトが構築できるパワフルなツールですが、昨今その脆弱性を狙った攻撃が多様化しており、保守に関わるコストも増大しています。<br />
+そこで本サイトでは、ローカルの仮想環境に構築したWordPressからHTMLファイルを生成し、完全な静的サイトとして安全に公開・運用するフローを導入しました。<br />
+WordPressの静的化というと難しく聞こえるかもしれませんが、便利なツールやプラグインを使えば、比較的簡単に実現することができるので、今回はその方法を紹介します。</p>
+<p><span id="more-77"></span></p>
+<div id="toc_container" class="no_bullets"><p class="toc_title">目次</p><ul class="toc_list"><li><a href="#WordPress"><span class="toc_number toc_depth_1">1</span> WordPressのセキュリティ対策について</a></li><li><a href="#i"><span class="toc_number toc_depth_1">2</span> ローカルの仮想環境の構築</a><ul><li><a href="#VCCW"><span class="toc_number toc_depth_2">2.1</span> VCCWのインストール</a></li><li><a href="#i-2"><span class="toc_number toc_depth_2">2.2</span> 設定ファイルの編集</a></li><li><a href="#i-3"><span class="toc_number toc_depth_2">2.3</span> プロビジョニングの実行</a></li><li><a href="#i-4"><span class="toc_number toc_depth_2">2.4</span> 仮想環境の動作確認</a></li><li><a href="#i-5"><span class="toc_number toc_depth_2">2.5</span> ホストネームでアクセスするには</a></li></ul></li><li><a href="#i-6"><span class="toc_number toc_depth_1">3</span> ローカルでのテーマ制作</a></li><li><a href="#WordPress-2"><span class="toc_number toc_depth_1">4</span> WordPressコンテンツの静的化</a><ul><li><a href="#StaticPressReally_Static"><span class="toc_number toc_depth_2">4.1</span> StaticPressとReally Staticの比較</a></li><li><a href="#Really_Static"><span class="toc_number toc_depth_2">4.2</span> Really Staticの使い方</a></li></ul></li><li><a href="#i-7"><span class="toc_number toc_depth_1">5</span> サイトの公開</a><ul><li><a href="#i-8"><span class="toc_number toc_depth_2">5.1</span> 共通ファイルのアップロード</a></li><li><a href="#i-9"><span class="toc_number toc_depth_2">5.2</span> コンテンツのアップロード</a></li></ul></li><li><a href="#Amazon_S3"><span class="toc_number toc_depth_1">6</span> Amazon S3への移行</a><ul><li><a href="#Amazon_S3-2"><span class="toc_number toc_depth_2">6.1</span> Amazon S3での静的サイト公開</a></li><li><a href="#Really_StaticS3"><span class="toc_number toc_depth_2">6.2</span> Really StaticとS3の連携</a></li></ul></li><li><a href="#i-10"><span class="toc_number toc_depth_1">7</span> まとめ</a><ul><li><a href="#i-11"><span class="toc_number toc_depth_2">7.1</span> デメリットと懸念事項</a></li><li><a href="#i-12"><span class="toc_number toc_depth_2">7.2</span> こんな人にお勧め</a></li></ul></li><li><a href="#i-13"><span class="toc_number toc_depth_1">8</span> 関連リンク</a></li></ul></div>
+
+<p><em>注意：このページの解説はMac OS X 10.9.5環境での作業を前提に動作の検証を行っています。</em></p>
+<h2><span id="WordPress">WordPressのセキュリティ対策について</span></h2>
+<p>近年、WordPressに対するアタックが増加しており、度々ニュースにもなっていますが、皆さんWordPressのセキュリティ対策はどうされていますか？例えば、よく紹介されているWordPressのセキュリティ対策として、以下のようなものがあるかと思います。</p>
+<ul>
+<li>adminユーザーを削除する</li>
+<li>難しいパスワードを設定する</li>
+<li>管理画面にBASIC認証をかける</li>
+</ul>
+<p>これらの対策はブルートフォースアタック（総当り攻撃）等に対しては有効かもしれませんが、WordPressに対する攻撃はそういった正面玄関からやって来るものだけとは限りません。</p>
+<p>場合によっては、テーマ関連ファイル（サムネイルを生成するTimThumb.phpなど）の脆弱性や、プラグインの脆弱性を突かれて、知らないうちにフィッシングサイトを生成されてしまうこともあります。</p>
+<p>世の中には便利なテーマやプラグインがたくさんありますが、それら一つ一つの脆弱性を随時チェックしていくのは大変な作業だと思います。また、それらのリスクを踏まえてWordPressを安全に保守・メンテナンスするには、相応のプログラムやサーバの知識が必要不可欠だと言えるでしょう。</p>
+<p>私を含め、個人で片手間でサイト運営しているような人にとって、かなりハードルが高いと思うのですが、極論を言えば、WordPressのPHPファイルをサーバに設置している以上、そういったリスクと無縁ではいられないのではないでしょうか？</p>
+<h2><span id="i">ローカルの仮想環境の構築</span></h2>
+<p>そこで公開サーバとは切り離したローカルのマシン上に、WordPressの作業環境を構築することにしました。</p>
+<p>ローカルでWordPressのテスト環境を構築する方法としては、XAMPPやMAMPPのようなツールを使う方法や、Mac OS XであればローカルのApacheに直接インストールする方法などもあるかと思います。</p>
+<p>今回は、より簡単にWordPress環境を導入する方法として、<a href="https://www.vagrantup.com/">Vagrant</a>と<a href="http://vccw.cc/">VCCW</a>を使った方法を採用しました。Vagrantは、コマンド一発で仮想環境が構築できるツール。VCCWは、WordPressのプラグインやテーマ開発に最適化されたVagrantの設定ファイルです。</p>
+<p>VCCWを使えば、最初からWordPressがインストールされた状態でローカル環境が用意できるだけでなく、プラグインやテーマの開発に便利なツールも一緒に付いてくるので、効率的にWordPressを使ったサイトを制作を始めることができます。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog01.jpg" alt="littlebirdblog01" width="940" height="493" class="aligncenter size-full wp-image-82" /></p>
+<h3><span id="VCCW">VCCWのインストール</span></h3>
+<p>VCCWを利用するには、<a href="https://www.virtualbox.org/wiki/Downloads">Virtual Box</a>と<a href="https://www.vagrantup.com/downloads.html">Vagrant</a>をインストールする必要があるので、まずはそれぞれの公式サイトからパッケージを落としてインストールしましょう。</p>
+<p>次にプロジェクト用のディレクトリを作成し、そこにVCCWのGitリポジトリをcloneする方法でインストールしました。今回、作業ディレクトリは以下のパスとしています。</p>
+<pre><code>~/prj/littlebird/</code></pre>
+<p>ターミナルで作業ディレクトリに移動して、以下のコマンドを実行してください。</p>
+<pre><code>$ git clone git@github.com:miya0001/vccw.git</code></pre>
+<p>すると、<code>~/prj/littlebird/vccw/</code>というサブディレクトリが作成され、VCCWのインストールが完了します。</p>
+<h3><span id="i-2">設定ファイルの編集</span></h3>
+<p><code>~/prj/littlebird/vccw/</code>へ移動すると、中に色々なファイルが入っているのですが、まずは仮想環境を立ち上げるための設定ファイルを編集します。</p>
+<p>Vagrantfile.sampleというファイルをコピー＆リネームし、Vagrantfileという名前でファイルを新規作成。そして、必要な箇所を編集していきます。今回は、主に以下の記述だけ変更を行いました。</p>
+<pre><code>WP_LANG              = ENV["wp_lang"] || "ja" # WordPress locale (e.g. ja)
+WP_HOSTNAME          = "littlebird.local" # e.g example.com
+WP_IP                = "192.168.33.10" # host ip address
+WP_HOME              = "" # path to WP_HOME, e.g blank or /wp or ...
+WP_SITEURL           = "" # path to WP_SITEURL, e.g blank or /wp or ...
+WP_TITLE             = "littlebird" # title
+WP_DB_PREFIX         = 'lb_' # Database prefix</code></pre>
+<p>サイトタイトルなどは、後で管理画面から変更することもできます。ローカルでしか利用しないものなので、データベースの設定などは特に気にせず初期設定のままにしておいて良いでしょう。</p>
+<p><em>注意：2015年1月27日時点の最新バージョン2.0.0では、Vagrantfile.sampleの代わりに<code>provision/default.yml</code>をコピーし、<code>provision/site.yml</code>にリネームした上で、各種設定を記述するように仕様が変更されたようです。今後も仕様が変わる可能性があるので、VCCWの<a href="http://vccw.cc/">公式サイト</a>および<a href="https://github.com/vccw-team/vccw">GitHubリポジトリ</a>の説明をよく読んだ上で、適宜該当箇所の書き換えを行なってください。</em></p>
+<h3><span id="i-3">プロビジョニングの実行</span></h3>
+<p>Vagrantfileの設定が終わったら、いよいよ仮想環境を立ちあげましょう。仮想マシンを起動するには、<code>~/prj/littlebird/vccw/</code>へ移動し、以下のコマンドを実行するだけです。</p>
+<pre><code>$ vagrant up</code></pre>
+<p>初回のみ、環境構築に20分ほどかかり、ターミナルのメッセージがときどき止まりますが、処理が完了するまで気長に待ちましょう。<code>/www/wordpress/</code>というサブディレクトリが作成され、中にWordPress関連のファイルが入っていれば成功です。</p>
+<p>※コマンド実行中に余計なキーを叩くと、処理が中断され、最後まで構築されない場合があるので、注意してください。構築に失敗した場合は、いったん「vagrant destroy」で環境を破棄して、再度「vagrant up」を実行すれば、最初から構築をやり直すことができます。</p>
+<h3><span id="i-4">仮想環境の動作確認</span></h3>
+<p>環境構築が完了したら、先ほど設定したIPアドレス（192.168.33.10）をブラウザで叩いてアクセスしてみましょう。WordPressの画面（デフォルトテンプレートでインストールされた状態）が表示されたら、VCCWのセットアップが完了です。</p>
+<p>ただし、このままでは管理画面にログインできないので、<code>http://192.168.33.10/wp-login.php</code>にアクセスして、WordPressの利用を開始しましょう。先ほどVagrantfileで設定した通り、最初はadmin/adminでログインが可能です。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog02.jpg" alt="littlebirdblog02" width="940" height="489" class="aligncenter size-full wp-image-84" /></p>
+<h3><span id="i-5">ホストネームでアクセスするには</span></h3>
+<p>IPではなく、Vagrantfileで設定したホストネーム（littlebird.local）でアクセスできるようにするには、vagrant-hostsupdaterというプラグインをインストールする必要があります。ターミナルで以下のコマンドを実行して、vagrant-hostsupdaterをインストールしてください。</p>
+<pre><code>$ vagrant plugin install vagrant-hostsupdater</code></pre>
+<p>※ホストネームでのアクセスは、仮想環境の構築後でも適用可能です。一度「vagrant halt」で仮想マシンを停止してから、再度「vagrant up」で起動すれば、ホストネームでもアクセスできるようになります。</p>
+<h2><span id="i-6">ローカルでのテーマ制作</span></h2>
+<p>ローカルの作業環境が整ったので、次にWordPressのテーマ制作を行いました。本サイトのテーマは、Automattic社が提供しているスターターテーマ「<a href="http://underscores.me/">_s（Underscores）</a>」をベースに、Bootstrapでカスタマイズを行っています。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog13.jpg" alt="littlebirdblog13" width="940" height="552" class="aligncenter size-full wp-image-108" /></p>
+<p>今回は非常にシンプルなデザインということもあり、必要最低限のカスタマイズしか行いませんでした。ここでは詳しい説明は割愛したいと思いますが、制作過程やソースコードは<a href="https://github.com/littlebirdjp/littlebird-theme#user-content-%E3%83%86%E3%83%BC%E3%83%9E%E9%96%8B%E7%99%BA%E3%81%AE%E7%92%B0%E5%A2%83%E6%BA%96%E5%82%99">GitHubリポジトリ</a>に掲載しているので、興味のある方はそちらを参考にしてみてください。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog14.jpg" alt="littlebirdblog14" width="940" height="517" class="aligncenter size-full wp-image-109" /></p>
+<h2><span id="WordPress-2">WordPressコンテンツの静的化</span></h2>
+<p>さて、Vagrantによるローカルの仮想環境でサイトの構築ができたので、WordPressのコンテンツをプラグインによって静的化しましょう。</p>
+<p>WordPressのコンテンツを静的化するプラグインとしては、<a href="https://wordpress.org/plugins/staticpress/">StaticPress</a>と<a href="https://wordpress.org/plugins/really-static/">Really Static</a>が有名です。どちらもWordPressサイトのHTML化を行うことができますが、プラグインの仕様や機能に若干の違いがあるので、ご自身の運用スタイルや好みに応じて使い分けることをお勧めします。</p>
+<h3><span id="StaticPressReally_Static">StaticPressとReally Staticの比較</span></h3>
+<p>まず始めに、StaticPressとReally Static、両方のプラグインを使って、両者の違いを検証してみました。2つのプラグインから生成されたコンテンツを、ローカル上で開いて比較してみると、出力されるファイルに違いがあることが分かります。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog03.jpg" alt="littlebirdblog03" width="1140" height="659" class="aligncenter size-full wp-image-86" /></p>
+<p>StaticPressは、使用していないアーカイブのHTMLも出力してしまう他、テーマやプラグインのディレクトリ内にある画像やCSS、JSなども抽出して再生成してしまうようでした。これらのファイルは、静的サイトの公開には直接必要がないものなので、サーバに丸ごとアップしてしまうのは抵抗があります。</p>
+<p>それに対して、Really Staticは、基本的に指定したアーカイブのHTMLと、アップロードしたメディア（画像）以外は生成しません。テーマ側で使用している画像やCSS、JSなどは、別途アップロードする必要がありますが、コンテンツ部分のファイルをシンプルに切り分けられるので、個人的にはアップロードの管理がしやすいように感じました。</p>
+<p>以上の理由から、本サイトでは、Really Staticを使用して静的サイトの運用を行うことにしました。</p>
+<h3><span id="Really_Static">Really Staticの使い方</span></h3>
+<p>WordPress管理画面の「プラグイン」→「新規追加」からプラグインを検索し、「Really Static」を見つけたらプラグイン名をクリックして、「いますぐインストール」を実行します。インストールが完了したら、プラグインのページからReally Staticを「有効化」しましょう。</p>
+<p> Really Staticをインストールすると、「設定」メニュー内に「Really Static」の項目が追加され、ここからReally Staticの設定と再構築を行うことができます。</p>
+<p>Really Staticの設定画面は、初期状態では全ての項目が利用できないので、まずはページ下部の「show Expertsettings」というチェックボックスにチェックを入れましょう。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog04.jpg" alt="littlebirdblog04" width="940" height="456" class="aligncenter size-full wp-image-88" /></p>
+<p>「ソース」タブでは、ローカルのWordPress本体のURLと、テンプレートディレクトリへのパスを設定します。今回は、WordPressのURLを<code>http://littlebird.mobi/</code>とし、同様にテンプレートフォルダのURLを設定しました。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog05.jpg" alt="littlebirdblog05" width="940" height="493" class="aligncenter size-full wp-image-90" /></p>
+<p>「設置場所」タブでは、ローカル上でファイルを生成させるパスや、実際に公開するサイトのURL、サーバ上のテンプレートディレクトリのパスなどを設定します。</p>
+<p>今回は「ローカルのファイルシステムで作動させる」を選択した上で、『キャッシュされたファイルへの内部ファイルパス』を<code>/var/www/wordpress/really-static/</code>と設定しました。合わせて、公開サーバのドメインでURLとテンプレートフォルダへのパスを設定してあります。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog06.jpg" alt="littlebirdblog06" width="940" height="493" class="aligncenter size-full wp-image-91" /></p>
+<p>「設定」タブでは、生成するアーカイブの種類や、生成するファイルの種類（拡張子）などを設定できます。今回は、トップページと投稿ページだけを生成したかったので、「indexページを静的にします」だけにチェックを入れて、他のアーカイブのチェックをオフにしました。</p>
+<p>また、この画面の上部に「各 http://littlebird.mobi/ を http://littlebird.mobi/ にリライトする」というチェックボックスがありますが、ここにもチェックを入れておきます。</p>
+<p>この設定をしないと、静的サイトを生成する際に、WordPressの一部のパスがローカルのドメイン（littlebird.local）のままで生成されてしまうので、注意しましょう。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog07.jpg" alt="littlebirdblog07" width="940" height="493" class="aligncenter size-full wp-image-92" /></p>
+<p>「手動リフレッシュ」タブでは、ページ単位、またはサイト全体を手動で再構築することができます。</p>
+<p>Really Staticでは、記事の投稿などのアクションに応じて自動的にコンテンツを生成するようになっていますが、初回の構築はこのタブから実行しましょう。「すべてのファイルを書き込む」ボタンをクリックすると、サイト全体の再構築を行うことができます。</p>
+<h2><span id="i-7">サイトの公開</span></h2>
+<p>プラグインによる静的化のフローが確立したので、コンテンツをサーバへアップロードし、サイトの公開を行いましょう。アップロードするファイルは、テーマディレクトリ内に格納されている画像、CSS、JS等の共通ファイルと、プラグインによって生成される投稿ページ等のコンテンツに分かれています。</p>
+<h3><span id="i-8">共通ファイルのアップロード</span></h3>
+<p>テーマディレクトリに格納されているファイルのうち、サイトの表示・動作に必要な画像、CSS、JS等だけを抜き出して、サーバへアップロードします。 あくまで一例ですが、本サイトでサーバ上にアップしているファイルの一覧は以下のものになります。</p>
+<p>※テーマディレクトリ内には、他にもPHPファイルなど、色々なファイルが格納されていますが、静的サイトの公開には必要のないものなので、アップする必要はありません。</p>
+<pre><code>└── wp-content
+        themes
+        └── littlebird
+            ├── bower_components
+            │   └── jbootstrap
+            │       └── dist
+            │           ├── css
+            │           │   ├── bootstrap-theme.min.css
+            │           │   ├── bootstrap.min.css
+            │           │   └── littlebird-site.min.css
+            │           ├── fonts
+            │           │   ├── glyphicons-halflings-regular.eot
+            │           │   ├── glyphicons-halflings-regular.svg
+            │           │   ├── glyphicons-halflings-regular.ttf
+            │           │   └── glyphicons-halflings-regular.woff
+            │           └── js
+            │               └── bootstrap.min.js
+            ├── fonts
+            │   ├── Marck_Script
+            │   │   ├── MarckScript-Regular.ttf
+            │   │   └── OFL.txt
+            │   └── Source_Sans_Pro
+            │       ├── OFL.txt
+            │       ├── SourceSansPro-Black.ttf
+            │       ├── SourceSansPro-BlackItalic.ttf
+            │       ├── SourceSansPro-Bold.ttf
+            │       ├── SourceSansPro-BoldItalic.ttf
+            │       ├── SourceSansPro-ExtraLight.ttf
+            │       ├── SourceSansPro-ExtraLightItalic.ttf
+            │       ├── SourceSansPro-Italic.ttf
+            │       ├── SourceSansPro-Light.ttf
+            │       ├── SourceSansPro-LightItalic.ttf
+            │       ├── SourceSansPro-Regular.ttf
+            │       ├── SourceSansPro-Semibold.ttf
+            │       └── SourceSansPro-SemiboldItalic.ttf
+            ├── img
+            │   ├── bt_facebook@2x.png
+            │   ├── bt_instagram@2x.png
+            │   ├── bt_twitter@2x.png
+            │   ├── logo@2x.png
+            │   ├── ogimage.png
+            │   ├── service01@2x.png
+            │   ├── service02@2x.png
+            │   ├── service03@2x.png
+            │   └── youthkee@2x.png
+            ├── js
+            │   ├── customizer.js
+            │   ├── navigation.js
+            │   └── skip-link-focus-fix.js
+            └── style.css</code></pre>
+<h3><span id="i-9">コンテンツのアップロード</span></h3>
+<p>次に、Really Staticで生成したコンテンツ側のファイルをアップロードしました。これらのファイルは、<code>really-static</code>フォルダ以下に保存されていますが、サーバ上ではドキュメントルート等、適切な階層に置き換えてアップする必要があるので、注意してください。</p>
+<p>HTMLや画像ファイルは、コンテンツを更新する度に増えていきますが、初回以降は差分のみアップするような運用にした方がいいかもしれません。</p>
+<pre><code>└── really-static
+    ├── 2014
+    │   └── 12
+    │       └── firstpost
+    │           └── index.html
+    ├── index.html
+    └── wp-content
+        └── uploads
+            └── 2014
+                └── 12
+                    ├── firstpost.jpg
+                    └── littlebird_theme.jpg</code></pre>
+<h2><span id="Amazon_S3">Amazon S3への移行</span></h2>
+<p>最後に、静的サイトをさらに快適に運用するため、<a href="http://aws.amazon.com/jp/s3/">Amazon S3</a>へ移行する方法を紹介します。Amazon S3は、AWS（Amazon Web Services）で提供されているクラウドストレージサービスで、サーバの運用や管理の手間を軽減できる様々なメリットがあります。</p>
+<p>例えば、堅牢性99.999999999%、可用性99.9%という特徴がありますが、簡単に言うとデータがなくならいのでバックアップの必要もないし、サイトが落ちてアクセスできなくなるといった心配もほぼなくなります。</p>
+<p>動的な機能のないサイトであれば、S3での運用で十分ですし、従量課金で1ヶ月辺り10円／1GB〜という低コストから利用できるので、個人のブログ程度であれば、かなり魅力的な選択肢と言えるのではないでしょうか？（※リクエスト数や転送量などに応じて別途料金が発生します）</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog08.jpg" alt="littlebirdblog08" width="940" height="486" class="aligncenter size-full wp-image-97" /></p>
+<h3><span id="Amazon_S3-2">Amazon S3での静的サイト公開</span></h3>
+<p><a href="http://aws.amazon.com/jp/register-flow/">AWSのアカウント作成</a>から、Amazon S3でコンテンツをアップするための「バケット」の作成までは、全てAWSのWebサイト上で行えるので、公式のチュートリアルなどを参考にすれば、迷わずに導入できるかと思います。</p>
+<p>注意点としては、Amazon S3で独自ドメイン利用するには、ドメイン名と同じ名前でバケットを作る必要があります。また、「http://littlebird.mobi」のようなルートドメインで公開する場合、「www」付きのドメインも合わせてバケットを用意する必要があるので、『littlebird.mobi』と『www.littlebird.mobi』という2つのバケットを作成し、リダイレクト設定を行いました。</p>
+<figure id="attachment_99" style="width: 940px;" class="wp-caption aligncenter"><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog09.jpg" alt="『www.littlebird.mobi』のバケットから「littlebird.mobi」のドメインにリダイレクトを行う" width="940" height="490" class="size-full wp-image-99" /><figcaption class="wp-caption-text">『www.littlebird.mobi』のバケットから「littlebird.mobi」のドメインにリダイレクトを行う</figcaption></figure>
+<p>さらに、独自ドメインでのアクセスを可能にするには、AWSで提供しているRoute 53というDNSサービスを利用する必要があるので、各サービスのコンソールから設定を行いましょう。詳しい手順は、<a href="https://github.com/littlebirdjp/littlebird-theme#user-content-amazon-s3%E3%81%B8%E3%81%AE%E7%A7%BB%E8%A1%8C">本プロジェクトのGitHubリポジトリ</a>にまとめてあるので、参考にしてみてください。</p>
+<figure id="attachment_100" style="width: 940px;" class="wp-caption aligncenter"><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog10.jpg" alt="Route 53でレコードセットを作成し、「Alias Target」にS3のエンドポイントを指定" width="940" height="490" class="size-full wp-image-100" /><figcaption class="wp-caption-text">Route 53でレコードセットを作成し、「Alias Target」にS3のエンドポイントを指定</figcaption></figure>
+<h3><span id="Really_StaticS3">Really StaticとS3の連携</span></h3>
+<p>Amazon S3へのコンテンツのアップロードは、クライアントソフト等でも行えますが、Really Staticの連携機能を使うと、さらに快適な作業環境を実現することができます。ただし、S3との連携機能を利用するには、「Really Static Amazon S3 Plugin」というプラグインを追加でインストールする必要があります。</p>
+<p><a href="http://really-static-support.php-welt.net/amazon-s3-plugin-t7.html">サポートサイトサイト</a>で配布されているzipファイルを解凍すると、「php-really-static-amazon-s3」というフォルダが展開されるので、このフォルダをWordPressのプラグインフォルダ（/vccw/www/wordpress/wp-content/plugins/）内に設置します。</p>
+<p>すると、管理画面の「プラグイン」ページに『Really Static Amazon S3 Plugin』というプラグインが追加されているので、「有効化」をクリックします。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog11.jpg" alt="littlebirdblog11" width="940" height="490" class="aligncenter size-full wp-image-103" /></p>
+<p>その後、Really Staticの設定画面を開くと、「設置場所」タブに『work with Amazon S3』という項目が追加されています。</p>
+<p>ここにAWSの「Security Credentials」のページで設定した『Access Key ID』と『Secret Access Key』を入力し、バケットの欄に作成したバケット名（例：littlebird.mobi）を入力してください。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog12.jpg" alt="littlebirdblog12" width="940" height="490" class="aligncenter size-full wp-image-104" /></p>
+<p>以上の設定をした上で、Really Staticによる再構築を行うと、該当のコンテンツファイルがS3上に自動アップロードされます。</p>
+<p>S3へのアップは、サイト全体の再構築を行なった時だけでなく、記事を投稿したタイミング等でも、差分だけが自動的にアップされるので、WordPressをサーバ上で運用しているのと同じように、快適に更新できますね。</p>
+<p>※Really Staticはdonationwareのため、追加プラグインを入手するには、寄付をするか、一定の貢献活動を行う等の条件を満たす必要があります。残念ながら、現在PayPalのポリシー上の問題で、日本のアカウントからは寄附が行えない状態になっているので、利用したい方は<a href="http://really-static-support.php-welt.net/why-donate--t8.html">サポートサイトの説明</a>をよく読んで、作者にコンタクトを取ってみてください。</p>
+<h2><span id="i-10">まとめ</span></h2>
+<p>VCCWとReally Staticを使うことで、ローカル上に静的サイトを生成し、Amazon S3へ手軽に公開できるフローを確立することができました。</p>
+<p>個人的には、今まで頭を悩ませてきたWordPressサイトの保守やセキュリティ対策といった作業から開放されるので、これほど快適な運用フローはありません。MacBookさえ持ち歩いていれば、いつでも安全にWordPressが利用できるのですから・・。</p>
+<p>Really StaticとS3の連携機能を使えば、記事の投稿と同時にコンテンツがアップされるので、サーバ上でWordPressを利用している場合と全く同じ感覚で更新できるのも、大きな魅力だと言えるのではないでしょうか？</p>
+<h3><span id="i-11">デメリットと懸念事項</span></h3>
+<p>WordPressを静的化するデメリットや懸念点としては、リアルタイムに動的な表示や処理を行うプラグインが使えない、再構築にかかる負荷が心配、といった点が考えられると思います。</p>
+<p>当サイトの場合、非常にシンプルな作りにしているので、動的なプラグインは使用していませんが、例えば人気記事のランキングを表示したいといったニーズが発生したら、Javascriptなど別のソリューションを検討する必要があるかもしれません。</p>
+<p>また、再構築に関わる負荷ですが、今のところ全体構築でも瞬時にできていますし、当サイトの場合、月に1～2エントリー程度しか投稿しないでしょうから、数年運用してもほぼ気にしなくていいレベルだと考えられます。</p>
+<h3><span id="i-12">こんな人にお勧め</span></h3>
+<p>複雑な機能のサイトや、更新頻度が非常に高いサイトの場合は、色々と検討事項があるかもしれませんが、個人ブログをサクッと立ちあげたい人にとっては、かなり魅力的な選択肢の一つと言えるでしょう。</p>
+<p>最近は、<a href="http://jekyllrb.com/">Jekyll</a>や<a href="https://middlemanapp.com/jp/">Middleman</a>などを始めとした、静的サイトジェネレータを使ってブログを構築している方も少なくないと思いますが、CMSとして洗練されたWordPressの各種機能や、ビジュアルエディタを利用できるメリットは大きいと思います。</p>
+<p>WordPressをよく使う人や、静的にブログを構築したいけどコマンドラインはちょっと苦手という人は、ぜひこんなやり方も参考にしてみてはいかがでしょうか？</p>
+<p>※当サイトの制作過程は<a href="https://github.com/littlebirdjp/littlebird-theme">GitHubリポジトリ</a>に公開しているので、より詳しい手順を知りたい方は、そちらをお読みください。</p>
+<h2><span id="i-13">関連リンク</span></h2>
+<ul>
+<li><a href="http://dev.classmethod.jp/cloud/aws/report-of-staticpress-s3-vagrant/">【WordPress特別セミナー】StaticPress × S3 × Vagrant 勉強会 に参加してきた #staticwp ｜ Developers.IO</a></li>
+</ul>
+			</div><!-- .entry-content -->
+
+	<div class="entry-share">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<div class="fb-like" data-href="http://littlebird.mobi/2015/01/littlebirdblog/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		<div class="g-plusone" data-annotation="inline" data-width="120"></div>
+	</div><!-- .entry-share -->
+
+	<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #content -->
+
+	</div><!-- /.container -->
+
+<div class="content">
+
+<div class="container">
+
+<div class="row section">
+
+  <h2 class="section__title" id="service">Service</h2>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://igfan.jp">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service01@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">IG Fan</h3>
+        <p class="service__text">instagramとiPhoneographyに関する総合情報サイト。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://twpr.jp">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service02@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">castella</h3>
+        <p class="service__text">TwitterやFacebookなど、色んなSNSでプロフが作れるソーシャルプロフィールサイト。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://genpatsu.net">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service03@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">原発ニュース</h3>
+        <p class="service__text">日本各地の原発施設に関する最新ニュースがチェックできるアプリ。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+</div>
+
+</div><!-- /.container -->
+
+</div><!-- /.content -->
+
+<div class="container">
+
+<div class="row section section_border_bottom profile">
+
+  <h2 class="section__title" id="profile">Profile</h2>
+
+  <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 profile__image">
+	<img src="http://littlebird.mobi/wp-content/themes/littlebird/img/youthkee@2x.png" height="80" width="80" alt="">
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8">
+        <h3 class="profile__title">Yusuke Takahashi</h3>
+        <p class="profile__text">UI設計が大好きなWebデベロッパー。<br>
+        サイトの企画、制作、運営やライティングなどやっています。</p>
+        <div class="socialButton">
+          <a href="https://twitter.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
+          <a href="https://www.facebook.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>
+          <a href="http://instagram.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_instagram@2x.png" height="25" width="25" alt=""></a>
+        </div>
+  </div>
+
+</div>
+
+<div class="row section section_border_bottom contact">
+
+  <h2 class="section__title" id="contact">Contact</h2>
+
+    <p class="contact__text">サイトやサービスに関するお問い合せは下記ボタンより、メールにてご連絡ください。</p>
+    <p class="text-center"><a href="mailto:littlebird.mobi@gmail.com" class="btn btn-success linkButton linkButton_icon_left" role="button"><span class="glyphicon glyphicon-envelope"></span>Send Email</a></p>
+
+</div>
+
+</div><!-- /.container -->
+
+	<footer id="colophon" class="site-footer footer" role="contentinfo">
+		<div class="site-info">
+			<a href="http://wordpress.org/">Proudly powered by WordPress</a><br>
+			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div class="pagetop" id="pageTop">
+  <a href="#page"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/front.js?ver=1404'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/skip-link-focus-fix.js?ver=20130115'></script>
+
+</body>
+</html>

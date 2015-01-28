@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>littlebird | 世の中をちょっと面白くするサイトやサービスを作っています。</title>
-<link rel='stylesheet' id='bootstrap-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap.css?ver=4.1' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-theme-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap-theme.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/screen.css?ver=1404' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-theme-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap-theme.min.css?ver=4.1' type='text/css' media='all' />
 <link rel='stylesheet' id='littlebird-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/style.css?ver=4.1' type='text/css' media='all' />
-<link rel='stylesheet' id='littlebird-site-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/littlebird-site.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='littlebird-site-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/littlebird-site.min.css?ver=4.1' type='text/css' media='all' />
 <link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css?ver=4.1' type='text/css' media='all' />
 <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js?ver=1.11.1'></script>
 <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js?ver=1.2.1'></script>
 <script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/js/bootstrap.min.js?ver=4.1'></script>
 <meta name="generator" content="WordPress 4.1 - really-static 0.5" />
-<link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+<style type="text/css">div#toc_container {width: 100%;}</style><link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
 <meta property="og:type" content="blog">
 <meta property="og:site_name" content="littlebird">
@@ -58,6 +59,19 @@
 </script>
 <script src="https://apis.google.com/js/platform.js" async defer>
   {lang: 'ja'}
+</script>
+<script>
+jQuery(function($){
+    var topBtn = $('#pageTop');
+    topBtn.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+});
 </script>
 </head>
 <body class="home blog">
@@ -118,6 +132,48 @@
 		
 						
 				
+<article id="post-77" class="post-77 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="http://littlebird.mobi/2015/01/littlebirdblog/" rel="bookmark">Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法</a></h1>
+				<div class="entry-meta">
+			<span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-01-25T15:05:37+00:00">2015/01/25</time><time class="updated" datetime="2015-01-27T01:52:59+00:00">2015/01/27</time></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard">youthkee</span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/littlebirdblog00.jpg" alt="littlebirdblog00" width="640" height="200" class="aligncenter size-full wp-image-121" /><br />
+WordPressは手軽にWebサイトが構築できるパワフルなツールですが、昨今その脆弱性を狙った攻撃が多様化しており、保守に関わるコストも増大しています。<br />
+そこで本サイトでは、ローカルの仮想環境に構築したWordPressからHTMLファイルを生成し、完全な静的サイトとして安全に公開・運用するフローを導入しました。<br />
+WordPressの静的化というと難しく聞こえるかもしれませんが、便利なツールやプラグインを使えば、比較的簡単に実現することができるので、今回はその方法を紹介します。</p>
+<p> <a href="http://littlebird.mobi/2015/01/littlebirdblog/#more-77" class="more-link">Continue reading <span class="screen-reader-text">&#8220;Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法&#8221;</span> <i class="meta-nav fa fa-angle-right"></i></a></p>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+			
+				
+<article id="post-64" class="post-64 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="http://littlebird.mobi/2015/01/yuru2cafe01/" rel="bookmark">セミナーレポート：ゆるゆるカフェ「WordPress &#038; Foundation 勉強会＆新年会」</a></h1>
+				<div class="entry-meta">
+			<span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-01-14T02:23:02+00:00">2015/01/14</time><time class="updated" datetime="2015-01-14T09:38:08+00:00">2015/01/14</time></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard">youthkee</span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><img src="http://littlebird.mobi/wp-content/uploads/2015/01/yuru2cafe01.jpg" alt="yuru2cafe01" width="640" height="336" class="aligncenter size-full wp-image-67" /><br />
+1/10にモバフ新宿アイランドで開催されたゆるゆるカフェ<a href="http://yuru2.doorkeeper.jp/events/18647">「WordPress &#038; Foundation 勉強会＆新年会」</a>に参加してきました。<br />
+_s（Underscores）とFoundationを使ったテーマ開発がメインテーマだったのですが、実践的な導入事例を知ることができたので勉強になりました。<br />
+Foundationは触ったことがなかったのですが、今度構築するサイトで試しに使ってみたいと思います。</p>
+<p> <a href="http://littlebird.mobi/2015/01/yuru2cafe01/#more-64" class="more-link">Continue reading <span class="screen-reader-text">&#8220;セミナーレポート：ゆるゆるカフェ「WordPress &#038; Foundation 勉強会＆新年会」&#8221;</span> <i class="meta-nav fa fa-angle-right"></i></a></p>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+			
+				
 <article id="post-52" class="post-52 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
 	<header class="entry-header">
 		<h1 class="entry-title"><a href="http://littlebird.mobi/2014/12/webnewprinciple/" rel="bookmark">書評「プロとして恥ずかしくない 新・WEBデザインの大原則」</a></h1>
@@ -163,7 +219,7 @@
 	<header class="entry-header">
 		<h1 class="entry-title"><a href="http://littlebird.mobi/2014/12/firstpost/" rel="bookmark">ブログ始めました。</a></h1>
 				<div class="entry-meta">
-			<span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2014-12-23T12:35:33+00:00">2014/12/23</time><time class="updated" datetime="2014-12-23T12:56:28+00:00">2014/12/23</time></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard">youthkee</span></span>		</div><!-- .entry-meta -->
+			<span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2014-12-23T12:35:33+00:00">2014/12/23</time><time class="updated" datetime="2015-01-04T16:40:20+00:00">2015/01/04</time></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard">youthkee</span></span>		</div><!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -279,6 +335,16 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<div class="pagetop" id="pageTop">
+  <a href="#page"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/front.js?ver=1404'></script>
 <script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/navigation.js?ver=20120206'></script>
 <script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/skip-link-focus-fix.js?ver=20130115'></script>
 
