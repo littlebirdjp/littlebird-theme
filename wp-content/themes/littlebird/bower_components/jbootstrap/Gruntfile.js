@@ -253,6 +253,11 @@ module.exports = function (grunt) {
           'dist/css/<%= pkg.name %>-theme.min.css': 'dist/css/<%= pkg.name %>-theme.css'
         }
       },
+      original: {
+        files: {
+          'dist/css/littlebird-site.min.css': 'dist/css/littlebird-site.css',
+        }
+      },
       docs: {
         src: [
           'docs/assets/css/_src/docs.css',
@@ -372,6 +377,10 @@ module.exports = function (grunt) {
       less: {
         files: 'less/*.less',
         tasks: 'less'
+      },
+      cssmin: {
+        files: 'dist/css/*.css',
+        tasks: 'cssmin'
       }
     },
 
