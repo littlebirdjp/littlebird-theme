@@ -151,6 +151,9 @@ a {
 .entry-title a:hover {
   color: #999;
 }
+.entry-content {
+  margin: 1em 0 0;
+}
 .entry-content #toc_container {
   padding: 15px;
 }
@@ -193,12 +196,18 @@ a {
   font-size: 1.5rem;
   color: #666;
 }
+.entry-share-top {
+  margin-top: 5px;
+}
 .twitter-share-button {
-  width: 100px !important;
+  width: 95px !important;
 }
 .fb-like {
   top: -5px !important;
   width: 150px !important;
+}
+.pocket-btn {
+  display: inline;
 }
 .content {
   border-top: 1px solid #c2c1c1;

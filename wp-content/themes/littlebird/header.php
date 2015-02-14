@@ -70,9 +70,6 @@
   ga('create', 'UA-50835-7', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="https://apis.google.com/js/platform.js" async defer>
-  {lang: 'ja'}
-</script>
 <script>
 jQuery(function($){
     var topBtn = $('#pageTop');
