@@ -38,7 +38,7 @@ a {
 .header .header__menu > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 22px;
   color: #359242;
 }
 .header .header__menu > li > a:hover,
@@ -51,8 +51,8 @@ a {
     float: left;
   }
   .header .header__menu > li > a {
-    padding-top: 7.5px;
-    padding-bottom: 7.5px;
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
     padding-left: 6px;
     padding-right: 6px;
   }
@@ -195,6 +195,19 @@ a {
   font-size: 15px;
   font-size: 1.5rem;
   color: #666;
+}
+.nav-links a {
+  padding: 10px 40px;
+  font-size: 16.96px;
+  line-height: 1.55;
+}
+.paging-navigation .nav-previous {
+  float: right;
+  text-align: right;
+}
+.paging-navigation .nav-next {
+  float: left;
+  text-align: left;
 }
 .entry-share-top {
   margin-top: 5px;
