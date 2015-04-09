@@ -200,6 +200,12 @@ a {
   padding: 10px 40px;
   font-size: 16.96px;
   line-height: 1.55;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+@media (min-width: 992px) {
+  .nav-links a {
+    font-size: 18px;
+  }
 }
 .paging-navigation .nav-previous {
   float: right;
