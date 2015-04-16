@@ -12,6 +12,7 @@
 @lb-title-color2: #4ACA5C;
 
 @import "littlebird-variables.less";
+@import "responsive-embed.less";
 @import "mixins.less";
 
 body {
@@ -238,6 +239,21 @@ a {
 .paging-navigation .nav-next {
   float: left;
   text-align: left;
+}
+
+//
+// content modifier
+// --------------------------------------------------
+
+.lb-embed {
+  width: 100%;
+  @media (min-width: @screen-sm) {
+    width: 640px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 }
 
 .entry-share-top {
