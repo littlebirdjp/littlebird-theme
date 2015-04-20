@@ -153,3 +153,27 @@ function get_featured_image_url() {
     $image_url = wp_get_attachment_image_src($image_id,'thumbnail', true); 
     echo $image_url[0]; 
 }
+
+// embed responsive
+function littlebird_youtube_embed($atts) {
+    extract(shortcode_atts(array(
+        'id' => 0,
+        'ratio' => '16by9',
+    ), $atts));
+ 
+    return '<div class="lb-embed"><div class="embed-responsive embed-responsive-' . $ratio . '"><iframe width="640" height="360" src="https://www.youtube.com/embed/' . $id . '?rel=0" frameborder="0" allowfullscreen></iframe></div></div>';
+}
+add_shortcode('youtube', 'littlebird_youtube_embed');
+
+function littlebird_slideshare_embed($atts) {
+    extract(shortcode_atts(array(
+        'id' => 0,
+        'ratio' => '16by9',
+    ), $atts));
+ 
+    return '<div class="lb-embed"><div class="embed-responsive embed-responsive-' . $ratio . '"><iframe src="https://www.slideshare.net/slideshow/embed_code/' . $id . '" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div></div>';
+}
+add_shortcode('slideshare', 'littlebird_slideshare_embed');
+
+
+
