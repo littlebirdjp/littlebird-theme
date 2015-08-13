@@ -99,7 +99,8 @@
 	<footer id="colophon" class="site-footer footer" role="contentinfo">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'littlebird' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'littlebird' ), 'WordPress' ); ?></a><br>
-			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird
+			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird<br>
+    <a href="https://tokyo.wordcamp.org/2015/" target="_blank"><img src="https://tokyo.wordcamp.org/2015/files/2015/08/banner_234x60.jpg" alt="WordCamp Tokyo 2015" /></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
