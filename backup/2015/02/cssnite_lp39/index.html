@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セミナーレポート：CSS Nite LP39「 Coder’s High 2015：コーディングスタイルの理想と現実」 | littlebird</title>
+<link rel='stylesheet' id='toc-screen-css'  href='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/screen.css?ver=1404' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-theme-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap-theme.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='littlebird-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/style.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='littlebird-site-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/littlebird-site.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css?ver=4.1' type='text/css' media='all' />
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js?ver=1.11.1'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/js/bootstrap.min.js?ver=4.1'></script>
+<link rel='prev' title='Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法' href='http://littlebird.mobi/2015/01/littlebirdblog/' />
+<link rel='next' title='「WordPressもくもく勉強会 at コエド」でショートセッションさせていただきました。' href='http://littlebird.mobi/2015/02/wpmoku4/' />
+<meta name="generator" content="WordPress 4.1 - really-static 0.5" />
+<link rel='canonical' href='http://littlebird.mobi/2015/02/cssnite_lp39/' />
+<style type="text/css">div#toc_container {width: 100%;}</style><link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+<meta property="og:type" content="blog">
+<meta property="og:site_name" content="littlebird">
+<meta property="og:description" content="小さな一歩から、世界を変える何かを。">
+<meta property="twitter:description" content="小さな一歩から、世界を変える何かを。">
+<meta property="og:title" content="セミナーレポート：CSS Nite LP39「 Coder’s High 2015：コーディングスタイルの理想と現実」">
+<meta name="twitter:title" content="セミナーレポート：CSS Nite LP39「 Coder’s High 2015：コーディングスタイルの理想と現実」">
+<meta property="og:url" content="http://littlebird.mobi/2015/02/cssnite_lp39/">
+<meta name="twitter:url" content="http://littlebird.mobi/2015/02/cssnite_lp39/">
+<meta property="og:image" content="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39.jpg">
+<meta property="twitter:image" content="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39.jpg">
+<meta property="fb:admins" content="youthkee">
+<meta property="fb:app_id" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@youthkee">
+<meta name="twitter:domain" content="littlebird.mobi">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50835-7', 'auto');
+  ga('send', 'pageview');
+</script>
+<script>
+jQuery(function($){
+    var topBtn = $('#pageTop');
+    topBtn.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+});
+</script>
+</head>
+<body class="single single-post postid-136 single-format-standard">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<nav id="site-navigation" class="navbar navbar-default header" role="navigation">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle header__toggle" data-toggle="collapse" data-target="#headerMenu">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+			<div class="collapse navbar-collapse header__inner" id="headerMenu">
+			<div class="menu-header-container"><ul id="menu-header" class="menu nav navbar-nav navbar-right header__menu"><li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="http://littlebird.mobi">Home</a></li>
+<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="#service">Service</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="#profile">Profile</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a href="#contact">Contact</a></li>
+</ul></div>			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav><!-- #site-navigation -->
+
+		<div class="site-branding jumbotron main">
+		  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 main__logo">
+		    <a href="http://littlebird.mobi/"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/logo@2x.png" height="140" width="140" alt="littlebird"></a>
+		  </div>
+		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
+		    <h1 class="site-title">littlebird</h1>
+		  </div>
+		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
+		    <p class="site-description">小さな一歩から、世界を変える何かを。</p>
+		  </div>
+		</div><!-- .site-branding -->
+
+	</header><!-- #masthead -->
+
+	<div class="container">
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-136" class="post-136 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+	<header class="entry-header">
+		<h1 class="entry-title">セミナーレポート：CSS Nite LP39「 Coder’s High 2015：コーディングスタイルの理想と現実」</h1>
+		<div class="entry-meta">
+			<span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-02-15T00:31:30+00:00">2015/02/15</time><time class="updated" datetime="2015-02-15T18:22:09+00:00">2015/02/15</time></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard">youthkee</span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-share entry-share-top">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<div class="fb-like" data-href="http://littlebird.mobi/2015/02/cssnite_lp39/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+		<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+		<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+	</div><!-- .entry-share -->
+
+
+	<div class="entry-content">
+		<p><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39.jpg" alt="cssnite_lp39" width="640" height="336" class="aligncenter size-full wp-image-139" /><br />
+2/7にベルサール九段で開催された<a href="http://cssnite.jp/lp/lp39/">CSS Nite LP39「Coder’s High 2015：コーディングスタイルの理想と現実」</a>に参加してきました。コーディングメインの企画ということで、正直ついていけるか不安だったのですが、結果的には豪華な登壇者の方々による、笑いあり涙ありのセッションで楽しませていただき、あっという間の5時間を過ごせました。<br />
+技術的に詰め込みというタイプのセミナーではありませんでしたが、これからのコーディングスタイルを模索する上で、大きな指針を得ることができた気がします。</p>
+<p><span id="more-136"></span></p>
+<div id="toc_container" class="no_bullets"><p class="toc_title">目次</p><ul class="toc_list"><li><a href="#CSS"><span class="toc_number toc_depth_1">1</span> 基調講演：CSS設計の理想と現実</a></li><li><a href="#CSS-2"><span class="toc_number toc_depth_1">2</span> 理想のCSSフレームワークを探して</a></li><li><a href="#5"><span class="toc_number toc_depth_1">3</span> 5分でゼロからテストサイトまで立ち上げます！</a></li><li><a href="#i"><span class="toc_number toc_depth_1">4</span> ビルドツールはじめの一歩（タスクランナー編）</a></li><li><a href="#musicjp_before_after"><span class="toc_number toc_depth_1">5</span> music.jpのリファクタリング before / after</a></li><li><a href="#CSS-3"><span class="toc_number toc_depth_1">6</span> 柔軟なコンポーネント設計のためのCSS</a></li><li><a href="#i-2"><span class="toc_number toc_depth_1">7</span> まとめ</a><ul><li><a href="#i-3"><span class="toc_number toc_depth_2">7.1</span> 現在と未来を見据えて</a></li><li><a href="#CSS_Nite"><span class="toc_number toc_depth_2">7.2</span> 次回のCSS Niteでは・・？</a></li></ul></li><li><a href="#i-4"><span class="toc_number toc_depth_1">8</span> 関連リンク</a></li></ul></div>
+
+<h2><span id="CSS">基調講演：CSS設計の理想と現実</span></h2>
+<p>まず始めに谷拓樹さんによる基調講演。谷さんの著書<a href="http://www.amazon.co.jp/o/ASIN/4844336355/littlebird03-22">「CSS設計の教科書」</a>を読んで、自分なりのOOCSSを模索するヒントをもらっていただけに、かなり楽しみなセッションだったのですが、ビジュアルやアイコンを中心に見せていくスライドの作りが印象的で、さっそく惹き込まれてしまいました。また、アニメGIF（？）を多用した間の取り方も絶妙で、会場の笑いを誘う演出もさすがだったと思います。</p>
+<p>セッションの内容はOOCSSやBEMの概要から、「こういう使い方はやめた方がいい」というOOCSSとBEMのアンチパターン集の紹介、Sassのプレースホルダーセレクタを使った便利な管理方法まで、実際のソース例を交えて分かりやすく解説されていました。また、<a href="http://www.amazon.co.jp/o/ASIN/4844336355/littlebird03-22">「CSS設計の教科書」</a>には掲載されていなかった、ITCSSという新たな設計手法も紹介されていて、大変参考になりました。</p>
+<p>個人的には、もうclassセレクタだけでいいんじゃないかと思っているんですが、一方でidセレクタを使うべきだという人もいるので、谷さんのような方が今回「idセレクタを使う意味はそれほどない」という、論理的な説明材料を提示してくださっていたのは、非常に心強かったです。</p>
+<figure id="attachment_144" style="width: 940px;" class="wp-caption aligncenter"><a href="http://itcss.io/"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_02.jpg" alt="ITCSS" width="940" height="515" class="size-full wp-image-144" /></a><figcaption class="wp-caption-text">逆ピラミッド型の概念でCSS設計を行う「ITCSS」</figcaption></figure>
+<h2><span id="CSS-2">理想のCSSフレームワークを探して</span></h2>
+<p>アップルップルの森田霞さんによるCSSフレームワークに関するセッション。このセッションのタイトルですが、確か開催前にCSS Niteのサイトをチェックした時は、「あなたの理想のフレームワークなんてきっとない」みたいなタイトルだった気がするのですが、途中で変更になったのでしょうか・・？</p>
+<p>フレームワークが大好きだと言う森田さんの発言と、「理想のフレームワークなんてない」という一見否定的とも捉えられるタイトル案との矛盾は、セッションを聞いているうちに自然と解消されました。つまりこのセッションは、フレームワークが大好きで色んなフレームワークを探し回っているうちに、ついには自分でフレームワークを作ってしまったというお話だったのです。</p>
+<p>そう思って実行できるところがすごいと思うのですが、それだけ色々なフレームワークの長所・短所を知り尽くした上でのことなのでしょう。私はまだフレームワークはかじり始めたばかりという段階なので、せめてもう少し使いこなせるぐらいまでは、じっくりソースを読み込んでみようと思いました。</p>
+<p>案件の種類に応じた、おすすめのフレームワーク活用法など、実践的な話題も盛り込まれていて興味深かったのですが、個人的にはpullとpushでコンテンツの並び順を指定する機能や、複数のフレームワークを並用して組み合わせる手法などは、かなり使えそうな気がしたので参考になりました。</p>
+<figure id="attachment_145" style="width: 940px;" class="wp-caption aligncenter"><a href="http://developer.a-blogcms.jp/reference/latest/styleguide.html"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_03.jpg" alt="a-blog cms スタイルガイド" width="940" height="662" class="size-full wp-image-145" /></a><figcaption class="wp-caption-text">森田さんが制作したa-blog cmsのフレームワーク</figcaption></figure>
+<h2><span id="5">5分でゼロからテストサイトまで立ち上げます！</span></h2>
+<p>こちらは、密かに一番楽しみにしていた、こもりまさあきさんのセッション。今回はLT枠ということで、5分間のデモだけというお話でしたが、その5分間でいかに素早くデモをできるか、日々鍛錬されているらしいことも知っていたので、否が応でも期待が高まりました。</p>
+<p>結果的に10分枠に拡大となりましたが、今回のデモは、こもりさんお勧めの今どきのツールや制作環境を使いながら、10分間でツールや環境の導入から、サイトの構築、そして公開までを全てやり切るという意欲的な内容です。相変わらず流れるような華麗なデモで、半分以上は何をやっているのか分かりませんでしたが、トークでの解説を交えて実演していただいたので、それぞれのツールの特徴や使いどころなどを知ることができました。</p>
+<p>こもりさんの新著<a href="https://gumroad.com/l/GFXe/cnlp39">「Development Environments for Web Designers」</a>を読んで勉強している最中だったので、さすがにターミナル操作への拒否反応なく話を聞くことができましたが、JadeでMarkdownが使えることや、MarkdownにHTMLを直書きできてしまうことなどは、知らなかったのでとても便利そうな気がしました。</p>
+<p>こういう話を聞くと、テンプレートエンジンやMarkdownも、単に流行りやトレンドというだけでなく、新しい技術どうしが相互に結びついていることがよく分かりますね・・。今回のデモに登場した<a href="http://harpjs.com/">Harp</a>やJadeなども、ぜひ今度実践で活用してみたいと思います。</p>
+<p>デモでは出来上がったサイトを瞬時にホスティングして、来場者の皆さんにURLを共有していましたが、ちょっとした静的サイトを公開するには、<a href="https://divshot.com/">Divshot</a>や<a href="https://www.heroku.com/">Heroku</a>のようなサービスを使うといいらしいです。</p>
+<figure id="attachment_143" style="width: 940px;" class="wp-caption aligncenter"><a href="https://gumroad.com/l/GFXe/cnlp39"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_04.jpg" alt="こもりまさあきさんの環境構築本" width="940" height="627" class="size-full wp-image-143" /></a><figcaption class="wp-caption-text">こもりまさあきさんの環境構築本</figcaption></figure>
+<h2><span id="i">ビルドツールはじめの一歩（タスクランナー編）</span></h2>
+<p>続いて、ピクセルグリッドの講師陣によるGruntやgulpなどタスクランナーに関するセッション。なんと、MacとWindowsといったOS別に、Node.jsとnpmのインストール方法からしっかり解説してくれて、サンプルファイルもそのままダウンロードして使えるという至れり尽くせりぶり・・。</p>
+<p>私自身、Gruntやgulpはかじったことはあるものの、改めてインストール方法と言われると、記憶が怪しいところもあったりしたので、とても良い復習になりました。セッションの始めに来場者に質問したところ、タスクランナーを使ったことがある人は半数以下という結果だったので、この辺はCSS Niteの事前アンケートを踏まえたセッション内容だったのかもしれません。</p>
+<p>後半は、実際の大規模案件での事例を元に、タスクランナーの使いどころを紹介。CSSやJSの結合・圧縮ぐらいなら自分も思いつくのですが、文字コードの変換や、ローカルサーバの起動といった処理も、タスクランナーで自動化できるとは知らなかったので勉強になりました。納品ファイルをZIPにまとめるタスクなども、自動化すると地味に便利そうですよね。</p>
+<p>タスクランナーと直接関係ない話としては、Gitやスタイルガイドの導入による、チーム間でのリソースの共有などが、やはり大事だなと再認識させられました。また、ピクセルグリッドさんでは、クライアントにもGitを使ってもらって、納品作業が発生しないフローを確立したり、クライアントにgulpを使ってもらっている事例もあるのだとか・・。</p>
+<p>これはかなり先進的な事例だと思うのですが、会場からも大きな反響とどよめきの声が上がっていました。いきなりそこまで実現するには、色々と障壁もありそうですが、タスクの効率化はコーディング作業単体で考えるのではなく、周囲やチームを巻き込んで、作り上げていくものなのだな、と良い教訓になりました。</p>
+<figure id="attachment_146" style="width: 940px;" class="wp-caption aligncenter"><a href="https://github.com/cancer/get-started-gulp"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_051.jpg" alt="gulpのタスク自動化サンプル" width="940" height="654" class="size-full wp-image-146" /></a><figcaption class="wp-caption-text">gulpのタスク自動化サンプル</figcaption></figure>
+<h2><span id="musicjp_before_after">music.jpのリファクタリング before / after</span></h2>
+<p>まぼろしの小林さんと、株式会社エムティーアイの宮地さんによるリファクタリングのセッション。受託案件の事例紹介では、なかなか公にできない部分も多いものですが、このセッションではかなりリアルな自社サービスの話が聞けたので、会場のリアクションも一際大きかったように思います。</p>
+<p>実際にやったこととしては、カオス状態となり、デグレが頻発していたHTML/CSSを、150枚くだいのHTMLテンプレートとしてリファクタリングし、スタイルガイドやGitの導入なども実施したのだとか・・。実際の運用ルールの策定や保守といったところに関しては、色々と大変なシーンもあったそうですが、結果として外注管理や品質チェックに関わる稼働時間が7割以上にも激減したという話ですから、驚きですよね。</p>
+<p>私の実経験としても、運用フェーズにあるサイトに手を入れるとなると、より一層腰が重たくなるものですが、このように目に見える効果があるという話を聞くと、やはりメスを入れる意味はあるんだなと、実感させられました。</p>
+<h2><span id="CSS-3">柔軟なコンポーネント設計のためのCSS</span></h2>
+<p>最後は、高津戸壮さんによるコンポーネント設計に関するセッション。「さっさと、ぬかりなく、高品質にコーディングをこなすには？」というテーマでのお話だったのですが、非常に含蓄に富んだ深みのある内容で、色々と考えさせられました。</p>
+<p>高津戸さんのスライドも、ビジュアルが多用されていて、イメージで理解しやすいように工夫されていました。要所要所でソースコードを掲載していた谷さんのスライドに対して、高津戸さんのスライドでは実際にCSS設計する際のブロックの分け方などを、ワイヤーフレームで分かりやすく図式化されていたのが対照的です。</p>
+<p>ブロックの粒度や、ブロックの拡張性、余白の設計といった問題は、実際にコーディングを行う上で、誰しも一度は頭を悩ませたことがあるトピックだと思います。そんな簡単には答えの出ない、奥の深いテーマに対して、高津戸さんならではの経験に裏付けられた落とし所や、お役立ちテクニックを披露してくれていたので、大変参考になりました。</p>
+<p>とりあえず、CSS設計の共通言語として、BEMとSMACSSを押さえること。そして、決して簡単に実現できることではないけれど、柔軟なCSS設計を諦めない。この2点を肝に据えて、私もぜひ今後の実制作に活かしていきたいと思います。</p>
+<h2><span id="i-2">まとめ</span></h2>
+<p>「Coder’s High」というタイトルから、かなりマニアックで高度な会話が飛び交うものかと思っていたのですが、実際には初学者から経験者まで楽しめるバランスの取れたセッション構成となっていました。</p>
+<p>また、「コーディングスタイルの理想と現実」という副題にもある通り、コーディングという仕事にまつわる『闇』の部分も色々と浮かび上がるセミナーでしたが、240名が一堂に会するビッグなイベントなのですから、ここで上がった反響の声が日本のWeb制作現場の一つの標準と捉えても問題ないのでしょう。</p>
+<h3><span id="i-3">現在と未来を見据えて</span></h3>
+<p>私自身もOOCSSやBEMは覚えたて、タスクランナーやGitも、チームでの活用についてはまだまだ踏み込めていない状況ですが、同じようなステージにいる人も決して少なくないのかな、というのを肌感として感じました。</p>
+<p>そんな現実は現実として素直に受け入れて、一歩づつ理想の制作スタイルに向けて進んでいこう、と思ったのが全体を通しての感想です。そのために必要なツールや設計概念は、登壇者の方々が的確に示唆してくれていたと思います。</p>
+<h3><span id="CSS_Nite">次回のCSS Niteでは・・？</span></h3>
+<p>2年前のCSS Niteでは、Sassやビルドツールに関するノウハウを扱っていたのが記憶に新しいのですが、今回のセミナーでカバーする領域の広さと比較すると、時代の移り変わりを感じずにはいられません。</p>
+<p>1年後・2年後にはどんなトピックが話題の中心になっているのか想像もつきませんが、ぜひCSS NiteではタスクランナーやGitに関する実践的なセミナーも、近々企画してもらえると嬉しいな、と思っています。</p>
+<h2><span id="i-4">関連リンク</span></h2>
+<ul>
+<li><a href="http://togetter.com/li/780022">CSS Nite LP39「Coder&#8217;s High 2015：コーディングスタイルの理想と現実」 &#8211; Togetterまとめ</a></li>
+<li><a href="https://smacss.com/">SMACSS &#8211; Scalable and Modular Architecture for CSS</a></li>
+<li><a href="https://app.codegrid.net/entry/bem-basic-1">BEMによるフロントエンドの設計 &#8211; 基本概念とルール | CodeGrid</a></li>
+</ul>
+			</div><!-- .entry-content -->
+
+	<div class="entry-share">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<div class="fb-like" data-href="http://littlebird.mobi/2015/02/cssnite_lp39/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+		<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+		<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+	</div><!-- .entry-share -->
+
+	<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #content -->
+
+	</div><!-- /.container -->
+
+<div class="content">
+
+<div class="container">
+
+<div class="row section">
+
+  <h2 class="section__title" id="service">Service</h2>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://igfan.jp">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service01@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">IG Fan</h3>
+        <p class="service__text">instagramとiPhoneographyに関する総合情報サイト。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://twpr.jp">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service02@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">castella</h3>
+        <p class="service__text">TwitterやFacebookなど、色んなSNSでプロフが作れるソーシャルプロフィールサイト。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://genpatsu.net">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service03@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">原発ニュース</h3>
+        <p class="service__text">日本各地の原発施設に関する最新ニュースがチェックできるアプリ。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+</div>
+
+</div><!-- /.container -->
+
+</div><!-- /.content -->
+
+<div class="container">
+
+<div class="row section section_border_bottom profile">
+
+  <h2 class="section__title" id="profile">Profile</h2>
+
+  <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 profile__image">
+	<img src="http://littlebird.mobi/wp-content/themes/littlebird/img/youthkee@2x.png" height="80" width="80" alt="">
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8">
+        <h3 class="profile__title">Yusuke Takahashi</h3>
+        <p class="profile__text">ライブと写真が好きなWebデベロッパー。<br>
+        本業の傍ら、Webサービスの制作・運営を行なっています。</p>
+        <div class="socialButton">
+          <a href="https://twitter.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
+          <a href="https://www.facebook.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>
+          <a href="http://instagram.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_instagram@2x.png" height="25" width="25" alt=""></a>
+        </div>
+  </div>
+
+</div>
+
+<div class="row section section_border_bottom contact">
+
+  <h2 class="section__title" id="contact">Contact</h2>
+
+    <p class="contact__text">サイトやサービスに関するお問い合せは下記ボタンより、メールにてご連絡ください。</p>
+    <p class="text-center"><a href="mailto:littlebird.mobi@gmail.com" class="btn btn-success linkButton linkButton_icon_left" role="button"><span class="glyphicon glyphicon-envelope"></span>Send Email</a></p>
+
+</div>
+
+</div><!-- /.container -->
+
+	<footer id="colophon" class="site-footer footer" role="contentinfo">
+		<div class="site-info">
+			<a href="http://wordpress.org/">Proudly powered by WordPress</a><br>
+			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div class="pagetop" id="pageTop">
+  <a href="#page"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/front.js?ver=1404'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/skip-link-focus-fix.js?ver=20130115'></script>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>「3Dドット絵わぷー」ができるまで | littlebird</title>
+<link rel='stylesheet' id='toc-screen-css'  href='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/screen.css?ver=1404' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-theme-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/bootstrap-theme.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='littlebird-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/style.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='littlebird-site-css'  href='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/css/littlebird-site.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css?ver=4.1' type='text/css' media='all' />
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js?ver=1.11.1'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/bower_components/jbootstrap/dist/js/bootstrap.min.js?ver=4.1'></script>
+<link rel='prev' title='書評「これからのWebサイト設計の新しい教科書」' href='http://littlebird.mobi/2015/05/newtextbookforwebdesign/' />
+<link rel='next' title='イベントレポート：Scratch Day 2015 in Tokyo' href='http://littlebird.mobi/2015/05/scratchday2015/' />
+<meta name="generator" content="WordPress 4.1 - really-static 0.5" />
+<link rel='canonical' href='http://littlebird.mobi/2015/05/3dwapoo/' />
+<style type="text/css">div#toc_container {width: 100%;}</style><link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+<meta property="og:type" content="blog">
+<meta property="og:site_name" content="littlebird">
+<meta property="og:description" content="小さな一歩から、世界を変える何かを。">
+<meta property="twitter:description" content="小さな一歩から、世界を変える何かを。">
+<meta property="og:title" content="「3Dドット絵わぷー」ができるまで">
+<meta name="twitter:title" content="「3Dドット絵わぷー」ができるまで">
+<meta property="og:url" content="http://littlebird.mobi/2015/05/3dwapoo/">
+<meta name="twitter:url" content="http://littlebird.mobi/2015/05/3dwapoo/">
+<meta property="og:image" content="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo01.jpg">
+<meta property="twitter:image" content="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo01.jpg">
+<meta property="fb:admins" content="youthkee">
+<meta property="fb:app_id" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@youthkee">
+<meta name="twitter:domain" content="littlebird.mobi">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50835-7', 'auto');
+  ga('send', 'pageview');
+</script>
+<script>
+jQuery(function($){
+    var topBtn = $('#pageTop');
+    topBtn.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+});
+</script>
+</head>
+<body class="single single-post postid-378 single-format-standard">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<nav id="site-navigation" class="navbar navbar-default header" role="navigation">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle header__toggle" data-toggle="collapse" data-target="#headerMenu">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+			<div class="collapse navbar-collapse header__inner" id="headerMenu">
+			<div class="menu-header-container"><ul id="menu-header" class="menu nav navbar-nav navbar-right header__menu"><li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="http://littlebird.mobi">Home</a></li>
+<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="#service">Service</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="#profile">Profile</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a href="#contact">Contact</a></li>
+</ul></div>			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav><!-- #site-navigation -->
+
+		<div class="site-branding jumbotron main">
+		  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 main__logo">
+		    <a href="http://littlebird.mobi/"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/logo@2x.png" height="140" width="140" alt="littlebird"></a>
+		  </div>
+		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
+		    <h1 class="site-title">littlebird</h1>
+		  </div>
+		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
+		    <p class="site-description">小さな一歩から、世界を変える何かを。</p>
+		  </div>
+		</div><!-- .site-branding -->
+
+	</header><!-- #masthead -->
+
+	<div class="container">
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-378" class="post-378 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+	<header class="entry-header">
+		<h1 class="entry-title">「3Dドット絵わぷー」ができるまで</h1>
+		<div class="entry-meta">
+			<span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-05-18T00:14:32+00:00">2015/05/18</time><time class="updated" datetime="2015-05-18T00:36:51+00:00">2015/05/18</time></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard">youthkee</span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-share entry-share-top">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<div class="fb-like" data-href="http://littlebird.mobi/2015/05/3dwapoo/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+		<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+		<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+	</div><!-- .entry-share -->
+
+
+	<div class="entry-content">
+		<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo01.jpg" alt="3dwapoo01" width="600" height="315" class="aligncenter size-full wp-image-380" /><br />
+<a href="https://chogetsuku.jp/product/qblock/">「Q-BLOCK」</a>というアプリをご存知ですか？スマホで簡単にドット絵が作成できるアプリなのですが、今年の3月のアップデートで3Dプリントに対応し、自分の作品を実体化して購入できるようになりました。<br />
+そこで、個人的にお気に入りのWordPress公式キャラクター<a href="https://ja.wordpress.org/about-wp-ja/wapuu/">「わぷー」</a>のドット絵バージョンを作成して、3Dプリント注文してみました。思ったより造形のクオリティも高く、気に入っているので、今回は「ドット絵わぷー」がどんな風に生まれたのかを紹介したいと思います。</p>
+<p><span id="more-378"></span></p>
+<div id="toc_container" class="no_bullets"><p class="toc_title">目次</p><ul class="toc_list"><li><a href="#i"><span class="toc_number toc_depth_1">1</span> まずはドット絵を作成</a></li><li><a href="#i-2"><span class="toc_number toc_depth_1">2</span> プリントデータを送信</a></li><li><a href="#Web"><span class="toc_number toc_depth_1">3</span> Webサイトからプリント注文</a></li><li><a href="#i-3"><span class="toc_number toc_depth_1">4</span> 製造そして配送</a></li><li><a href="#i-4"><span class="toc_number toc_depth_1">5</span> こんな人にオススメ</a></li><li><a href="#i-5"><span class="toc_number toc_depth_1">6</span> 造形する上でのコツと注意点</a></li><li><a href="#i-6"><span class="toc_number toc_depth_1">7</span> 「改造」で広がるドット絵の輪</a></li></ul></div>
+
+<h2><span id="i">まずはドット絵を作成</span></h2>
+<p>「ドット絵わぷー」を作るには、まずはアプリでドット絵を作成する必要があります。<a href="https://itunes.apple.com/jp/app/q-block/id883097032?l=ja&#038;ls=1&#038;mt=8">iTunes</a>から「Q-BLOCK」というアプリをダウンロードしてインストールしました。（Android版は<a href="https://play.google.com/store/apps/details?id=jp.co.cygames.QBlock">Google Play</a>にて配布中）</p>
+<p>アプリを起動すると、最初に「みんなの作品」を見ることができます。ドット絵でどこまでの表現が可能かを知るよい研究材料になりますね。最近は「初音ミク」や「マイクラ」ネタが多いみたいです。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo02.jpg" alt="3dwapoo02" width="690" height="600" class="aligncenter size-full wp-image-381" /></p>
+<p>自分の作品を作るには、画面右下の「つくる」というボタンをタップします。最初は、画面の真ん中にだけ白いブロックが挿入されているので、ここをタップして1つずつブロックを追加していきます。</p>
+<p>追加するブロックの色は、左下のカラーパレットで変更できます。また、「削除」ボタンに切り替えるとブロックの削除、「着色」ボタンに切り替えるとブロックのカラー変更を行うことができます。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo03.jpg" alt="3dwapoo03" width="690" height="600" class="aligncenter size-full wp-image-382" /></p>
+<p>最初はちょっと操作が難しく感じられますが、編集しながら画面を拡大したり、回転することもできるので、うまく画面を切り替えながら作っていくのがコツではないでしょうか？</p>
+<p>私も満足がいく「わぷー」が出来上がるまでは紆余曲折がありましたが、何度か「下書き」で保存しながら編集を繰り返し、今のバージョンの「ドット絵わぷー」が完成しました。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo04.jpg" alt="3dwapoo04" width="690" height="600" class="aligncenter size-full wp-image-383" /></p>
+<p>ちょっと高度な編集をしたい時には、右下の「レイヤー」というボタンをタップすると、レイヤーモードを使用できます。レイヤーモードでは、ブロックを輪切りにした状態で、コピーしたり貼り付けたりできるので、「やっぱり全体を1ブロックずつずらしたい！」といった時などに便利です。</p>
+<h2><span id="i-2">プリントデータを送信</span></h2>
+<p>さて、ドット絵が完成したので、次に3Dプリントの注文をしました。このアプリでは、<a href="http://make.dmm.com/">「DMM.make 3Dプリント」</a>というサービスと連携することで、作った作品を3Dプリントして購入することができるのです。</p>
+<p>作品の右下に表示されている「送る」というボタンをタップすると、サブウインドウが開くので、ここから「3Dプリント入稿」というメニューを選択します。すると、サービスの注意事項や注文の流れが表示された後、サイズを選択する画面が表示されます。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo05.jpg" alt="3dwapoo05" width="690" height="600" class="aligncenter size-full wp-image-384" /></p>
+<p>S、M、Lの3つのサイズから選ぶことができますが、今回は寸法を見てサイズ感を想像した上で、中くらいのMサイズを選んでみました。あまり小さいサイズだと、薄い部分が折れやすくなる可能性があるので、その辺も考慮した方がいいかもしれません。</p>
+<p>サイズを選択すると、プリントデータのチェックが行われた後、モデルデータのURLが生成されます。画面の案内に従って操作すると、URLとパスワードが入力された状態でメールアプリが立ち上がるので、このメールを自分宛てに送信します。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo06.jpg" alt="3dwapoo06" width="690" height="600" class="aligncenter size-full wp-image-385" /></p>
+<h2><span id="Web">Webサイトからプリント注文</span></h2>
+<p>モデルデータURLにPCからアクセスすると、こんな感じの購入画面が表示されます。ここで値段や素材などを確認した上で、オンラインで3Dプリントの注文を行うことができるのです。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo07.jpg" alt="3dwapoo07" width="800" height="508" class="aligncenter size-full wp-image-386" /></p>
+<p>今回はMサイズ（33mm×36.019mm×33.017mm）、石膏フルカラー、2,917円という内容で注文してみました。決済方法は、クレジットカードまたはDMMポイントでの決済が選択できます。</p>
+<p>モデルデータに問題がない場合は、注文から1週間以内に3Dプリントされた商品が配送先に郵送されてきます。それほど大きな造形物ではないのですが、きちんと梱包されていたので、配送時の破損の心配はなさそうでした。</p>
+<h2><span id="i-3">製造そして配送</span></h2>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo09.jpg" alt="3dwapoo09" width="800" height="600" class="aligncenter size-full wp-image-388" /></p>
+<p>これが、後日自宅に送られてきた「3Dドット絵わぷー」。手と比べると、大体の大きさがイメージしやすいと思うのですが、なかなか完成度が高いと思いませんか？</p>
+<p>石膏フルカラーの質感は、ちょっと固めの消しゴムといった感じで、ギュッと押すと適度な弾力がありますが、そう簡単に壊れる脆さではありません。</p>
+<p>色々な角度から見ると、3Dならではのディテールが伝わるかと思いますので、ぜひ写真でじっくりと「3Dドット絵わぷー」の全容をご覧ください。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo10.jpg" alt="3dwapoo10" width="800" height="600" class="aligncenter size-full wp-image-389" /></p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo11.jpg" alt="3dwapoo11" width="800" height="600" class="aligncenter size-full wp-image-390" /></p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo12.jpg" alt="3dwapoo12" width="800" height="600" class="aligncenter size-full wp-image-391" /></p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo13.jpg" alt="3dwapoo13" width="800" height="600" class="aligncenter size-full wp-image-392" /></p>
+<h2><span id="i-4">こんな人にオススメ</span></h2>
+<p>そんな感じで、誰でも簡単に3Dプリントが楽しめる<a href="https://chogetsuku.jp/product/qblock/">「Q-BLOCK」</a>の3Dプリント・サービス。高価な3Dプリンターやモデリング・ソフトがなくても、スマホアプリだけでサクッとドット絵を作って、お手元に作品を届けられるのが、何よりの魅力ではないでしょうか？</p>
+<p>卓上に置いて鑑賞するにはぴったりのフィギュア・サイズなので、オリジナルのキャラを作ってコレクションすると楽しいかもしれません。発想次第では色々とカスタム・メイドできるので、ちょっと趣向を凝らした「贈り物」にも最適だと思いました。</p>
+<p>3Dプリントを体験してみたい方や、ドット絵が好きな人は、ぜひ気軽に試してみてはいかがでしょうか？</p>
+<h2><span id="i-5">造形する上でのコツと注意点</span></h2>
+<p><a href="https://chogetsuku.jp/product/qblock/">「Q-BLOCK」</a>では、アプリ内で立方体として与えられた空間を自由に造形して楽しむことができますが、実際に3Dプリントすることを前提に考えると、いくつか注意しなければならないポイントがあります。</p>
+<p>一体化した一つのオブジェクトとして成立すること。そして、実体化した時にきちんと作品が自立すること。3Dプリント注文する際には、この2点を念頭に、造形を見直してみましょう。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo14.jpg" alt="3dwapoo14" width="690" height="600" class="aligncenter size-full wp-image-393" /></p>
+<p>私も最初、「わぷー」オリジナルのイラストに近いイメージで、しっぽを胴体の下にびろーんと垂らした状態で作っていたのですが、それだと3Dプリントした時に自立できないので、台座を設置したバージョンに改良しました。</p>
+<p>それでも、3Dプリント注文した後に、メールで連絡が入り、現在のモデルデータでは強度に問題があるとのことで、注文がキャンセル扱いになってしまいました。このように、造形に問題がある場合には、事前にスタッフの方が指摘してくれるので、再度やり直してトライしてみましょう。</p>
+<p>私の場合は、仕方ないので、しっぽを真下に垂らしたバージョンは断念し、最終的にしっぽを横側から回して収まりをよくしたバージョンに改良し、無事3Dプリント注文することができました。</p>
+<h2><span id="i-6">「改造」で広がるドット絵の輪</span></h2>
+<p>ドット絵と言われても、なかなかネタが思いつかないという人は、他の人が作った作品のアレンジから始めるのをオススメします。「みんなの作品」で気に入った作品を見つけたら、「改造する」というボタンをタップしてみてください。</p>
+<p>すると、出来上がった作品を元に、新たな作品を作り始めることができます。他の人の作品を元に改造した作品には、「改造」というアイコンが表示され、タップするとオリジナルの作品をたどることができます。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2015/05/3dwapoo15.jpg" alt="3dwapoo15" width="690" height="600" class="aligncenter size-full wp-image-404" /></p>
+<p>この仕組みはGitHubなど、いわゆるオープンソースプロジェクトで言うところの「Fork」と同じ概念ですよね・・。そんな、最先端でちょっとギークな考え方が取り入れられてるところも、このアプリの魅力の一つかもしれませんね。</p>
+<p>皆さんも「みんなの作品」でドット絵わぷーを見かけたら、ぜひ「改造」してみてください。</p>
+			</div><!-- .entry-content -->
+
+	<div class="entry-share">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<div class="fb-like" data-href="http://littlebird.mobi/2015/05/3dwapoo/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+		<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+		<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+	</div><!-- .entry-share -->
+
+	<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #content -->
+
+	</div><!-- /.container -->
+
+<div class="content">
+
+<div class="container">
+
+<div class="row section">
+
+  <h2 class="section__title" id="service">Service</h2>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://igfan.jp">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service01@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">IG Fan</h3>
+        <p class="service__text">instagramとiPhoneographyに関する総合情報サイト。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://twpr.jp">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service02@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">castella</h3>
+        <p class="service__text">TwitterやFacebookなど、色んなSNSでプロフが作れるソーシャルプロフィールサイト。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://genpatsu.net">
+    <div class="thumbnail">
+      <img src="http://littlebird.mobi/wp-content/themes/littlebird/img/service03@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">原発ニュース</h3>
+        <p class="service__text">日本各地の原発施設に関する最新ニュースがチェックできるアプリ。</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+</div>
+
+</div><!-- /.container -->
+
+</div><!-- /.content -->
+
+<div class="container">
+
+<div class="row section section_border_bottom profile">
+
+  <h2 class="section__title" id="profile">Profile</h2>
+
+  <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 profile__image">
+	<img src="http://littlebird.mobi/wp-content/themes/littlebird/img/youthkee@2x.png" height="80" width="80" alt="">
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8">
+        <h3 class="profile__title">Yusuke Takahashi</h3>
+        <p class="profile__text">ライブと写真が好きなWebデベロッパー。<br>
+        本業の傍ら、Webサービスの制作・運営を行なっています。</p>
+        <div class="socialButton">
+          <a href="https://twitter.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
+          <a href="https://www.facebook.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>
+          <a href="http://instagram.com/youthkee"><img src="http://littlebird.mobi/wp-content/themes/littlebird/img/bt_instagram@2x.png" height="25" width="25" alt=""></a>
+        </div>
+  </div>
+
+</div>
+
+<div class="row section section_border_bottom contact">
+
+  <h2 class="section__title" id="contact">Contact</h2>
+
+    <p class="contact__text">サイトやサービスに関するお問い合せは下記ボタンより、メールにてご連絡ください。</p>
+    <p class="text-center"><a href="mailto:littlebird.mobi@gmail.com" class="btn btn-success linkButton linkButton_icon_left" role="button"><span class="glyphicon glyphicon-envelope"></span>Send Email</a></p>
+
+</div>
+
+</div><!-- /.container -->
+
+	<footer id="colophon" class="site-footer footer" role="contentinfo">
+		<div class="site-info">
+			<a href="http://wordpress.org/">Proudly powered by WordPress</a><br>
+			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div class="pagetop" id="pageTop">
+  <a href="#page"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/front.js?ver=1404'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/littlebird/js/skip-link-focus-fix.js?ver=20130115'></script>
+
+</body>
+</html>
