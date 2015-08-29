@@ -106,9 +106,9 @@
         <h3 class="profile__title"><?php the_author_meta( 'first_name', 2 ); ?> <?php the_author_meta( 'last_name', 2 ); ?></h3>
         <p class="profile__text"><?php the_author_meta( 'description', 2 ); ?></p>
         <div class="socialButton">
-          <a href="https://twitter.com/youthkee"><img src="<?php bloginfo('template_directory'); ?>/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
-          <a href="https://www.facebook.com/youthkee"><img src="<?php bloginfo('template_directory'); ?>/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>
-          <a href="http://instagram.com/youthkee"><img src="<?php bloginfo('template_directory'); ?>/img/bt_instagram@2x.png" height="25" width="25" alt=""></a>
+          <a href="https://twitter.com/<?php the_author_meta( 'nickname', 2 ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
+          <a href="https://www.facebook.com/<?php the_author_meta( 'nickname', 2 ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>
+          <a href="http://instagram.com/<?php the_author_meta( 'nickname', 2 ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/bt_instagram@2x.png" height="25" width="25" alt=""></a>
         </div>
   </div>
 
