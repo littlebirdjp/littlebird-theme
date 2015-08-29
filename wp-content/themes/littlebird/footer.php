@@ -18,7 +18,7 @@
 
 <div class="row section">
 
-  <h2 class="section__title" id="service">Service</h2>
+  <h2 class="section__title" id="projects">Projects</h2>
 
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
   <a href="http://igfan.jp">
@@ -58,6 +58,34 @@
 
 </div>
 
+<div class="row section">
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://minecraftkids.jp">
+    <div class="thumbnail">
+      <img src="<?php bloginfo('template_directory'); ?>/img/service04@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">マインクラフトきっず</h3>
+        <p class="service__text">こどものための「Minecraft」ゲーム情報サイト。（準備中）</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 service">
+  <a href="http://yumetabi.club">
+    <div class="thumbnail">
+      <img src="<?php bloginfo('template_directory'); ?>/img/service05@2x.png" height="120" width="120" alt="" class="service__image">
+      <div class="caption">
+        <h3 class="service__title">yumetabi.club</h3>
+        <p class="service__text">夢を追う人と、それを応援する人のためのプロジェクト。（準備中）</p>
+      </div>
+    </div>
+  </a>
+  </div>
+
+</div>
+
 </div><!-- /.container -->
 
 </div><!-- /.content -->
@@ -69,13 +97,14 @@
   <h2 class="section__title" id="profile">Profile</h2>
 
   <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 profile__image">
-	<img src="<?php bloginfo('template_directory'); ?>/img/youthkee@2x.png" height="80" width="80" alt="">
+    <div class="profile__imageInner">
+      <?php echo get_avatar( get_the_author_meta( 'user_email', 2 ), 80 ); ?>
+    </div>
   </div>
 
   <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8">
-        <h3 class="profile__title">Yusuke Takahashi</h3>
-        <p class="profile__text">ライブと写真が好きなWebデベロッパー。<br>
-        本業の傍ら、Webサービスの制作・運営を行なっています。</p>
+        <h3 class="profile__title"><?php the_author_meta( 'first_name', 2 ); ?> <?php the_author_meta( 'last_name', 2 ); ?></h3>
+        <p class="profile__text"><?php the_author_meta( 'description', 2 ); ?></p>
         <div class="socialButton">
           <a href="https://twitter.com/youthkee"><img src="<?php bloginfo('template_directory'); ?>/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
           <a href="https://www.facebook.com/youthkee"><img src="<?php bloginfo('template_directory'); ?>/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>
@@ -100,8 +129,10 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'littlebird' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'littlebird' ), 'WordPress' ); ?></a><br>
 			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird<br>
-    <a href="https://tokyo.wordcamp.org/2015/" target="_blank"><img src="https://tokyo.wordcamp.org/2015/files/2015/08/banner_234x60.jpg" alt="WordCamp Tokyo 2015" /></a>
 		</div><!-- .site-info -->
+    <div class="footer__banner">
+      <a href="https://tokyo.wordcamp.org/2015/" target="_blank"><img src="https://tokyo.wordcamp.org/2015/files/2015/08/banner_234x60.jpg" alt="WordCamp Tokyo 2015" /></a>
+    </div><!-- .footer__banner -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

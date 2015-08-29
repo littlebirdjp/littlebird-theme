@@ -324,7 +324,7 @@ a {
       text-decoration: none;
       h3,
       p {
-        
+
       }
     }
   }
@@ -359,6 +359,17 @@ a {
     text-align: right;
     @media (max-width: @screen-sm) {
       text-align: center;
+    }
+  }
+  &__imageInner {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    -webkit-border-radius: 40px;
+            border-radius: 40px;
+    margin: 0 auto;
+    @media (min-width: @screen-sm) {
+      float: right;
     }
   }
   &__title {
@@ -454,6 +465,9 @@ a.more-link {
     &:focus {
       color: #666;
     }
+  }
+  &__banner {
+    padding-top: 10px;
   }
 }
 

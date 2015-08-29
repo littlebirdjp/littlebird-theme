@@ -311,6 +311,19 @@ a {
     text-align: center;
   }
 }
+.profile__imageInner {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .profile__imageInner {
+    float: right;
+  }
+}
 .profile__title {
   margin-top: 0;
   font-size: 16px;
@@ -398,6 +411,9 @@ a.more-link .meta-nav {
 .footer a:active,
 .footer a:focus {
   color: #666;
+}
+.footer__banner {
+  padding-top: 10px;
 }
 .pagetop a {
   display: block;
