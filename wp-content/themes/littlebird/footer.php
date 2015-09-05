@@ -92,25 +92,35 @@
 
 <div class="container">
 
-<div class="row section section_border_bottom profile">
+<div class="row section_border_bottom profile">
 
   <h2 class="section__title" id="profile">Profile</h2>
 
-  <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 profile__image">
-    <div class="profile__imageInner">
-      <?php echo get_avatar( get_the_author_meta( 'user_email', 2 ), 80 ); ?>
-    </div>
-  </div>
+  <?php $users =get_users( array('orderby'=>ID,'order'=>ASC,'exclude'=>1) );
+  $template_directory = get_bloginfo( 'template_directory' );
+  foreach($users as $user):
+    $uid = $user->ID;
+    $userData = get_userdata($uid);
+    echo '<div class="row section">'."\n";
 
-  <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8">
-        <h3 class="profile__title"><?php the_author_meta( 'first_name', 2 ); ?> <?php the_author_meta( 'last_name', 2 ); ?></h3>
-        <p class="profile__text"><?php the_author_meta( 'description', 2 ); ?></p>
-        <div class="socialButton">
-          <a href="https://twitter.com/<?php the_author_meta( 'nickname', 2 ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>
-          <a href="https://www.facebook.com/<?php the_author_meta( 'nickname', 2 ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>
-          <a href="http://instagram.com/<?php the_author_meta( 'nickname', 2 ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/bt_instagram@2x.png" height="25" width="25" alt=""></a>
-        </div>
-  </div>
+    echo '<div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 profile__image">'."\n";
+      echo '<div class="profile__imageInner">'."\n";
+        echo get_avatar( $uid ,80 )."\n";
+      echo '</div>'."\n";
+    echo '</div>'."\n";
+
+    echo '<div class="col-xs-12 col-sm-9 col-md-8 col-lg-8">'."\n";
+     echo '<h3 class="profile__title">'.$user->user_firstname.' '.$user->user_lastname.'</h3>'."\n";
+     echo '<p class="profile__text">'.$user->user_description.'</p>'."\n";
+     echo '<div class="socialButton">'."\n";
+       echo '<a href="https://twitter.com/'.$user->user_nicename.'"><img src="'.$template_directory.'/img/bt_twitter@2x.png" height="25" width="25" alt=""></a>'."\n";
+       echo '<a href="https://www.facebook.com/'.$user->user_nicename.'"><img src="'.$template_directory.'/img/bt_facebook@2x.png" height="25" width="25" alt=""></a>'."\n";
+       echo '<a href="http://instagram.com/'.$user->user_nicename.'"><img src="'.$template_directory.'/img/bt_instagram@2x.png" height="25" width="25" alt=""></a>'."\n";
+      echo '</div>'."\n";
+    echo '</div>'."\n";
+
+  echo '</div>'."\n";
+  endforeach; ?>
 
 </div>
 
