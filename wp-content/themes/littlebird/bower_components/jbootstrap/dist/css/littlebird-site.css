@@ -236,6 +236,7 @@ a {
 .fb-like {
   top: -5px !important;
   width: 150px !important;
+  display: inline;
 }
 .pocket-btn {
   display: inline;
