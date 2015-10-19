@@ -99,13 +99,11 @@
   <?php $users =get_users( array('orderby'=>ID,'order'=>ASC,'exclude'=>1) );
   $template_directory = get_bloginfo( 'template_directory' );
   foreach($users as $user):
-    $uid = $user->ID;
-    $userData = get_userdata($uid);
     echo '<div class="row section">'."\n";
 
     echo '<div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 profile__image">'."\n";
       echo '<div class="profile__imageInner">'."\n";
-        echo get_avatar( $uid ,80 )."\n";
+        echo get_avatar( $user->ID ,80 )."\n";
       echo '</div>'."\n";
     echo '</div>'."\n";
 
