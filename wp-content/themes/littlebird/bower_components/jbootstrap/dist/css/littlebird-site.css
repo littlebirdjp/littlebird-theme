@@ -103,14 +103,16 @@ a {
     text-align: left;
   }
 }
-.main__title h1 {
+.main__title h1,
+.main__title p {
   font-family: 'Marck Script', cursive;
   color: #359242;
   font-size: 30px;
   margin: 0;
 }
 @media (min-width: 768px) {
-  .main__title h1 {
+  .main__title h1,
+  .main__title p {
     line-height: 130px;
     font-size: 60px;
     text-indent: 20px;

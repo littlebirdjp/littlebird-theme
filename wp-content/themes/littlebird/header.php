@@ -120,7 +120,11 @@ jQuery(function($){
 		    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo@2x.png" height="140" width="140" alt="<?php bloginfo( 'name' ); ?>"></a>
 		  </div>
 		  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 main__title">
+		  	<?php if ( is_single() ) { ?>
+		    <p class="site-title"><?php bloginfo( 'name' ); ?></p>
+		    <?php } else { ?>
 		    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+		    <?php } ?>
 		  </div>
 		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main__lead">
 		    <p class="site-description"><?php bloginfo( 'description' ); ?></p>
