@@ -138,9 +138,6 @@
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'littlebird' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'littlebird' ), 'WordPress' ); ?></a><br>
 			<a href="https://github.com/littlebirdjp/littlebird-theme"><i class="fa fa-github fa-lg fa-fw"></i></a>littlebird<br>
 		</div><!-- .site-info -->
-    <div class="footer__banner">
-      <a href="https://tokyo.wordcamp.org/2015/" target="_blank"><img src="https://tokyo.wordcamp.org/2015/files/2015/08/banner_234x60.jpg" alt="WordCamp Tokyo 2015" /></a>
-    </div><!-- .footer__banner -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
