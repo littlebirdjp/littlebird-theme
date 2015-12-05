@@ -40,7 +40,7 @@
 <meta property="twitter:image" content="<?php bloginfo('template_url'); ?>/img/ogimage.png">
 <?php } ?>
 <meta property="fb:admins" content="youthkee">
-<meta property="fb:app_id" content="">
+<meta property="fb:app_id" content="1511260485840721">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@youthkee">
 <meta name="twitter:domain" content="littlebird.mobi">
