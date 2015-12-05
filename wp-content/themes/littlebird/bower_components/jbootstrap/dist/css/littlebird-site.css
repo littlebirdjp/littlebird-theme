@@ -193,10 +193,23 @@ a {
   font-style: normal;
   color: #c7254e;
 }
+.entry-content blockquote {
+  background: #f9f9f9;
+  border: 1px solid #c2c1c1;
+  margin: 0 1.5em 1.5em;
+}
+@media (max-width: 768px) {
+  .entry-content blockquote {
+    margin: 0 0 1.5em;
+  }
+}
 .entry-content .wp-caption-text {
   font-size: 15px;
   font-size: 1.5rem;
   color: #666;
+}
+#content .entry-content blockquote p:last-child {
+  margin-bottom: 0;
 }
 .nav-links a {
   padding: 10px 40px;
