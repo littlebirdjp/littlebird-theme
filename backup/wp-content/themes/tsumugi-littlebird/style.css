@@ -1,0 +1,79 @@
+/*
+ Theme Name:   tsumugi-littlebird
+ Theme URI:    https://github.com/littlebirdjp/tsumugi-littlebird/
+ Description:  tsumugi Child Theme
+ Author:       youthkee
+ Author URI:   http://littlebird.mobi/
+ Template:     tsumugi
+ Version:      0.0.1
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blog, one-column, custom-background, custom-colors, custom-menu, custom-header, custom-logo, footer-widgets, flexible-header, full-width-template, threaded-comments, translation-ready
+ Text Domain:  tsumugi-child
+*/
+
+@import url('../tsumugi/style.css');
+
+@media (min-width: 768px) {
+	.site-title img {
+	    margin: -1rem 1rem -1.2rem -5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.site-title img {
+	    margin-bottom: 1rem;
+	}
+}
+
+.lb-embed {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .lb-embed {
+    width: 640px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+		margin-bottom: 0.8075rem;
+    text-align: center;
+  }
+}
+
+.entry-content .wp-caption-text {
+  color: #818a91;
+}
+
+.entry-share-top {
+  margin-top: 5px;
+}
+.twitter-share-button {
+  width: 95px !important;
+}
+.fb-like {
+  top: -5px !important;
+  width: 150px !important;
+  display: inline;
+}
+.pocket-btn {
+  display: inline;
+}
+
+/*_s Style Override*/
+
+.entry-title {
+  line-height: 1.4;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  line-height: 1.4;
+}
+
+.archive .format-aside .entry-title {
+  display: block;
+}
