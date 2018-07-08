@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Twitterの下書きをするためのWebアプリ「Tweet Pad」をPWA対応しました。 &#8211; littlebird</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='stylesheet' id='floating-top-link.css-css'  href='http://littlebird.mobi/wp-content/plugins/floating-top-link/css/floating-top-link.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/screen.css?ver=1404' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/bower_components/bootstrap/dist/css/bootstrap.min.css?ver=4.0.0-beta' type='text/css' media='all' />
+<link rel='stylesheet' id='underscores-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi-littlebird/style.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tsumugi-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/bootstrap/tsumugi.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tsumugi-fonts-css'  href='https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope%7CSource+Sans+Pro%3A300&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/font-awesome/css/font-awesome.min.css?ver=4.6.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://littlebird.mobi/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='prev' title='ライブレポート：ワンマンライブ初音茶屋 vol.54' href='http://littlebird.mobi/2018/04/hatsunejaya54/' />
+<meta name="generator" content="WordPress 4.7.1 - really-static 0.5" />
+<link rel="canonical" href="http://littlebird.mobi/2018/05/tweetpad2/" />
+<link rel="alternate" type="application/json+oembed" href="http://littlebird.mobi/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flittlebird.mobi%2F2018%2F05%2Ftweetpad2%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://littlebird.mobi/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flittlebird.mobi%2F2018%2F05%2Ftweetpad2%2F&#038;format=xml" />
+<style type="text/css">div#toc_container {width: 100%;}</style><style type="text/css" id="syntaxhighlighteranchor"></style>
+
+<meta property="og:type" content="blog">
+<meta property="og:site_name" content="littlebird">
+<meta property="og:title" content="Twitterの下書きをするためのWebアプリ「Tweet Pad」をPWA対応しました。 &#8211; littlebird">
+<meta name="twitter:title" content="Twitterの下書きをするためのWebアプリ「Tweet Pad」をPWA対応しました。 &#8211; littlebird">
+<meta property="og:description" content="小さな一歩から、世界を変える何かを。">
+<meta property="twitter:description" content="小さな一歩から、世界を変える何かを。">
+<meta property="og:url" content="http://littlebird.mobi/2018/05/tweetpad2/">
+<meta name="twitter:url" content="http://littlebird.mobi/2018/05/tweetpad2/">
+<meta property="og:image" content="http://littlebird.mobi/wp-content/uploads/2018/05/tweet-pad2_01.png">
+<meta property="twitter:image" content="http://littlebird.mobi/wp-content/uploads/2018/05/tweet-pad2_01.png">
+<meta property="fb:admins" content="youthkee">
+<meta property="fb:app_id" content="1511260485840721">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@youthkee">
+<meta name="twitter:domain" content="littlebird.mobi">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#40a9cb">
+<meta name="theme-color" content="#ffffff">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50835-7', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body class="post-template-default single single-post postid-1892 single-format-standard wp-custom-logo">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<nav id="site-navigation" class="main-navigation navbar navbar-expand-md" role="navigation">
+			<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#primary-menu">
+				&#9776;
+			</button>
+			<div class="menu-header-container"><ul id="primary-menu" class="menu collapse navbar-collapse"><li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="/">Home</a></li>
+<li id="menu-item-1436" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1436"><a href="http://littlebird.mobi/category/study/">Study</a></li>
+<li id="menu-item-1435" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1435"><a href="http://littlebird.mobi/category/music/">Music</a></li>
+<li id="menu-item-1437" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1437"><a href="http://littlebird.mobi/category/book/">Book</a></li>
+<li id="menu-item-1440" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1440"><a href="http://littlebird.mobi/category/life/">Life</a></li>
+<li id="menu-item-1434" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1434"><a href="http://littlebird.mobi/profile/">Profile</a></li>
+</ul></div>		</nav><!-- #site-navigation -->
+
+	<div class="container">
+
+		<div class="site-branding">
+							<p class="site-title"><a href="http://littlebird.mobi/" class="custom-logo-link" rel="home" itemprop="url"><img width="480" height="480" src="http://littlebird.mobi/wp-content/uploads/2017/01/tsumugi-logo.png" class="custom-logo" alt="" itemprop="logo" /></a><a href="http://littlebird.mobi/" rel="home"><br class="d-md-none">littlebird</a></p>
+							<p class="site-description">小さな一歩から、世界を変える何かを。</p>
+			
+			
+		</div><!-- .site-branding -->
+
+	</div><!-- .container -->
+
+	</header><!-- #masthead -->
+
+	<div class="container">
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-1892" class="post-1892 post type-post status-publish format-standard has-post-thumbnail hentry category-study tag-javascript tag-pwa tag-twitter tag-web tag-43 tag-39">
+	<header class="entry-header">
+		<h1 class="entry-title">Twitterの下書きをするためのWebアプリ「Tweet Pad」をPWA対応しました。</h1>		<div class="entry-meta">
+			<span class="posted-on"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="http://littlebird.mobi/2018/05/tweetpad2/" rel="bookmark"><time class="entry-date published" datetime="2018-05-27T16:04:36+00:00">2018/05/27</time><time class="updated" datetime="2018-05-28T07:51:15+00:00">2018/05/28</time></a></span><span class="byline"> <i class="fa fa-user" aria-hidden="true"></i> <span class="author vcard"><a class="url fn n" href="http://littlebird.mobi/author/youthkee/">youthkee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-share entry-share-top">
+		<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		<div class="fb-like" data-href="http://littlebird.mobi/2018/05/tweetpad2/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+		<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+		<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+	</div><!-- .entry-share -->
+
+	<div class="entry-content">
+		<p><a href="https://littlebirdjp.github.io/tweet-pad/" target="_blank"><img src="http://littlebird.mobi/wp-content/uploads/2018/05/tweet-pad2_01.png" alt="" width="600" height="315" class="aligncenter size-full wp-image-1894" /></a><br />
+<a href="http://littlebird.mobi/2017/11/tweetpad/">去年の11月にリリース</a>した、Twitterの残り文字数をカウントしながら入力できるアプリ「<a href="https://littlebirdjp.github.io/tweet-pad/" target="_blank">Tweet Pad</a>」のPWA対応を行い、オフラインでも利用できるようにアップデートしました。<br />
+これによって、移動中や電波の届きにくい場所でも、快適にツイートの下書きをすることができるので、ぜひスマホのホーム画面に登録して使ってみてください。</p>
+<p><span id="more-1892"></span></p>
+<div id="toc_container" class="no_bullets"><p class="toc_title">目次</p><ul class="toc_list"><li><a href="#PWA"><span class="toc_number toc_depth_1">1</span> PWAとは？</a></li><li><a href="#PWATweet_Pad"><span class="toc_number toc_depth_1">2</span> PWAとして「Tweet Pad」を使うには？</a></li><li><a href="#Tweet_PadPWA"><span class="toc_number toc_depth_1">3</span> 「Tweet Pad」の実装例で見るPWA対応のポイント</a><ul><li><a href="#Service_Worker"><span class="toc_number toc_depth_2">3.1</span> Service Workerの登録</a></li><li><a href="#i"><span class="toc_number toc_depth_2">3.2</span> キャッシュファイルの追加</a></li></ul></li><li><a href="#i-2"><span class="toc_number toc_depth_1">4</span> まとめ＆今後の展望</a><ul><li><a href="#i-3"><span class="toc_number toc_depth_2">4.1</span> 関連記事</a></li><li><a href="#i-4"><span class="toc_number toc_depth_2">4.2</span> 関連リンク</a></li><li><a href="#i-5"><span class="toc_number toc_depth_2">4.3</span> 参考サイト</a></li></ul></li></ul></div>
+
+<h2><span id="PWA">PWAとは？</span></h2>
+<p>PWAとは、Progressive Web Apps（プログレッシブウェブアプリ）の略で、従来のスマートフォン・アプリのようなユーザー体験を提供するWebアプリのことを指します。</p>
+<p>これまでWebサイトやWebサービスでは、高速で滑らかな動きを実現することが難しかったため、サクサク高速な動作が求められるものはネイティブアプリ（通常のスマートフォン・アプリ）といった住み分けがなされていました。</p>
+<figure id="attachment_1895" style="width: 700px" class="wp-caption aligncenter"><img src="http://littlebird.mobi/wp-content/uploads/2018/05/tweet-pad2_02.png" alt="" width="700" height="600" class="size-full wp-image-1895" /><figcaption class="wp-caption-text">TwitterやinstagramでもPWA版の提供を開始していますが、見た目上は従来のアプリ版とほとんど区別がつきません。</figcaption></figure>
+<p>ところが、近年のWebブラウザの発展や新技術の登場により、ネイティブアプリとほぼ変わらないWebアプリの実装が可能になってきました。そうした背景の中、Googleが推進しているプロジェクトと技術の総称がPWA（<a href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Apps</a>）なのです。</p>
+<p>Twitterやinstagramなどの有名サービスでも、アプリ版の他に公式サイトでPWA版の提供を開始しているので、知らないうちに利用している人も少なくないかもしれません。</p>
+<h2><span id="PWATweet_Pad">PWAとして「Tweet Pad」を使うには？</span></h2>
+<p>さて、「<a href="https://littlebirdjp.github.io/tweet-pad/" target="_blank">Tweet Pad</a>」も今回PWAに対応したので、Webサービスとしてブラウザからアクセスして使うだけでなく、アプリっぽく利用することが可能です。</p>
+<p>PWAとして利用するには、スマートフォンのホーム画面にアイコンを登録する必要があるので、一度ブラウザからアクセスし、「ホーム画面に追加」を行ってから、次回以降はアイコンをタップして起動するようにしてください。</p>
+<p>iPhoneの場合、ブラウザ（Safari）の画面下部の「共有」アイコンをタップし、出てきたメニューの中から「ホーム画面に追加」をタップすると、アイコンを登録することができます。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2018/05/tweet-pad2_03.png" alt="" width="700" height="600" class="aligncenter size-full wp-image-1896" /></p>
+<p>すると、ホームに「Tweet Pad」というアイコンができるので、今後使う時はそのアイコンをタップしてください。Webサービスなのに、まるで『アプリ』を開くような感じになりますね。</p>
+<p>開いた時の見た目も、ブラウザで開いた状態とは少し違っていて、画面上部のアドレスバーなどの表示がなくなっています。これがPWAのアプリとして起動している証拠なのです。</p>
+<p><img src="http://littlebird.mobi/wp-content/uploads/2018/05/tweet-pad2_04.png" alt="" width="700" height="600" class="aligncenter size-full wp-image-1897" /></p>
+<p>次に、回線の接続状況が悪くなったと仮定して、試しに「機内モード」にしてみましょう。Web版だと、ネットが繋がらない環境だと全く表示できませんが、PWA版だと先ほどと同じようにアプリが立ち上がります。</p>
+<p>このようにオフラインでも利用できるのが、PWAの特長の一つですが、アプリとして「<a href="https://littlebirdjp.github.io/tweet-pad/" target="_blank">Tweet Pad</a>」を使うと、電波が入りにくい場所でもスムーズにツイート文字数のカウントができるので、ぜひ活用してみてください。</p>
+<figure id="attachment_1898" style="width: 700px" class="wp-caption aligncenter"><img src="http://littlebird.mobi/wp-content/uploads/2018/05/tweet-pad2_05.png" alt="" width="700" height="600" class="size-full wp-image-1898" /><figcaption class="wp-caption-text">機内モードにしても、前回起動時のキャッシュを元にアプリが表示され、文字数のカウントなどの機能も問題なく利用できます。</figcaption></figure>
+<h2><span id="Tweet_PadPWA">「Tweet Pad」の実装例で見るPWA対応のポイント</span></h2>
+<p>参考までに、技術的な部分の解説ですが、今回の「<a href="https://github.com/littlebirdjp/tweet-pad">Tweet Pad</a>」の事例では、それほど難しいことは特に行っていません。とりあえずPWAとして認識させるためにService Workerの導入と、オフラインサポートのみ対応しました。</p>
+<h3><span id="Service_Worker">Service Workerの登録</span></h3>
+<p>Service Workerを導入するには、Service Worker用のJSファイルを作成し、トップページから読み込ませて登録処理を行います。（名前は<code>service-worker.js</code>でも、<code>sw.js</code>でも、何でもOK）</p>
+<p>そして、このService Worker用のJSファイルの中に、最低限のイベントを記述してあげれば、ブラウザ側でPWAとして認識されるので、「ホーム画面への追加」等が可能になります。</p>
+<p>この時のポイントとしては、Service Worker用のJSファイルは、Webアプリのルート直下に設置するということです。このJS配下のディレクトリに対してService Workerが稼働する形になるので、設置場所には注意しましょう。</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;script src=&quot;https://code.jquery.com/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/script.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  // service workerが有効なら、service-worker.js を登録します
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js').then(function() { console.log('Service Worker Registered'); });
+ }
+&lt;/script&gt;
+&lt;/body&gt;
+</pre>
+<h3><span id="i">キャッシュファイルの追加</span></h3>
+<p>2点目のオフライン対応に関してですが、これはService WorkerのJS（<code>service-worker.js</code>）内で、キャッシュさせたいファイルを指定して、インストール処理を実行すれば、ひとまず達成できます。</p>
+<p>今回の例では、<code>urlsToCache</code>という変数に、キャッシュさせたいファイルの一覧を配列で指定し、Service Workerのinstallイベントに渡すやり方で、キャッシュファイルの追加を行っています。</p>
+<p>オフライン時にもアプリとして表示させるには、様々なファイルが必要になりますが、それらを適切に洗い出しながら追加するようにしてください。</p>
+<p>「<a href="https://github.com/littlebirdjp/tweet-pad">Tweet Pad</a>」では、アプリ本体のHTML・CSS・JSの他に、アイコンフォントを使用し、さらに外部サーバーから配信されているjQueryやWebフォント（Google Fonts）にも依存しています。</p>
+<p>jQueryやGoogle Fontsのように、CDNで外部サイトから読み込んでいるものは、絶対パスで指定すればOKです。</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+// キャッシュ名とキャッシュファイルの指定
+var CACHE_NAME = 'tweet-pad-caches';
+var urlsToCache = [
+    'https://fonts.googleapis.com/css?family=Assistant:300|Montserrat',
+    'https://code.jquery.com/jquery-3.2.1.min.js',
+    '/tweet-pad/',
+    '/tweet-pad/index.html',
+    '/tweet-pad/css/style.css',
+    '/tweet-pad/js/script.js',
+    '/tweet-pad/fonts/feathericon.eot',
+    '/tweet-pad/fonts/feathericon.svg',
+    '/tweet-pad/fonts/feathericon.ttf',
+    '/tweet-pad/fonts/feathericon.woff',
+    '/tweet-pad/fonts/feathericon.woff2',
+    '/tweet-pad/android-chrome-192x192.png',
+    '/tweet-pad/android-chrome-256x256.png',
+    '/tweet-pad/apple-touch-icon.png',
+    '/tweet-pad/favicon-16x16.png',
+    '/tweet-pad/favicon-32x32.png',
+    '/tweet-pad/favicon.ico',
+    '/tweet-pad/mstile-150x150.png',
+    '/tweet-pad/safari-pinned-tab.svg'
+];
+
+// インストール処理
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches
+            .open(CACHE_NAME)
+            .then(function(cache) {
+                return cache.addAll(urlsToCache);
+            })
+    );
+});
+
+// リソースフェッチ時のキャッシュロード処理
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches
+            .match(event.request)
+            .then(function(response) {
+                return response ? response : fetch(event.request);
+            })
+    );
+});
+</pre>
+<h2><span id="i-2">まとめ＆今後の展望</span></h2>
+<p>実際のコードで見ると、それほど大きな変更は加えていないのですが、これだけでもPWAとしてアプリを提供できるので、やってよかったなと思いました。</p>
+<p>特に「<a href="https://littlebirdjp.github.io/tweet-pad/" target="_blank">Tweet Pad</a>」は私自身、地下のライブハウスなど回線の繋がりにくい所で使う機会が多かったので、オフライン対応できたことで大幅に利便性が高まりました。</p>
+<p>ただし、アプリを開き直した時に、書きかけのテキストが消えてしまうのは、Web版と変わらない問題点の一つなので、自動的に保存するか、『一時保存』のような機能を追加するなど、改善を図っていきたいと思います。</p>
+<p>また、ネイティブアプリして提供している「<a href="https://youthkee.github.io/livelog/" target="_blank">Livelog</a>」の方も、元々HTML5のハイブリッドアプリとして開発しているだけに、PWAとしての転用も、かなり対応しやすいはずです。</p>
+<p>こちらも諸々調査した上で、どこかのタイミングでPWA版の提供ができたらいいなと思っているので、試してみたいという方は、ぜひ続報をお待ちください。</p>
+<h3><span id="i-3">関連記事</span></h3>
+<ul>
+<li><a href="http://littlebird.mobi/2017/11/tweetpad/">Twitterの下書きをするためのWebアプリ「Tweet Pad」をリリースしました。</a></li>
+<li><a href="http://littlebird.mobi/2018/01/livelog/">ライブ情報をメモするアプリ「Livelog」iPhone＆Android版をリリースしました。</a></li>
+</ul>
+<h3><span id="i-4">関連リンク</span></h3>
+<ul>
+<li><a href="https://littlebirdjp.github.io/tweet-pad/">Twitterの下書きをするためのWebアプリ「Tweet Pad」</a></li>
+<li><a href="https://github.com/littlebirdjp/tweet-pad">Tweet PadのGitHubリポジトリ</a></li>
+</ul>
+<h3><span id="i-5">参考サイト</span></h3>
+<ul>
+<li><a href="https://qiita.com/umamichi/items/0e2b4b1c578e7335ba20">PWA 入門 〜iOS SafariでPWAを体験するまで〜 2018年3月版 &#8211; Qiita</a></li>
+<li><a href="https://qiita.com/kazaoki/items/e93b88556fcd05d28ddc">シンプルなPWAサンプルここに置いておきますね &#8211; Qiita</a></li>
+<li><a href="https://www.webprofessional.jp/retrofit-your-website-as-a-progressive-web-app/">サンプルあり！Googleが推進するPWAに既存サイトを対応させる方法 &#8211; WPJ</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja">Service Worker の紹介  |  Web  |  Google Developers</a></li>
+<ul>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<i class="fa fa-folder-open-o" aria-hidden="true"></i> <span class="cat-links"><a href="http://littlebird.mobi/category/study/" rel="category tag">Study</a></span> <i class="fa fa-tags" aria-hidden="true"></i> <span class="tags-links"><a href="http://littlebird.mobi/tag/javascript/" rel="tag">JavaScript</a>, <a href="http://littlebird.mobi/tag/pwa/" rel="tag">PWA</a>, <a href="http://littlebird.mobi/tag/twitter/" rel="tag">Twitter</a>, <a href="http://littlebird.mobi/tag/web%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/" rel="tag">Webサービス</a>, <a href="http://littlebird.mobi/tag/%e3%82%a2%e3%83%97%e3%83%aa/" rel="tag">アプリ</a>, <a href="http://littlebird.mobi/tag/%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/" rel="tag">プログラミング</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">投稿ナビゲーション</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://littlebird.mobi/2018/04/hatsunejaya54/" rel="prev">ライブレポート：ワンマンライブ初音茶屋 vol.54</a></div></div>
+	</nav>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+<aside id="secondary" class="widget-area" role="complementary">
+			<section id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+					<li>
+				<a href="http://littlebird.mobi/2018/05/tweetpad2/">Twitterの下書きをするためのWebアプリ「Tweet Pad」をPWA対応しました。</a>
+						</li>
+					<li>
+				<a href="http://littlebird.mobi/2018/04/hatsunejaya54/">ライブレポート：ワンマンライブ初音茶屋 vol.54</a>
+						</li>
+					<li>
+				<a href="http://littlebird.mobi/2018/04/tsumugi_site/">tsumugiの公式サイトをリニューアルしました。</a>
+						</li>
+					<li>
+				<a href="http://littlebird.mobi/2018/03/tsumugi2_1/">tsumugi v2.1.0をリリースしました。</a>
+						</li>
+					<li>
+				<a href="http://littlebird.mobi/2018/01/livelog/">ライブ情報をメモするアプリ「Livelog」iPhone＆Android版をリリースしました。</a>
+						</li>
+				</ul>
+		</section>		<section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+			<li><a href='http://littlebird.mobi/2018/05/'>2018年5月</a></li>
+	<li><a href='http://littlebird.mobi/2018/04/'>2018年4月</a></li>
+	<li><a href='http://littlebird.mobi/2018/03/'>2018年3月</a></li>
+	<li><a href='http://littlebird.mobi/2018/01/'>2018年1月</a></li>
+	<li><a href='http://littlebird.mobi/2017/12/'>2017年12月</a></li>
+	<li><a href='http://littlebird.mobi/2017/11/'>2017年11月</a></li>
+	<li><a href='http://littlebird.mobi/2017/10/'>2017年10月</a></li>
+	<li><a href='http://littlebird.mobi/2017/09/'>2017年9月</a></li>
+	<li><a href='http://littlebird.mobi/2017/08/'>2017年8月</a></li>
+	<li><a href='http://littlebird.mobi/2017/07/'>2017年7月</a></li>
+	<li><a href='http://littlebird.mobi/2017/04/'>2017年4月</a></li>
+	<li><a href='http://littlebird.mobi/2017/03/'>2017年3月</a></li>
+	<li><a href='http://littlebird.mobi/2017/02/'>2017年2月</a></li>
+	<li><a href='http://littlebird.mobi/2017/01/'>2017年1月</a></li>
+	<li><a href='http://littlebird.mobi/2016/12/'>2016年12月</a></li>
+	<li><a href='http://littlebird.mobi/2016/11/'>2016年11月</a></li>
+	<li><a href='http://littlebird.mobi/2016/10/'>2016年10月</a></li>
+	<li><a href='http://littlebird.mobi/2016/09/'>2016年9月</a></li>
+	<li><a href='http://littlebird.mobi/2016/08/'>2016年8月</a></li>
+	<li><a href='http://littlebird.mobi/2016/07/'>2016年7月</a></li>
+	<li><a href='http://littlebird.mobi/2016/06/'>2016年6月</a></li>
+	<li><a href='http://littlebird.mobi/2016/05/'>2016年5月</a></li>
+	<li><a href='http://littlebird.mobi/2016/04/'>2016年4月</a></li>
+	<li><a href='http://littlebird.mobi/2016/02/'>2016年2月</a></li>
+	<li><a href='http://littlebird.mobi/2016/01/'>2016年1月</a></li>
+	<li><a href='http://littlebird.mobi/2015/12/'>2015年12月</a></li>
+	<li><a href='http://littlebird.mobi/2015/11/'>2015年11月</a></li>
+	<li><a href='http://littlebird.mobi/2015/10/'>2015年10月</a></li>
+	<li><a href='http://littlebird.mobi/2015/08/'>2015年8月</a></li>
+	<li><a href='http://littlebird.mobi/2015/07/'>2015年7月</a></li>
+	<li><a href='http://littlebird.mobi/2015/06/'>2015年6月</a></li>
+	<li><a href='http://littlebird.mobi/2015/05/'>2015年5月</a></li>
+	<li><a href='http://littlebird.mobi/2015/03/'>2015年3月</a></li>
+	<li><a href='http://littlebird.mobi/2015/02/'>2015年2月</a></li>
+	<li><a href='http://littlebird.mobi/2015/01/'>2015年1月</a></li>
+	<li><a href='http://littlebird.mobi/2014/12/'>2014年12月</a></li>
+		</ul>
+		</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-18"><a href="http://littlebird.mobi/category/book/" >Book</a>
+</li>
+	<li class="cat-item cat-item-62"><a href="http://littlebird.mobi/category/life/" >Life</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://littlebird.mobi/category/music/" >Music</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://littlebird.mobi/category/study/" >Study</a>
+</li>
+		</ul>
+</section><section id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><a href='http://littlebird.mobi/tag/3d%e3%83%97%e3%83%aa%e3%83%b3%e3%82%bf%e3%83%bc/' class='tag-link-44 tag-link-position-1' title='1件のトピック' style='font-size: 8pt;'>3Dプリンター</a>
+<a href='http://littlebird.mobi/tag/aws/' class='tag-link-34 tag-link-position-2' title='2件のトピック' style='font-size: 10.172413793103pt;'>AWS</a>
+<a href='http://littlebird.mobi/tag/bootstrap/' class='tag-link-22 tag-link-position-3' title='8件のトピック' style='font-size: 15.844827586207pt;'>Bootstrap</a>
+<a href='http://littlebird.mobi/tag/cd/' class='tag-link-9 tag-link-position-4' title='3件のトピック' style='font-size: 11.620689655172pt;'>CD</a>
+<a href='http://littlebird.mobi/tag/css/' class='tag-link-37 tag-link-position-5' title='2件のトピック' style='font-size: 10.172413793103pt;'>CSS</a>
+<a href='http://littlebird.mobi/tag/foundation/' class='tag-link-30 tag-link-position-6' title='2件のトピック' style='font-size: 10.172413793103pt;'>Foundation</a>
+<a href='http://littlebird.mobi/tag/git/' class='tag-link-40 tag-link-position-7' title='3件のトピック' style='font-size: 11.620689655172pt;'>Git</a>
+<a href='http://littlebird.mobi/tag/instagram/' class='tag-link-48 tag-link-position-8' title='2件のトピック' style='font-size: 10.172413793103pt;'>Instagram</a>
+<a href='http://littlebird.mobi/tag/javascript/' class='tag-link-57 tag-link-position-9' title='7件のトピック' style='font-size: 15.241379310345pt;'>JavaScript</a>
+<a href='http://littlebird.mobi/tag/popn/' class='tag-link-12 tag-link-position-10' title='8件のトピック' style='font-size: 15.844827586207pt;'>POPN</a>
+<a href='http://littlebird.mobi/tag/twitter/' class='tag-link-67 tag-link-position-11' title='2件のトピック' style='font-size: 10.172413793103pt;'>Twitter</a>
+<a href='http://littlebird.mobi/tag/vagrant/' class='tag-link-35 tag-link-position-12' title='2件のトピック' style='font-size: 10.172413793103pt;'>Vagrant</a>
+<a href='http://littlebird.mobi/tag/vccw/' class='tag-link-33 tag-link-position-13' title='4件のトピック' style='font-size: 12.827586206897pt;'>VCCW</a>
+<a href='http://littlebird.mobi/tag/web%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/' class='tag-link-24 tag-link-position-14' title='5件のトピック' style='font-size: 13.793103448276pt;'>Webサービス</a>
+<a href='http://littlebird.mobi/tag/web%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3/' class='tag-link-23 tag-link-position-15' title='12件のトピック' style='font-size: 17.775862068966pt;'>Webデザイン</a>
+<a href='http://littlebird.mobi/tag/wordcamp/' class='tag-link-52 tag-link-position-16' title='5件のトピック' style='font-size: 13.793103448276pt;'>WordCamp</a>
+<a href='http://littlebird.mobi/tag/wordpress/' class='tag-link-21 tag-link-position-17' title='21件のトピック' style='font-size: 20.551724137931pt;'>WordPress</a>
+<a href='http://littlebird.mobi/tag/%e3%81%93%e3%81%a9%e3%82%82/' class='tag-link-27 tag-link-position-18' title='4件のトピック' style='font-size: 12.827586206897pt;'>こども</a>
+<a href='http://littlebird.mobi/tag/%e3%82%8f%e3%81%b7%e3%83%bc/' class='tag-link-42 tag-link-position-19' title='3件のトピック' style='font-size: 11.620689655172pt;'>わぷー</a>
+<a href='http://littlebird.mobi/tag/%e3%82%a2%e3%83%97%e3%83%aa/' class='tag-link-43 tag-link-position-20' title='4件のトピック' style='font-size: 12.827586206897pt;'>アプリ</a>
+<a href='http://littlebird.mobi/tag/%e3%82%a2%e3%83%ab%e3%83%90%e3%83%a0/' class='tag-link-10 tag-link-position-21' title='2件のトピック' style='font-size: 10.172413793103pt;'>アルバム</a>
+<a href='http://littlebird.mobi/tag/%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%97%e3%83%aa%e3%83%b3%e3%83%88/' class='tag-link-50 tag-link-position-22' title='2件のトピック' style='font-size: 10.172413793103pt;'>オンラインプリント</a>
+<a href='http://littlebird.mobi/tag/%e3%82%b2%e3%83%bc%e3%83%a0/' class='tag-link-25 tag-link-position-23' title='3件のトピック' style='font-size: 11.620689655172pt;'>ゲーム</a>
+<a href='http://littlebird.mobi/tag/%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0/' class='tag-link-36 tag-link-position-24' title='4件のトピック' style='font-size: 12.827586206897pt;'>コーディング</a>
+<a href='http://littlebird.mobi/tag/%e3%83%86%e3%83%bc%e3%83%9e%e5%88%b6%e4%bd%9c/' class='tag-link-31 tag-link-position-25' title='16件のトピック' style='font-size: 19.224137931034pt;'>テーマ制作</a>
+<a href='http://littlebird.mobi/tag/%e3%83%89%e3%83%83%e3%83%88%e7%b5%b5/' class='tag-link-45 tag-link-position-26' title='2件のトピック' style='font-size: 10.172413793103pt;'>ドット絵</a>
+<a href='http://littlebird.mobi/tag/%e3%83%92%e3%83%88%e3%83%aa%e3%83%a9%e3%83%84%e3%82%a2%e3%83%bc/' class='tag-link-13 tag-link-position-27' title='3件のトピック' style='font-size: 11.620689655172pt;'>ヒトリラツアー</a>
+<a href='http://littlebird.mobi/tag/%e3%83%95%e3%82%a7%e3%82%b9/' class='tag-link-7 tag-link-position-28' title='4件のトピック' style='font-size: 12.827586206897pt;'>フェス</a>
+<a href='http://littlebird.mobi/tag/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89/' class='tag-link-38 tag-link-position-29' title='3件のトピック' style='font-size: 11.620689655172pt;'>フロントエンド</a>
+<a href='http://littlebird.mobi/tag/%e3%83%96%e3%83%83%e3%82%af%e3%83%ac%e3%83%93%e3%83%a5%e3%83%bc/' class='tag-link-29 tag-link-position-30' title='9件のトピック' style='font-size: 16.448275862069pt;'>ブックレビュー</a>
+<a href='http://littlebird.mobi/tag/%e3%83%97%e3%83%a9%e3%82%b0%e3%82%a4%e3%83%b3/' class='tag-link-59 tag-link-position-31' title='2件のトピック' style='font-size: 10.172413793103pt;'>プラグイン</a>
+<a href='http://littlebird.mobi/tag/%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/' class='tag-link-39 tag-link-position-32' title='8件のトピック' style='font-size: 15.844827586207pt;'>プログラミング</a>
+<a href='http://littlebird.mobi/tag/%e3%83%97%e3%83%ad%e3%83%88%e3%82%bf%e3%82%a4%e3%83%97/' class='tag-link-41 tag-link-position-33' title='1件のトピック' style='font-size: 8pt;'>プロトタイプ</a>
+<a href='http://littlebird.mobi/tag/%e3%83%9e%e3%82%a4%e3%83%b3%e3%82%af%e3%83%a9%e3%83%95%e3%83%88/' class='tag-link-26 tag-link-position-34' title='2件のトピック' style='font-size: 10.172413793103pt;'>マインクラフト</a>
+<a href='http://littlebird.mobi/tag/%e3%83%a9%e3%82%a4%e3%83%96/' class='tag-link-5 tag-link-position-35' title='26件のトピック' style='font-size: 21.637931034483pt;'>ライブ</a>
+<a href='http://littlebird.mobi/tag/%e3%83%aa%e3%83%96%e3%83%a9%e3%82%b9/' class='tag-link-11 tag-link-position-36' title='1件のトピック' style='font-size: 8pt;'>リブラス</a>
+<a href='http://littlebird.mobi/tag/%e3%83%ac%e3%82%b9%e3%83%9d%e3%83%b3%e3%82%b7%e3%83%96%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3/' class='tag-link-28 tag-link-position-37' title='2件のトピック' style='font-size: 10.172413793103pt;'>レスポンシブデザイン</a>
+<a href='http://littlebird.mobi/tag/%e3%83%af%e3%83%b3%e3%83%9e%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%96/' class='tag-link-6 tag-link-position-38' title='22件のトピック' style='font-size: 20.793103448276pt;'>ワンマンライブ</a>
+<a href='http://littlebird.mobi/tag/%e5%85%ac%e5%bc%8f%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa/' class='tag-link-60 tag-link-position-39' title='9件のトピック' style='font-size: 16.448275862069pt;'>公式ディレクトリ</a>
+<a href='http://littlebird.mobi/tag/%e5%86%99%e7%9c%9f%e9%9b%86/' class='tag-link-49 tag-link-position-40' title='3件のトピック' style='font-size: 11.620689655172pt;'>写真集</a>
+<a href='http://littlebird.mobi/tag/%e5%88%9d%e9%9f%b3/' class='tag-link-4 tag-link-position-41' title='28件のトピック' style='font-size: 22pt;'>初音</a>
+<a href='http://littlebird.mobi/tag/%e5%88%9d%e9%9f%b3%e8%8c%b6%e5%b1%8b/' class='tag-link-8 tag-link-position-42' title='8件のトピック' style='font-size: 15.844827586207pt;'>初音茶屋</a>
+<a href='http://littlebird.mobi/tag/%e5%8b%89%e5%bc%b7%e4%bc%9a/' class='tag-link-32 tag-link-position-43' title='12件のトピック' style='font-size: 17.775862068966pt;'>勉強会</a>
+<a href='http://littlebird.mobi/tag/%e6%96%89%e8%97%a4%e9%ba%bb%e9%87%8c/' class='tag-link-15 tag-link-position-44' title='2件のトピック' style='font-size: 10.172413793103pt;'>斉藤麻里</a>
+<a href='http://littlebird.mobi/tag/%e8%be%bb%e8%a9%a9%e9%9f%b3/' class='tag-link-14 tag-link-position-45' title='2件のトピック' style='font-size: 10.172413793103pt;'>辻詩音</a></div>
+</section></aside><!-- #secondary -->
+
+	</div><!-- #content -->
+
+	</div><!-- .container -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="container">
+		<div class="site-info">
+			<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+			<span class="sep d-none d-md-inline"> | </span><br class="d-md-none">
+			Theme: <a href="http://littlebirdjp.github.io/tsumugi/">tsumugi</a> by <a href="http://littlebird.mobi/" rel="designer">youthkee</a>.		</div><!-- .site-info -->
+	</div><!-- .container -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div class="FloatingTopLink" id="js-FloatingTopLink"><a href="#page"><i class="FloatingTopLink__icon FloatingTopLink__icon-01"></i></a></div><script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js?ver=20090602'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js?ver=20091003'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js?ver=20090613'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js?ver=20091209'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js?ver=20091207'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js?ver=20100919'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://littlebird.mobi/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeMidnight.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = 'ソースを表示';
+	SyntaxHighlighter.config.strings.help = 'SyntaxHighlighterについて';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = '指定のブラシが見つかりませんでした: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'HTMLスクリプトのオプションのためにブラシが構成されませんでした: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/floating-top-link/js/floating-top-link.js?ver=1.0.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/front.js?ver=1404'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/bower_components/popper.js/dist/umd/popper.min.js?ver=1.12.3'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/bower_components/bootstrap/dist/js/bootstrap.min.js?ver=4.0.0-beta'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/js/navigation.js?ver=20151215'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/js/skip-link-focus-fix.js?ver=20151215'></script>
+
+</body>
+</html>
