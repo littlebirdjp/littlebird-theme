@@ -6,18 +6,20 @@
 
 <title>セミナーレポート：CSS Nite LP39「 Coder’s High 2015：コーディングスタイルの理想と現実」 &#8211; littlebird</title>
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<link rel='stylesheet' id='floating-top-link.css-css'  href='http://littlebird.mobi/wp-content/plugins/floating-top-link/css/floating-top-link.css?ver=1.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='toc-screen-css'  href='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/screen.css?ver=1404' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/bower_components/bootstrap/dist/css/bootstrap.min.css?ver=4.0.0-beta' type='text/css' media='all' />
-<link rel='stylesheet' id='underscores-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi-littlebird/style.css?ver=2.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='tsumugi-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/bootstrap/tsumugi.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='http://littlebird.mobi/wp-includes/css/dist/block-library/style.min.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href='http://littlebird.mobi/wp-includes/css/dist/block-library/theme.min.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='floating-top-link.css-css'  href='http://littlebird.mobi/wp-content/plugins/floating-top-link/css/floating-top-link.css?ver=1.0.5' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/screen.min.css?ver=1509' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/bootstrap/bootstrap.min.css?ver=4.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tsumugi-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/bootstrap/tsumugi.css?ver=2.2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='underscores-style-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi-littlebird/style.css?ver=2.2.1' type='text/css' media='all' />
 <link rel='stylesheet' id='tsumugi-fonts-css'  href='https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope%7CSource+Sans+Pro%3A300&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
 <link rel='stylesheet' id='font-awesome-css'  href='http://littlebird.mobi/wp-content/themes/tsumugi/font-awesome/css/font-awesome.min.css?ver=4.6.3' type='text/css' media='all' />
-<script type='text/javascript' src='http://littlebird.mobi/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
 <script type='text/javascript' src='http://littlebird.mobi/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
 <link rel='prev' title='Vagrant + WordPress + Amazon S3でブログをセキュア＆快適に運用する方法' href='http://littlebird.mobi/2015/01/littlebirdblog/' />
 <link rel='next' title='「WordPressもくもく勉強会 at コエド」でショートセッションさせていただきました。' href='http://littlebird.mobi/2015/02/wpmoku4/' />
-<meta name="generator" content="WordPress 4.7.1 - really-static 0.5" />
+<meta name="generator" content="WordPress 5.2.2 - really-static 0.5" />
 <link rel="canonical" href="http://littlebird.mobi/2015/02/cssnite_lp39/" />
 <link rel="alternate" type="application/json+oembed" href="http://littlebird.mobi/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flittlebird.mobi%2F2015%2F02%2Fcssnite_lp39%2F" />
 <link rel="alternate" type="text/xml+oembed" href="http://littlebird.mobi/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flittlebird.mobi%2F2015%2F02%2Fcssnite_lp39%2F&#038;format=xml" />
@@ -56,7 +58,7 @@
 
 </head>
 
-<body class="post-template-default single single-post postid-136 single-format-standard wp-custom-logo">
+<body class="post-template-default single single-post postid-136 single-format-standard wp-custom-logo wp-embed-responsive">
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -66,7 +68,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+	<a class="skip-link screen-reader-text" href="#content">コンテンツへスキップ</a>
 
 	<header id="masthead" class="site-header" role="banner">
 
@@ -85,7 +87,7 @@
 	<div class="container">
 
 		<div class="site-branding">
-							<p class="site-title"><a href="http://littlebird.mobi/" class="custom-logo-link" rel="home" itemprop="url"><img width="480" height="480" src="http://littlebird.mobi/wp-content/uploads/2017/01/tsumugi-logo.png" class="custom-logo" alt="" itemprop="logo" /></a><a href="http://littlebird.mobi/" rel="home"><br class="d-md-none">littlebird</a></p>
+							<p class="site-title"><a href="http://littlebird.mobi/" class="custom-logo-link" rel="home"><img width="480" height="480" src="http://littlebird.mobi/wp-content/uploads/2017/01/tsumugi-logo.png" class="custom-logo" alt="littlebird" /></a><a href="http://littlebird.mobi/" rel="home"><br class="d-md-none">littlebird</a></p>
 							<p class="site-description">小さな一歩から、世界を変える何かを。</p>
 			
 			
@@ -106,7 +108,7 @@
 <article id="post-136" class="post-136 post type-post status-publish format-standard has-post-thumbnail hentry category-study tag-css tag-36 tag-38 tag-32">
 	<header class="entry-header">
 		<h1 class="entry-title">セミナーレポート：CSS Nite LP39「 Coder’s High 2015：コーディングスタイルの理想と現実」</h1>		<div class="entry-meta">
-			<span class="posted-on"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="http://littlebird.mobi/2015/02/cssnite_lp39/" rel="bookmark"><time class="entry-date published" datetime="2015-02-15T00:31:30+00:00">2015/02/15</time><time class="updated" datetime="2017-01-02T22:38:17+00:00">2017/01/02</time></a></span><span class="byline"> <i class="fa fa-user" aria-hidden="true"></i> <span class="author vcard"><a class="url fn n" href="http://littlebird.mobi/author/youthkee/">youthkee</a></span></span>		</div><!-- .entry-meta -->
+			<span class="posted-on"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="http://littlebird.mobi/2015/02/cssnite_lp39/" rel="bookmark"><time class="entry-date published" datetime="2015-02-15T00:31:30+09:00">2015/02/15</time><time class="updated" datetime="2017-01-02T22:38:17+09:00">2017/01/02</time></a></span><span class="byline"> <i class="fa fa-user" aria-hidden="true"></i> <span class="author vcard"><a class="url fn n" href="http://littlebird.mobi/author/youthkee/">youthkee</a></span></span>		</div><!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	<div class="entry-share entry-share-top">
@@ -128,27 +130,27 @@
 <p>まず始めに谷拓樹さんによる基調講演。谷さんの著書<a href="http://www.amazon.co.jp/o/ASIN/4844336355/littlebird03-22">「CSS設計の教科書」</a>を読んで、自分なりのOOCSSを模索するヒントをもらっていただけに、かなり楽しみなセッションだったのですが、ビジュアルやアイコンを中心に見せていくスライドの作りが印象的で、さっそく惹き込まれてしまいました。また、アニメGIF（？）を多用した間の取り方も絶妙で、会場の笑いを誘う演出もさすがだったと思います。</p>
 <p>セッションの内容はOOCSSやBEMの概要から、「こういう使い方はやめた方がいい」というOOCSSとBEMのアンチパターン集の紹介、Sassのプレースホルダーセレクタを使った便利な管理方法まで、実際のソース例を交えて分かりやすく解説されていました。また、<a href="http://www.amazon.co.jp/o/ASIN/4844336355/littlebird03-22">「CSS設計の教科書」</a>には掲載されていなかった、ITCSSという新たな設計手法も紹介されていて、大変参考になりました。</p>
 <p>個人的には、もうclassセレクタだけでいいんじゃないかと思っているんですが、一方でidセレクタを使うべきだという人もいるので、谷さんのような方が今回「idセレクタを使う意味はそれほどない」という、論理的な説明材料を提示してくださっていたのは、非常に心強かったです。</p>
-<figure id="attachment_144" style="width: 940px" class="wp-caption aligncenter"><a href="http://itcss.io/"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_02.jpg" alt="ITCSS" width="940" height="515" class="size-full wp-image-144" /></a><figcaption class="wp-caption-text">逆ピラミッド型の概念でCSS設計を行う「ITCSS」</figcaption></figure>
+<figure id="attachment_144" aria-describedby="caption-attachment-144" style="width: 940px" class="wp-caption aligncenter"><a href="http://itcss.io/"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_02.jpg" alt="ITCSS" width="940" height="515" class="size-full wp-image-144" /></a><figcaption id="caption-attachment-144" class="wp-caption-text">逆ピラミッド型の概念でCSS設計を行う「ITCSS」</figcaption></figure>
 <h2><span id="CSS-2">理想のCSSフレームワークを探して</span></h2>
 <p>アップルップルの森田霞さんによるCSSフレームワークに関するセッション。このセッションのタイトルですが、確か開催前にCSS Niteのサイトをチェックした時は、「あなたの理想のフレームワークなんてきっとない」みたいなタイトルだった気がするのですが、途中で変更になったのでしょうか・・？</p>
 <p>フレームワークが大好きだと言う森田さんの発言と、「理想のフレームワークなんてない」という一見否定的とも捉えられるタイトル案との矛盾は、セッションを聞いているうちに自然と解消されました。つまりこのセッションは、フレームワークが大好きで色んなフレームワークを探し回っているうちに、ついには自分でフレームワークを作ってしまったというお話だったのです。</p>
 <p>そう思って実行できるところがすごいと思うのですが、それだけ色々なフレームワークの長所・短所を知り尽くした上でのことなのでしょう。私はまだフレームワークはかじり始めたばかりという段階なので、せめてもう少し使いこなせるぐらいまでは、じっくりソースを読み込んでみようと思いました。</p>
 <p>案件の種類に応じた、おすすめのフレームワーク活用法など、実践的な話題も盛り込まれていて興味深かったのですが、個人的にはpullとpushでコンテンツの並び順を指定する機能や、複数のフレームワークを並用して組み合わせる手法などは、かなり使えそうな気がしたので参考になりました。</p>
-<figure id="attachment_145" style="width: 940px" class="wp-caption aligncenter"><a href="http://developer.a-blogcms.jp/reference/latest/styleguide.html"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_03.jpg" alt="a-blog cms スタイルガイド" width="940" height="662" class="size-full wp-image-145" /></a><figcaption class="wp-caption-text">森田さんが制作したa-blog cmsのフレームワーク</figcaption></figure>
+<figure id="attachment_145" aria-describedby="caption-attachment-145" style="width: 940px" class="wp-caption aligncenter"><a href="http://developer.a-blogcms.jp/reference/latest/styleguide.html"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_03.jpg" alt="a-blog cms スタイルガイド" width="940" height="662" class="size-full wp-image-145" /></a><figcaption id="caption-attachment-145" class="wp-caption-text">森田さんが制作したa-blog cmsのフレームワーク</figcaption></figure>
 <h2><span id="5">5分でゼロからテストサイトまで立ち上げます！</span></h2>
 <p>こちらは、密かに一番楽しみにしていた、こもりまさあきさんのセッション。今回はLT枠ということで、5分間のデモだけというお話でしたが、その5分間でいかに素早くデモをできるか、日々鍛錬されているらしいことも知っていたので、否が応でも期待が高まりました。</p>
 <p>結果的に10分枠に拡大となりましたが、今回のデモは、こもりさんお勧めの今どきのツールや制作環境を使いながら、10分間でツールや環境の導入から、サイトの構築、そして公開までを全てやり切るという意欲的な内容です。相変わらず流れるような華麗なデモで、半分以上は何をやっているのか分かりませんでしたが、トークでの解説を交えて実演していただいたので、それぞれのツールの特徴や使いどころなどを知ることができました。</p>
 <p>こもりさんの新著<a href="https://gumroad.com/l/GFXe/cnlp39">「Development Environments for Web Designers」</a>を読んで勉強している最中だったので、さすがにターミナル操作への拒否反応なく話を聞くことができましたが、JadeでMarkdownが使えることや、MarkdownにHTMLを直書きできてしまうことなどは、知らなかったのでとても便利そうな気がしました。</p>
 <p>こういう話を聞くと、テンプレートエンジンやMarkdownも、単に流行りやトレンドというだけでなく、新しい技術どうしが相互に結びついていることがよく分かりますね・・。今回のデモに登場した<a href="http://harpjs.com/">Harp</a>やJadeなども、ぜひ今度実践で活用してみたいと思います。</p>
 <p>デモでは出来上がったサイトを瞬時にホスティングして、来場者の皆さんにURLを共有していましたが、ちょっとした静的サイトを公開するには、<a href="https://divshot.com/">Divshot</a>や<a href="https://www.heroku.com/">Heroku</a>のようなサービスを使うといいらしいです。</p>
-<figure id="attachment_143" style="width: 940px" class="wp-caption aligncenter"><a href="https://gumroad.com/l/GFXe/cnlp39"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_04.jpg" alt="こもりまさあきさんの環境構築本" width="940" height="627" class="size-full wp-image-143" /></a><figcaption class="wp-caption-text">こもりまさあきさんの環境構築本</figcaption></figure>
+<figure id="attachment_143" aria-describedby="caption-attachment-143" style="width: 940px" class="wp-caption aligncenter"><a href="https://gumroad.com/l/GFXe/cnlp39"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_04.jpg" alt="こもりまさあきさんの環境構築本" width="940" height="627" class="size-full wp-image-143" /></a><figcaption id="caption-attachment-143" class="wp-caption-text">こもりまさあきさんの環境構築本</figcaption></figure>
 <h2><span id="i">ビルドツールはじめの一歩（タスクランナー編）</span></h2>
 <p>続いて、ピクセルグリッドの講師陣によるGruntやgulpなどタスクランナーに関するセッション。なんと、MacとWindowsといったOS別に、Node.jsとnpmのインストール方法からしっかり解説してくれて、サンプルファイルもそのままダウンロードして使えるという至れり尽くせりぶり・・。</p>
 <p>私自身、Gruntやgulpはかじったことはあるものの、改めてインストール方法と言われると、記憶が怪しいところもあったりしたので、とても良い復習になりました。セッションの始めに来場者に質問したところ、タスクランナーを使ったことがある人は半数以下という結果だったので、この辺はCSS Niteの事前アンケートを踏まえたセッション内容だったのかもしれません。</p>
 <p>後半は、実際の大規模案件での事例を元に、タスクランナーの使いどころを紹介。CSSやJSの結合・圧縮ぐらいなら自分も思いつくのですが、文字コードの変換や、ローカルサーバの起動といった処理も、タスクランナーで自動化できるとは知らなかったので勉強になりました。納品ファイルをZIPにまとめるタスクなども、自動化すると地味に便利そうですよね。</p>
 <p>タスクランナーと直接関係ない話としては、Gitやスタイルガイドの導入による、チーム間でのリソースの共有などが、やはり大事だなと再認識させられました。また、ピクセルグリッドさんでは、クライアントにもGitを使ってもらって、納品作業が発生しないフローを確立したり、クライアントにgulpを使ってもらっている事例もあるのだとか・・。</p>
 <p>これはかなり先進的な事例だと思うのですが、会場からも大きな反響とどよめきの声が上がっていました。いきなりそこまで実現するには、色々と障壁もありそうですが、タスクの効率化はコーディング作業単体で考えるのではなく、周囲やチームを巻き込んで、作り上げていくものなのだな、と良い教訓になりました。</p>
-<figure id="attachment_146" style="width: 940px" class="wp-caption aligncenter"><a href="https://github.com/cancer/get-started-gulp"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_051.jpg" alt="gulpのタスク自動化サンプル" width="940" height="654" class="size-full wp-image-146" /></a><figcaption class="wp-caption-text">gulpのタスク自動化サンプル</figcaption></figure>
+<figure id="attachment_146" aria-describedby="caption-attachment-146" style="width: 940px" class="wp-caption aligncenter"><a href="https://github.com/cancer/get-started-gulp"><img src="http://littlebird.mobi/wp-content/uploads/2015/02/cssnite_lp39_051.jpg" alt="gulpのタスク自動化サンプル" width="940" height="654" class="size-full wp-image-146" /></a><figcaption id="caption-attachment-146" class="wp-caption-text">gulpのタスク自動化サンプル</figcaption></figure>
 <h2><span id="musicjp_before_after">music.jpのリファクタリング before / after</span></h2>
 <p>まぼろしの小林さんと、株式会社エムティーアイの宮地さんによるリファクタリングのセッション。受託案件の事例紹介では、なかなか公にできない部分も多いものですが、このセッションではかなりリアルな自社サービスの話が聞けたので、会場のリアクションも一際大きかったように思います。</p>
 <p>実際にやったこととしては、カオス状態となり、デグレが頻発していたHTML/CSSを、150枚くだいのHTMLテンプレートとしてリファクタリングし、スタイルガイドやGitの導入なども実施したのだとか・・。実際の運用ルールの策定や保守といったところに関しては、色々と大変なシーンもあったそうですが、結果として外注管理や品質チェックに関わる稼働時間が7割以上にも激減したという話ですから、驚きですよね。</p>
@@ -197,24 +199,24 @@
 </div>
 </div></div>
 		</section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
-					<li>
-				<a href="http://littlebird.mobi/2019/05/tsumugi2_2/">tsumugi v2.2.1をリリースしました。</a>
-						</li>
-					<li>
-				<a href="http://littlebird.mobi/2019/01/naruworks/">naru オフィシャルサイトを制作させていただきました。</a>
-						</li>
-					<li>
-				<a href="http://littlebird.mobi/2018/12/twentynineteen/">Twenty Nineteenのコントリビューターになりました。</a>
-						</li>
-					<li>
-				<a href="http://littlebird.mobi/2018/10/suikami/">「水彩とカミナリ」初音・4thアルバム-鋭い感性が生み出す多彩なストーリー集</a>
-						</li>
-					<li>
-				<a href="http://littlebird.mobi/2018/08/endroll/">ライブレポート：初音アニバーサリーワンマン「エンドロール」</a>
-						</li>
-				</ul>
-		</section>		<section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
-			<li><a href='http://littlebird.mobi/2019/05/'>2019年5月</a></li>
+											<li>
+					<a href="http://littlebird.mobi/2019/05/tsumugi2_2/">tsumugi v2.2.1をリリースしました。</a>
+									</li>
+											<li>
+					<a href="http://littlebird.mobi/2019/01/naruworks/">naru オフィシャルサイトを制作させていただきました。</a>
+									</li>
+											<li>
+					<a href="http://littlebird.mobi/2018/12/twentynineteen/">Twenty Nineteenのコントリビューターになりました。</a>
+									</li>
+											<li>
+					<a href="http://littlebird.mobi/2018/10/suikami/">「水彩とカミナリ」初音・4thアルバム-鋭い感性が生み出す多彩なストーリー集</a>
+									</li>
+											<li>
+					<a href="http://littlebird.mobi/2018/08/endroll/">ライブレポート：初音アニバーサリーワンマン「エンドロール」</a>
+									</li>
+					</ul>
+		</section><section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+				<li><a href='http://littlebird.mobi/2019/05/'>2019年5月</a></li>
 	<li><a href='http://littlebird.mobi/2019/01/'>2019年1月</a></li>
 	<li><a href='http://littlebird.mobi/2018/12/'>2018年12月</a></li>
 	<li><a href='http://littlebird.mobi/2018/10/'>2018年10月</a></li>
@@ -256,61 +258,61 @@
 	<li><a href='http://littlebird.mobi/2015/01/'>2015年1月</a></li>
 	<li><a href='http://littlebird.mobi/2014/12/'>2014年12月</a></li>
 		</ul>
-		</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
-	<li class="cat-item cat-item-18"><a href="http://littlebird.mobi/category/book/" >Book</a>
+			</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+				<li class="cat-item cat-item-18"><a href="http://littlebird.mobi/category/book/">Book</a>
 </li>
-	<li class="cat-item cat-item-62"><a href="http://littlebird.mobi/category/life/" >Life</a>
+	<li class="cat-item cat-item-62"><a href="http://littlebird.mobi/category/life/">Life</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="http://littlebird.mobi/category/music/" >Music</a>
+	<li class="cat-item cat-item-3"><a href="http://littlebird.mobi/category/music/">Music</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="http://littlebird.mobi/category/study/" >Study</a>
+	<li class="cat-item cat-item-17"><a href="http://littlebird.mobi/category/study/">Study</a>
 </li>
 		</ul>
-</section><section id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><a href='http://littlebird.mobi/tag/3d%e3%83%97%e3%83%aa%e3%83%b3%e3%82%bf%e3%83%bc/' class='tag-link-44 tag-link-position-1' title='1件のトピック' style='font-size: 8pt;'>3Dプリンター</a>
-<a href='http://littlebird.mobi/tag/aws/' class='tag-link-34 tag-link-position-2' title='2件のトピック' style='font-size: 10.117647058824pt;'>AWS</a>
-<a href='http://littlebird.mobi/tag/bootstrap/' class='tag-link-22 tag-link-position-3' title='9件のトピック' style='font-size: 16.235294117647pt;'>Bootstrap</a>
-<a href='http://littlebird.mobi/tag/cd/' class='tag-link-9 tag-link-position-4' title='4件のトピック' style='font-size: 12.705882352941pt;'>CD</a>
-<a href='http://littlebird.mobi/tag/css/' class='tag-link-37 tag-link-position-5' title='2件のトピック' style='font-size: 10.117647058824pt;'>CSS</a>
-<a href='http://littlebird.mobi/tag/foundation/' class='tag-link-30 tag-link-position-6' title='2件のトピック' style='font-size: 10.117647058824pt;'>Foundation</a>
-<a href='http://littlebird.mobi/tag/git/' class='tag-link-40 tag-link-position-7' title='3件のトピック' style='font-size: 11.529411764706pt;'>Git</a>
-<a href='http://littlebird.mobi/tag/instagram/' class='tag-link-48 tag-link-position-8' title='2件のトピック' style='font-size: 10.117647058824pt;'>Instagram</a>
-<a href='http://littlebird.mobi/tag/javascript/' class='tag-link-57 tag-link-position-9' title='7件のトピック' style='font-size: 15.058823529412pt;'>JavaScript</a>
-<a href='http://littlebird.mobi/tag/popn/' class='tag-link-12 tag-link-position-10' title='8件のトピック' style='font-size: 15.647058823529pt;'>POPN</a>
-<a href='http://littlebird.mobi/tag/twitter/' class='tag-link-67 tag-link-position-11' title='2件のトピック' style='font-size: 10.117647058824pt;'>Twitter</a>
-<a href='http://littlebird.mobi/tag/vagrant/' class='tag-link-35 tag-link-position-12' title='2件のトピック' style='font-size: 10.117647058824pt;'>Vagrant</a>
-<a href='http://littlebird.mobi/tag/vccw/' class='tag-link-33 tag-link-position-13' title='4件のトピック' style='font-size: 12.705882352941pt;'>VCCW</a>
-<a href='http://littlebird.mobi/tag/web%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/' class='tag-link-24 tag-link-position-14' title='5件のトピック' style='font-size: 13.647058823529pt;'>Webサービス</a>
-<a href='http://littlebird.mobi/tag/web%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3/' class='tag-link-23 tag-link-position-15' title='14件のトピック' style='font-size: 18.352941176471pt;'>Webデザイン</a>
-<a href='http://littlebird.mobi/tag/wordcamp/' class='tag-link-52 tag-link-position-16' title='5件のトピック' style='font-size: 13.647058823529pt;'>WordCamp</a>
-<a href='http://littlebird.mobi/tag/wordpress/' class='tag-link-21 tag-link-position-17' title='24件のトピック' style='font-size: 20.941176470588pt;'>WordPress</a>
-<a href='http://littlebird.mobi/tag/%e3%81%93%e3%81%a9%e3%82%82/' class='tag-link-27 tag-link-position-18' title='4件のトピック' style='font-size: 12.705882352941pt;'>こども</a>
-<a href='http://littlebird.mobi/tag/%e3%82%8f%e3%81%b7%e3%83%bc/' class='tag-link-42 tag-link-position-19' title='3件のトピック' style='font-size: 11.529411764706pt;'>わぷー</a>
-<a href='http://littlebird.mobi/tag/%e3%82%a2%e3%83%97%e3%83%aa/' class='tag-link-43 tag-link-position-20' title='4件のトピック' style='font-size: 12.705882352941pt;'>アプリ</a>
-<a href='http://littlebird.mobi/tag/%e3%82%a2%e3%83%ab%e3%83%90%e3%83%a0/' class='tag-link-10 tag-link-position-21' title='3件のトピック' style='font-size: 11.529411764706pt;'>アルバム</a>
-<a href='http://littlebird.mobi/tag/%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%97%e3%83%aa%e3%83%b3%e3%83%88/' class='tag-link-50 tag-link-position-22' title='2件のトピック' style='font-size: 10.117647058824pt;'>オンラインプリント</a>
-<a href='http://littlebird.mobi/tag/%e3%82%b2%e3%83%bc%e3%83%a0/' class='tag-link-25 tag-link-position-23' title='3件のトピック' style='font-size: 11.529411764706pt;'>ゲーム</a>
-<a href='http://littlebird.mobi/tag/%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0/' class='tag-link-36 tag-link-position-24' title='4件のトピック' style='font-size: 12.705882352941pt;'>コーディング</a>
-<a href='http://littlebird.mobi/tag/%e3%83%86%e3%83%bc%e3%83%9e%e5%88%b6%e4%bd%9c/' class='tag-link-31 tag-link-position-25' title='19件のトピック' style='font-size: 19.764705882353pt;'>テーマ制作</a>
-<a href='http://littlebird.mobi/tag/%e3%83%89%e3%83%83%e3%83%88%e7%b5%b5/' class='tag-link-45 tag-link-position-26' title='2件のトピック' style='font-size: 10.117647058824pt;'>ドット絵</a>
-<a href='http://littlebird.mobi/tag/%e3%83%92%e3%83%88%e3%83%aa%e3%83%a9%e3%83%84%e3%82%a2%e3%83%bc/' class='tag-link-13 tag-link-position-27' title='3件のトピック' style='font-size: 11.529411764706pt;'>ヒトリラツアー</a>
-<a href='http://littlebird.mobi/tag/%e3%83%95%e3%82%a7%e3%82%b9/' class='tag-link-7 tag-link-position-28' title='4件のトピック' style='font-size: 12.705882352941pt;'>フェス</a>
-<a href='http://littlebird.mobi/tag/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89/' class='tag-link-38 tag-link-position-29' title='3件のトピック' style='font-size: 11.529411764706pt;'>フロントエンド</a>
-<a href='http://littlebird.mobi/tag/%e3%83%96%e3%83%83%e3%82%af%e3%83%ac%e3%83%93%e3%83%a5%e3%83%bc/' class='tag-link-29 tag-link-position-30' title='9件のトピック' style='font-size: 16.235294117647pt;'>ブックレビュー</a>
-<a href='http://littlebird.mobi/tag/%e3%83%97%e3%83%a9%e3%82%b0%e3%82%a4%e3%83%b3/' class='tag-link-59 tag-link-position-31' title='2件のトピック' style='font-size: 10.117647058824pt;'>プラグイン</a>
-<a href='http://littlebird.mobi/tag/%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/' class='tag-link-39 tag-link-position-32' title='8件のトピック' style='font-size: 15.647058823529pt;'>プログラミング</a>
-<a href='http://littlebird.mobi/tag/%e3%83%97%e3%83%ad%e3%83%88%e3%82%bf%e3%82%a4%e3%83%97/' class='tag-link-41 tag-link-position-33' title='1件のトピック' style='font-size: 8pt;'>プロトタイプ</a>
-<a href='http://littlebird.mobi/tag/%e3%83%9e%e3%82%a4%e3%83%b3%e3%82%af%e3%83%a9%e3%83%95%e3%83%88/' class='tag-link-26 tag-link-position-34' title='2件のトピック' style='font-size: 10.117647058824pt;'>マインクラフト</a>
-<a href='http://littlebird.mobi/tag/%e3%83%a9%e3%82%a4%e3%83%96/' class='tag-link-5 tag-link-position-35' title='27件のトピック' style='font-size: 21.529411764706pt;'>ライブ</a>
-<a href='http://littlebird.mobi/tag/%e3%83%aa%e3%83%96%e3%83%a9%e3%82%b9/' class='tag-link-11 tag-link-position-36' title='1件のトピック' style='font-size: 8pt;'>リブラス</a>
-<a href='http://littlebird.mobi/tag/%e3%83%ac%e3%82%b9%e3%83%9d%e3%83%b3%e3%82%b7%e3%83%96%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3/' class='tag-link-28 tag-link-position-37' title='2件のトピック' style='font-size: 10.117647058824pt;'>レスポンシブデザイン</a>
-<a href='http://littlebird.mobi/tag/%e3%83%af%e3%83%b3%e3%83%9e%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%96/' class='tag-link-6 tag-link-position-38' title='23件のトピック' style='font-size: 20.705882352941pt;'>ワンマンライブ</a>
-<a href='http://littlebird.mobi/tag/%e5%85%ac%e5%bc%8f%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa/' class='tag-link-60 tag-link-position-39' title='12件のトピック' style='font-size: 17.529411764706pt;'>公式ディレクトリ</a>
-<a href='http://littlebird.mobi/tag/%e5%86%99%e7%9c%9f%e9%9b%86/' class='tag-link-49 tag-link-position-40' title='3件のトピック' style='font-size: 11.529411764706pt;'>写真集</a>
-<a href='http://littlebird.mobi/tag/%e5%88%9d%e9%9f%b3/' class='tag-link-4 tag-link-position-41' title='30件のトピック' style='font-size: 22pt;'>初音</a>
-<a href='http://littlebird.mobi/tag/%e5%88%9d%e9%9f%b3%e8%8c%b6%e5%b1%8b/' class='tag-link-8 tag-link-position-42' title='8件のトピック' style='font-size: 15.647058823529pt;'>初音茶屋</a>
-<a href='http://littlebird.mobi/tag/%e5%8b%89%e5%bc%b7%e4%bc%9a/' class='tag-link-32 tag-link-position-43' title='12件のトピック' style='font-size: 17.529411764706pt;'>勉強会</a>
-<a href='http://littlebird.mobi/tag/%e6%96%89%e8%97%a4%e9%ba%bb%e9%87%8c/' class='tag-link-15 tag-link-position-44' title='2件のトピック' style='font-size: 10.117647058824pt;'>斉藤麻里</a>
-<a href='http://littlebird.mobi/tag/%e8%be%bb%e8%a9%a9%e9%9f%b3/' class='tag-link-14 tag-link-position-45' title='2件のトピック' style='font-size: 10.117647058824pt;'>辻詩音</a></div>
+			</section><section id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><a href="http://littlebird.mobi/tag/3d%e3%83%97%e3%83%aa%e3%83%b3%e3%82%bf%e3%83%bc/" class="tag-cloud-link tag-link-44 tag-link-position-1" style="font-size: 8pt;" aria-label="3Dプリンター (1個の項目)">3Dプリンター</a>
+<a href="http://littlebird.mobi/tag/aws/" class="tag-cloud-link tag-link-34 tag-link-position-2" style="font-size: 10.117647058824pt;" aria-label="AWS (2個の項目)">AWS</a>
+<a href="http://littlebird.mobi/tag/bootstrap/" class="tag-cloud-link tag-link-22 tag-link-position-3" style="font-size: 16.235294117647pt;" aria-label="Bootstrap (9個の項目)">Bootstrap</a>
+<a href="http://littlebird.mobi/tag/cd/" class="tag-cloud-link tag-link-9 tag-link-position-4" style="font-size: 12.705882352941pt;" aria-label="CD (4個の項目)">CD</a>
+<a href="http://littlebird.mobi/tag/css/" class="tag-cloud-link tag-link-37 tag-link-position-5" style="font-size: 10.117647058824pt;" aria-label="CSS (2個の項目)">CSS</a>
+<a href="http://littlebird.mobi/tag/foundation/" class="tag-cloud-link tag-link-30 tag-link-position-6" style="font-size: 10.117647058824pt;" aria-label="Foundation (2個の項目)">Foundation</a>
+<a href="http://littlebird.mobi/tag/git/" class="tag-cloud-link tag-link-40 tag-link-position-7" style="font-size: 11.529411764706pt;" aria-label="Git (3個の項目)">Git</a>
+<a href="http://littlebird.mobi/tag/instagram/" class="tag-cloud-link tag-link-48 tag-link-position-8" style="font-size: 10.117647058824pt;" aria-label="Instagram (2個の項目)">Instagram</a>
+<a href="http://littlebird.mobi/tag/javascript/" class="tag-cloud-link tag-link-57 tag-link-position-9" style="font-size: 15.058823529412pt;" aria-label="JavaScript (7個の項目)">JavaScript</a>
+<a href="http://littlebird.mobi/tag/popn/" class="tag-cloud-link tag-link-12 tag-link-position-10" style="font-size: 15.647058823529pt;" aria-label="POPN (8個の項目)">POPN</a>
+<a href="http://littlebird.mobi/tag/twitter/" class="tag-cloud-link tag-link-67 tag-link-position-11" style="font-size: 10.117647058824pt;" aria-label="Twitter (2個の項目)">Twitter</a>
+<a href="http://littlebird.mobi/tag/vagrant/" class="tag-cloud-link tag-link-35 tag-link-position-12" style="font-size: 10.117647058824pt;" aria-label="Vagrant (2個の項目)">Vagrant</a>
+<a href="http://littlebird.mobi/tag/vccw/" class="tag-cloud-link tag-link-33 tag-link-position-13" style="font-size: 12.705882352941pt;" aria-label="VCCW (4個の項目)">VCCW</a>
+<a href="http://littlebird.mobi/tag/web%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/" class="tag-cloud-link tag-link-24 tag-link-position-14" style="font-size: 13.647058823529pt;" aria-label="Webサービス (5個の項目)">Webサービス</a>
+<a href="http://littlebird.mobi/tag/web%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3/" class="tag-cloud-link tag-link-23 tag-link-position-15" style="font-size: 18.352941176471pt;" aria-label="Webデザイン (14個の項目)">Webデザイン</a>
+<a href="http://littlebird.mobi/tag/wordcamp/" class="tag-cloud-link tag-link-52 tag-link-position-16" style="font-size: 13.647058823529pt;" aria-label="WordCamp (5個の項目)">WordCamp</a>
+<a href="http://littlebird.mobi/tag/wordpress/" class="tag-cloud-link tag-link-21 tag-link-position-17" style="font-size: 20.941176470588pt;" aria-label="WordPress (24個の項目)">WordPress</a>
+<a href="http://littlebird.mobi/tag/%e3%81%93%e3%81%a9%e3%82%82/" class="tag-cloud-link tag-link-27 tag-link-position-18" style="font-size: 12.705882352941pt;" aria-label="こども (4個の項目)">こども</a>
+<a href="http://littlebird.mobi/tag/%e3%82%8f%e3%81%b7%e3%83%bc/" class="tag-cloud-link tag-link-42 tag-link-position-19" style="font-size: 11.529411764706pt;" aria-label="わぷー (3個の項目)">わぷー</a>
+<a href="http://littlebird.mobi/tag/%e3%82%a2%e3%83%97%e3%83%aa/" class="tag-cloud-link tag-link-43 tag-link-position-20" style="font-size: 12.705882352941pt;" aria-label="アプリ (4個の項目)">アプリ</a>
+<a href="http://littlebird.mobi/tag/%e3%82%a2%e3%83%ab%e3%83%90%e3%83%a0/" class="tag-cloud-link tag-link-10 tag-link-position-21" style="font-size: 11.529411764706pt;" aria-label="アルバム (3個の項目)">アルバム</a>
+<a href="http://littlebird.mobi/tag/%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%97%e3%83%aa%e3%83%b3%e3%83%88/" class="tag-cloud-link tag-link-50 tag-link-position-22" style="font-size: 10.117647058824pt;" aria-label="オンラインプリント (2個の項目)">オンラインプリント</a>
+<a href="http://littlebird.mobi/tag/%e3%82%b2%e3%83%bc%e3%83%a0/" class="tag-cloud-link tag-link-25 tag-link-position-23" style="font-size: 11.529411764706pt;" aria-label="ゲーム (3個の項目)">ゲーム</a>
+<a href="http://littlebird.mobi/tag/%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0/" class="tag-cloud-link tag-link-36 tag-link-position-24" style="font-size: 12.705882352941pt;" aria-label="コーディング (4個の項目)">コーディング</a>
+<a href="http://littlebird.mobi/tag/%e3%83%86%e3%83%bc%e3%83%9e%e5%88%b6%e4%bd%9c/" class="tag-cloud-link tag-link-31 tag-link-position-25" style="font-size: 19.764705882353pt;" aria-label="テーマ制作 (19個の項目)">テーマ制作</a>
+<a href="http://littlebird.mobi/tag/%e3%83%89%e3%83%83%e3%83%88%e7%b5%b5/" class="tag-cloud-link tag-link-45 tag-link-position-26" style="font-size: 10.117647058824pt;" aria-label="ドット絵 (2個の項目)">ドット絵</a>
+<a href="http://littlebird.mobi/tag/%e3%83%92%e3%83%88%e3%83%aa%e3%83%a9%e3%83%84%e3%82%a2%e3%83%bc/" class="tag-cloud-link tag-link-13 tag-link-position-27" style="font-size: 11.529411764706pt;" aria-label="ヒトリラツアー (3個の項目)">ヒトリラツアー</a>
+<a href="http://littlebird.mobi/tag/%e3%83%95%e3%82%a7%e3%82%b9/" class="tag-cloud-link tag-link-7 tag-link-position-28" style="font-size: 12.705882352941pt;" aria-label="フェス (4個の項目)">フェス</a>
+<a href="http://littlebird.mobi/tag/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89/" class="tag-cloud-link tag-link-38 tag-link-position-29" style="font-size: 11.529411764706pt;" aria-label="フロントエンド (3個の項目)">フロントエンド</a>
+<a href="http://littlebird.mobi/tag/%e3%83%96%e3%83%83%e3%82%af%e3%83%ac%e3%83%93%e3%83%a5%e3%83%bc/" class="tag-cloud-link tag-link-29 tag-link-position-30" style="font-size: 16.235294117647pt;" aria-label="ブックレビュー (9個の項目)">ブックレビュー</a>
+<a href="http://littlebird.mobi/tag/%e3%83%97%e3%83%a9%e3%82%b0%e3%82%a4%e3%83%b3/" class="tag-cloud-link tag-link-59 tag-link-position-31" style="font-size: 10.117647058824pt;" aria-label="プラグイン (2個の項目)">プラグイン</a>
+<a href="http://littlebird.mobi/tag/%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/" class="tag-cloud-link tag-link-39 tag-link-position-32" style="font-size: 15.647058823529pt;" aria-label="プログラミング (8個の項目)">プログラミング</a>
+<a href="http://littlebird.mobi/tag/%e3%83%97%e3%83%ad%e3%83%88%e3%82%bf%e3%82%a4%e3%83%97/" class="tag-cloud-link tag-link-41 tag-link-position-33" style="font-size: 8pt;" aria-label="プロトタイプ (1個の項目)">プロトタイプ</a>
+<a href="http://littlebird.mobi/tag/%e3%83%9e%e3%82%a4%e3%83%b3%e3%82%af%e3%83%a9%e3%83%95%e3%83%88/" class="tag-cloud-link tag-link-26 tag-link-position-34" style="font-size: 10.117647058824pt;" aria-label="マインクラフト (2個の項目)">マインクラフト</a>
+<a href="http://littlebird.mobi/tag/%e3%83%a9%e3%82%a4%e3%83%96/" class="tag-cloud-link tag-link-5 tag-link-position-35" style="font-size: 21.529411764706pt;" aria-label="ライブ (27個の項目)">ライブ</a>
+<a href="http://littlebird.mobi/tag/%e3%83%aa%e3%83%96%e3%83%a9%e3%82%b9/" class="tag-cloud-link tag-link-11 tag-link-position-36" style="font-size: 8pt;" aria-label="リブラス (1個の項目)">リブラス</a>
+<a href="http://littlebird.mobi/tag/%e3%83%ac%e3%82%b9%e3%83%9d%e3%83%b3%e3%82%b7%e3%83%96%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3/" class="tag-cloud-link tag-link-28 tag-link-position-37" style="font-size: 10.117647058824pt;" aria-label="レスポンシブデザイン (2個の項目)">レスポンシブデザイン</a>
+<a href="http://littlebird.mobi/tag/%e3%83%af%e3%83%b3%e3%83%9e%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%96/" class="tag-cloud-link tag-link-6 tag-link-position-38" style="font-size: 20.705882352941pt;" aria-label="ワンマンライブ (23個の項目)">ワンマンライブ</a>
+<a href="http://littlebird.mobi/tag/%e5%85%ac%e5%bc%8f%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa/" class="tag-cloud-link tag-link-60 tag-link-position-39" style="font-size: 17.529411764706pt;" aria-label="公式ディレクトリ (12個の項目)">公式ディレクトリ</a>
+<a href="http://littlebird.mobi/tag/%e5%86%99%e7%9c%9f%e9%9b%86/" class="tag-cloud-link tag-link-49 tag-link-position-40" style="font-size: 11.529411764706pt;" aria-label="写真集 (3個の項目)">写真集</a>
+<a href="http://littlebird.mobi/tag/%e5%88%9d%e9%9f%b3/" class="tag-cloud-link tag-link-4 tag-link-position-41" style="font-size: 22pt;" aria-label="初音 (30個の項目)">初音</a>
+<a href="http://littlebird.mobi/tag/%e5%88%9d%e9%9f%b3%e8%8c%b6%e5%b1%8b/" class="tag-cloud-link tag-link-8 tag-link-position-42" style="font-size: 15.647058823529pt;" aria-label="初音茶屋 (8個の項目)">初音茶屋</a>
+<a href="http://littlebird.mobi/tag/%e5%8b%89%e5%bc%b7%e4%bc%9a/" class="tag-cloud-link tag-link-32 tag-link-position-43" style="font-size: 17.529411764706pt;" aria-label="勉強会 (12個の項目)">勉強会</a>
+<a href="http://littlebird.mobi/tag/%e6%96%89%e8%97%a4%e9%ba%bb%e9%87%8c/" class="tag-cloud-link tag-link-15 tag-link-position-44" style="font-size: 10.117647058824pt;" aria-label="斉藤麻里 (2個の項目)">斉藤麻里</a>
+<a href="http://littlebird.mobi/tag/%e8%be%bb%e8%a9%a9%e9%9f%b3/" class="tag-cloud-link tag-link-14 tag-link-position-45" style="font-size: 10.117647058824pt;" aria-label="辻詩音 (2個の項目)">辻詩音</a></div>
 </section></aside><!-- #secondary -->
 
 	</div><!-- #content -->
@@ -320,7 +322,7 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="container">
 		<div class="site-info">
-			<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+			<a href="https://ja.wordpress.org/">Proudly powered by WordPress</a>
 			<span class="sep d-none d-md-inline"> | </span><br class="d-md-none">
 			Theme: <a href="http://littlebirdjp.github.io/tsumugi/">tsumugi</a> by <a href="http://littlebird.mobi/" rel="designer">youthkee</a>.		</div><!-- .site-info -->
 	</div><!-- .container -->
@@ -391,16 +393,25 @@
 	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
 	SyntaxHighlighter.defaults['toolbar'] = false;
 	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
 </script>
-<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/floating-top-link/js/floating-top-link.js?ver=1.0.0'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/floating-top-link/js/floating-top-link.js?ver=1.0.5'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
 var tocplus = {"smooth_scroll":"1"};
+var tocplus = {"smooth_scroll":"1"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/front.js?ver=1404'></script>
-<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/bower_components/popper.js/dist/umd/popper.min.js?ver=1.12.3'></script>
-<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/bower_components/bootstrap/dist/js/bootstrap.min.js?ver=4.0.0-beta'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/plugins/table-of-contents-plus/front.min.js?ver=1509'></script>
+<script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/js/bootstrap.bundle.min.js?ver=4.0.0'></script>
 <script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/js/navigation.js?ver=20151215'></script>
 <script type='text/javascript' src='http://littlebird.mobi/wp-content/themes/tsumugi/js/skip-link-focus-fix.js?ver=20151215'></script>
 
